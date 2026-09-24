@@ -20,18 +20,23 @@ interface VariantResult {
   contextCalls: unknown[];
 }
 
-async function runVariant(page: Page, variant: string, mode: GlMode, rendererSetting: 'auto' | 'webgl2'): Promise<VariantResult> {
+async function runVariant(page: Page, variant: string, mode: GlMode, rendererSetting: 'auto' | 'webgl2', quality: 'auto' | 'low' | 'high' = 'auto'): Promise<VariantResult> {
   const errs = collectErrors(page);
   await installObserver(page);
   await installGlProbe(page, mode);
-  if (rendererSetting !== 'auto') {
-    // Set the preference through the real settings UI (persisted to IndexedDB), then boot the demo.
+  if (rendererSetting !== 'auto' || quality !== 'auto') {
+    // Set preferences through the real UI (persisted to IndexedDB), then boot the demo.
     await page.goto('/');
     await waitReady(page);
-    await page.locator('[data-fl-modal="start"] [data-fk="settings"]').click();
-    await page.locator('[data-fk="Renderer (applies on reload)"]').selectOption(rendererSetting);
-    await page.waitForFunction(async () => true);
-    await expect.poll(async () => ((await idbGet(page, 'settings')) as { renderer?: string } | undefined)?.renderer).toBe(rendererSetting);
+    if (quality !== 'auto') {
+      await page.locator('[data-fl-modal="start"] [data-fk="quality"]').selectOption(quality);
+      await expect.poll(async () => ((await idbGet(page, 'settings')) as { quality?: string } | undefined)?.quality).toBe(quality);
+    }
+    if (rendererSetting !== 'auto') {
+      await page.locator('[data-fl-modal="start"] [data-fk="settings"]').click();
+      await page.locator('[data-fk="Renderer (applies on reload)"]').selectOption(rendererSetting);
+      await expect.poll(async () => ((await idbGet(page, 'settings')) as { renderer?: string } | undefined)?.renderer).toBe(rendererSetting);
+    }
   }
   await page.goto(`/?demo=${ROUTE}&speed=8`);
   await waitReady(page);
@@ -80,6 +85,16 @@ test('R03 variant C: classic WebGLRenderer (WebGPURenderer WebGL2 context withhe
   expect(r.finalHash).toBe(r.referenceFinalHash);
 });
 
+for (const q of ['low', 'high'] as const) {
+  test(`R04 quality preset "${q}" (start-screen quality select) leaves every simulation hash unchanged`, async ({ page }) => {
+    const r = await runVariant(page, `R04-quality-${q}`, 'observe', 'auto', q);
+    results.push(r);
+    expect(r.appErrors).toEqual([]);
+    expect(r.mismatches).toBe(0);
+    expect(r.finalHash).toBe(r.referenceFinalHash);
+  });
+}
+
 test('R03 cross-backend: identical final hash across all variants; WebGPU availability recorded', async ({ page }, info) => {
   await page.goto('/');
   const gpu = await gpuFacts(page);
@@ -94,9 +109,10 @@ test('R03 cross-backend: identical final hash across all variants; WebGPU availa
       A: 'no stub; app default preferred=auto',
       B: 'settings panel Renderer=WebGL2 persisted to IndexedDB, then ?demo boot (same attempt chain as auto when no adapter)',
       C: 'test-side getContext stub returns null for the first webgl2 request made by the three.webgpu chunk on the game canvas; the app chain then uses its classic WebGLRenderer. The app has no setting or query param to force the classic path directly (see reports/validation-requests.md).',
+      R04: 'quality low / high chosen with the start-screen Quality select (persisted), default renderer path; the adaptive QualityGovernor also runs in every variant',
     },
   }, info);
-  expect(results.length).toBe(3);
+  expect(results.length).toBe(5);
   expect(new Set(finals.map((x) => x.finalHash)).size, 'one final hash across backends').toBe(1);
   expect(finals[0]?.finalHash).toBe(ref.hashes[String(FINAL_TICK)]);
 });
