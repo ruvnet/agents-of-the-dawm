@@ -13,8 +13,8 @@ export interface SettingsPanel {
   /** True while waiting for a key or button to bind (Escape cancels the capture, not the panel). */
   isListening(): boolean;
   cancelListen(): void;
-  /** Poll gamepads while listening for a gamepad rebind (call every frame). */
-  poll(): void;
+  /** Poll gamepads while listening for a gamepad rebind; true when a press was consumed. */
+  poll(): boolean;
 }
 
 type Listen = { device: 'keyboard' | 'gamepad'; action: ActionName; prev: number[] } | null;
@@ -149,15 +149,16 @@ export function createSettingsPanel(onChange: (s: UiSettings) => void, onBack: (
       build();
     },
     poll() {
-      if (!listen || listen.device !== 'gamepad' || !s) return;
+      if (!listen || listen.device !== 'gamepad' || !s) return false;
       const now = currentPadButtons();
       const idx = now.findIndex((v, i) => v > 0.5 && !((listen!.prev[i] ?? 0) > 0.5));
       listen.prev = now;
-      if (idx < 0) return;
+      if (idx < 0) return false;
       const action = listen.action;
       listen = null;
       commit({ ...s, bindings: rebind(s.bindings, 'gamepad', action, idx) });
       status.textContent = `${ACTION_LABELS[action]} bound to ${padLabel(idx)}.`;
+      return true;
     },
   };
 }

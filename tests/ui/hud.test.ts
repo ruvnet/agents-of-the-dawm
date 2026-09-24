@@ -71,6 +71,17 @@ describe('captions and script log', () => {
   });
 });
 
+describe('caption log clear on a new run', () => {
+  it('clear() forgets the script so replayed lines log again', () => {
+    const log = new CaptionLog();
+    log.push([{ id: 'S01', speaker: 'Kest', text: 'x', durationMs: 1000 }], 0);
+    log.clear();
+    expect(log.script()).toEqual([]);
+    log.push([{ id: 'S01', speaker: 'Kest', text: 'x', durationMs: 1000 }], 0);
+    expect(log.script().length).toBe(1);
+  });
+});
+
 describe('gamepad menu navigation edges', () => {
   it('reports each edge once', () => {
     const idle = { buttons: new Array(17).fill(0), axes: [0, 0] };

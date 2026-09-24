@@ -69,4 +69,11 @@ export class CaptionLog {
     this.active = [];
     this.display = null;
   }
+
+  /** Forget everything, including the script log (a new run). */
+  clear(): void {
+    this.reset();
+    this.log.length = 0;
+    this.seen.clear();
+  }
 }

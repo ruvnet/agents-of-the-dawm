@@ -290,3 +290,7 @@ kbd.fl-glyph {
 @media (max-width: 700px), (max-height: 500px) {
   .fl-control .fl-modal-head, .fl-settings .fl-modal-head, .fl-script .fl-modal-head { position: static; box-shadow: none; }
 }
+@media (max-width: 30em) {
+  .fl-control { padding: 0.6em; }
+  .fl-control-step, .fl-route { padding: 0.45em 0.5em; }
+}

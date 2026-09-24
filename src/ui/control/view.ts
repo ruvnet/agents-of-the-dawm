@@ -23,6 +23,8 @@ export interface ControlView {
   back(): void;
   focusFirst(): void;
   isConfirming(): boolean;
+  /** Drop any pending confirm step (called when the panel hides). */
+  reset(): void;
 }
 
 function btn(fk: string, label: string, enabled: boolean, cls = '', extra = ''): string {
@@ -164,5 +166,6 @@ export function createControlView(onControl: (a: ControlAction) => void): Contro
       root.scrollTop = 0;
     },
     isConfirming: () => confirming,
+    reset() { confirming = false; lastKey = ''; },
   };
 }

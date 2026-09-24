@@ -118,6 +118,7 @@ export function createUi(options: UiOptions = {}): GameUi {
     const showLoader = started && readiness === 'initializing' && !fatal;
     setHidden(loader, !showLoader);
     if (n === top) return;
+    if (top === 'control') control.reset();
     top = n;
     const el = modalEl(n);
     if (el) {
@@ -181,7 +182,7 @@ export function createUi(options: UiOptions = {}): GameUi {
 
   function startGame(mode: 'new' | 'continue'): void {
     started = true;
-    captions.reset();
+    if (mode === 'new') captions.clear(); else captions.reset();
     lastRejection = null;
     hooks?.onStart(mode);
     refresh();
@@ -262,8 +263,8 @@ export function createUi(options: UiOptions = {}): GameUi {
       if (f.state.tramCrossed) ending.setDisplay(captions.lastDisplay()?.text ?? null);
       if (top === 'script') script.render(captions.script());
       refresh();
-      settingsPanel.poll();
-      gamepadNav();
+      if (settingsPanel.poll()) padPrev = pollPad(); // the bind press must not also activate a button
+      else gamepadNav();
     },
     setReadiness(r, b) {
       readiness = r;
