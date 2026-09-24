@@ -1,0 +1,13 @@
+
+> agents-of-the-dawm-floodline@0.1.0 test:ui
+> vitest run tests/ui
+
+
+ RUN  v5.0.1 /home/ruvultra/projects/agents-of-the-dawm/.claude/worktrees/agent-a6583fd69cb1d6d7c
+
+
+ Test Files  4 passed (4)
+      Tests  61 passed (61)
+   Start at  19:29:59
+   Duration  247ms (transform 75%, import 16%, tests 7%, worker 2%)
+

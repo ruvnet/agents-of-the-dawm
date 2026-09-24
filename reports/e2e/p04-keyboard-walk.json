@@ -1,0 +1,163 @@
+{
+  "test": "P04 keyboard-only walk through the start screen and settings with visible focus",
+  "status": "recorded",
+  "recordedAt": "2026-09-24T23:44:46.183Z",
+  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
+  "worktreeDirty": "no",
+  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "data": {
+    "stops": [
+      {
+        "fk": "play",
+        "tag": "button",
+        "text": "▶ Play",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "start"
+      },
+      {
+        "fk": "quality",
+        "tag": "select",
+        "text": "Auto\nLow\nMedium\nHigh",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "start"
+      },
+      {
+        "fk": "captions",
+        "tag": "button",
+        "text": "Captions: On",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "start"
+      },
+      {
+        "fk": "settings",
+        "tag": "button",
+        "text": "⚙ Settings",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "start"
+      },
+      {
+        "fk": "play",
+        "tag": "button",
+        "text": "▶ Play",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "start"
+      },
+      {
+        "fk": "quality",
+        "tag": "select",
+        "text": "Auto\nLow\nMedium\nHigh",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "start"
+      }
+    ],
+    "onSettings": {
+      "fk": "settings",
+      "tag": "button",
+      "text": "⚙ Settings",
+      "focusVisible": true,
+      "outline": "solid 3px rgb(243, 170, 60)",
+      "modal": "start"
+    },
+    "settingsOpen": true,
+    "inSettings": [
+      {
+        "fk": null,
+        "tag": "button",
+        "text": "Back",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Captions",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Text size",
+        "tag": "select",
+        "text": "100%\n150%\n200%",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Show tutorial prompts",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Look sensitivity",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Invert Y",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Level horizon (no camera roll)",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Reduced camera motion",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      },
+      {
+        "fk": "Reduced flashes",
+        "tag": "input",
+        "text": "",
+        "focusVisible": true,
+        "outline": "solid 3px rgb(243, 170, 60)",
+        "modal": "settings"
+      }
+    ],
+    "settingsClosed": true,
+    "afterClose": {
+      "fk": "play",
+      "tag": "button",
+      "text": "▶ Play",
+      "focusVisible": true,
+      "outline": "solid 3px rgb(243, 170, 60)",
+      "modal": "start"
+    },
+    "onPlay": {
+      "fk": "play",
+      "tag": "button",
+      "text": "▶ Play",
+      "focusVisible": true,
+      "outline": "solid 3px rgb(243, 170, 60)",
+      "modal": "start"
+    },
+    "started": true,
+    "invisibleFocusStops": []
+  }
+}

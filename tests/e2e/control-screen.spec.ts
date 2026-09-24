@@ -38,25 +38,28 @@ async function reachOpenPanel(page: Page): Promise<{ openedBy: string; savedChec
   await page.locator('[data-fl-modal="start"] [data-fk="continue"]').click();
   await page.waitForTimeout(400);
   // Walk to the control screen (autopilot target 120,14,13) with the keyboard: +z is D at yaw 0.
-  for (let i = 0; i < 20; i++) {
-    const p = await playerPos(page);
-    const dz = 13 - (p.pos[2] ?? 0);
-    const dx = 120 - (p.pos[0] ?? 0);
-    if (Math.abs(dz) < 0.3 && Math.abs(dx) < 0.5) break;
-    const keys = [...(Math.abs(dz) >= 0.3 ? [dz > 0 ? 'KeyD' : 'KeyA'] : []), ...(Math.abs(dx) >= 0.5 ? [dx > 0 ? 'KeyW' : 'KeyS'] : [])];
-    for (const k of keys) await page.keyboard.down(k);
-    await page.waitForTimeout(120);
-    for (const k of keys) await page.keyboard.up(k);
+  // Short taps with a re-check, because under heavy host load a held key can overshoot.
+  const panelOpen = () => page.evaluate(() => (window as unknown as { __floodline: { sim(): { state(): { pressure: { panelOpen: boolean } } } } }).__floodline.sim().state().pressure.panelOpen);
+  let eAttempts = 0;
+  for (let attempt = 0; attempt < 6 && !(await panelOpen()); attempt++) {
+    for (let i = 0; i < 30; i++) {
+      const p = await playerPos(page);
+      const dz = 13 - (p.pos[2] ?? 0);
+      const dx = 120 - (p.pos[0] ?? 0);
+      if (Math.abs(dz) < 0.4 && Math.abs(dx) < 0.6) break;
+      const keys = [...(Math.abs(dz) >= 0.4 ? [dz > 0 ? 'KeyD' : 'KeyA'] : []), ...(Math.abs(dx) >= 0.6 ? [dx > 0 ? 'KeyW' : 'KeyS'] : [])];
+      for (const k of keys) await page.keyboard.down(k);
+      await page.waitForTimeout(80);
+      for (const k of keys) await page.keyboard.up(k);
+      await page.waitForTimeout(80);
+    }
+    eAttempts += 1;
+    await page.keyboard.press('KeyE');
+    await page.waitForTimeout(500);
   }
-  await page.keyboard.press('KeyE');
-  await page.waitForTimeout(400);
-  let openedBy = 'keyboard E';
-  const open = await page.evaluate(() => (window as unknown as { __floodline: { sim(): { state(): { pressure: { panelOpen: boolean } } } } }).__floodline.sim().state().pressure.panelOpen);
-  if (!open) {
-    await control(page, { kind: 'open-panel' });
-    openedBy = 'window.__floodline.control(open-panel) after E did not open it';
-  }
-  return { openedBy, savedCheckpoint: 'cp-control' };
+  const opened = await panelOpen();
+  expect(opened, `control panel opened with keyboard E (attempts: ${eAttempts}, player at ${(await playerPos(page)).pos.join(',')})`).toBe(true);
+  return { openedBy: `keyboard E (${eAttempts} press(es))`, savedCheckpoint: 'cp-control' };
 }
 
 test('G04 at the UI boundary: authorizing the occupied street or the protected pump never opens the gate', async ({ page }, info) => {
@@ -64,7 +67,7 @@ test('G04 at the UI boundary: authorizing the occupied street or the protected p
   await installObserver(page);
   const setup = await reachOpenPanel(page);
   const panelVisible = await page.locator('[data-fl-modal="control"]').isVisible();
-  await page.screenshot({ path: shotPath('control-screen-open'), scale: 'css' });
+  await page.screenshot({ path: shotPath('control-screen-open'), scale: 'css', timeout: 20_000 }).catch(() => undefined);
   const attempts: { action: string; events: string[]; flagsAfter: Record<string, boolean> }[] = [];
   const tryAct = async (label: string, a: Record<string, string>) => {
     const ev = await control(page, a);
@@ -119,7 +122,7 @@ test('W04/G05: WASM blocked -> semantic status unavailable, degraded/authored la
   const semText = (await semSection.innerText().catch(() => '')).slice(0, 600);
   const semClass = await semSection.getAttribute('class').catch(() => null);
   const routesText = (await page.locator('[data-fl-modal="control"]').innerText().catch(() => '')).slice(0, 1500);
-  await page.screenshot({ path: shotPath('control-screen-wasm-unavailable'), scale: 'css' });
+  await page.screenshot({ path: shotPath('control-screen-wasm-unavailable'), scale: 'css', timeout: 20_000 }).catch(() => undefined);
   const sequence: Record<string, string>[] = [
     { kind: 'authorize', destination: 'occupied-street' },
     { kind: 'scan-sensor' },
