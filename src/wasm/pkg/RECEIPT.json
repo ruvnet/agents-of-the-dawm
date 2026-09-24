@@ -1,0 +1,22 @@
+{
+  "module": "worldgraph-wasm",
+  "crate": "worldgraph-wasm",
+  "crateVersion": "0.3.1",
+  "crateLicense": "MIT OR Apache-2.0",
+  "sourceRepo": "https://github.com/ruvnet/worldgraph",
+  "sourceCommit": "9b1c79c836cdacfb7b44f058c593157bac4c1dab",
+  "wasmFile": "worldgraph_wasm_bg.wasm",
+  "wasmSha256": "a6e37742f1d8f638a32f15b596fcd8e8ae0fb0a71b39ebed6dcbd1471d0e0762",
+  "wasmBytes": 943135,
+  "jsFile": "worldgraph_wasm.js",
+  "jsSha256": "ea8b7ea8e22f767a93bbb367e351264a13f1aa1fce47cc3dd8650dccb09cda86",
+  "jsBytes": 25229,
+  "target": "web",
+  "profile": "release",
+  "wasmOpt": false,
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "rustflags": "",
+  "wasmPack": "wasm-pack 0.14.0",
+  "wasmBindgen": "0.2.127",
+  "upstreamCargoTest": "passed"
+}
