@@ -4,6 +4,7 @@ import { loadSector01 } from '../../src/contracts/fixtures';
 import { IDLE_COMMAND } from '../../src/contracts/input';
 import { createSimulation } from '../../src/sim';
 import { createAutopilot, fullPlan } from '../../src/sim/autopilot';
+import { clonePlain } from '../../src/sim/clone';
 import { goldenRoute } from './golden-lib';
 
 const FILE = new URL('./golden-hashes.json', import.meta.url);
@@ -41,5 +42,36 @@ describe('W7.PERF golden determinism', () => {
     for (let i = 0; i < 20; i++) sim.step({ ...IDLE_COMMAND, tick: sim.state().tick, move2: [-1, 1], spike: true });
     for (const k of kept) expect(JSON.stringify(k.s)).toBe(k.json);
     expect(kept.length).toBeGreaterThan(80);
+  });
+
+  it('consecutive committed states share no object or array at any depth (both routes)', () => {
+    const containers = (v: unknown, out: Set<object>): Set<object> => {
+      if (typeof v === 'object' && v !== null) {
+        out.add(v);
+        for (const x of Array.isArray(v) ? v : Object.values(v)) containers(x, out);
+      }
+      return out;
+    };
+    const m = loadSector01();
+    for (const route of ['upper', 'lower'] as const) {
+      const sim = createSimulation(m, { seed: 1047 });
+      const pilot = createAutopilot(m, fullPlan(route));
+      let n = 0;
+      while (!pilot.done) {
+        const before = sim.state();
+        const c = pilot.next(before);
+        if (!c) break;
+        sim.step(c);
+        if (n++ % 53 === 0) {
+          const a = containers(before, new Set());
+          for (const o of containers(sim.state(), new Set())) expect(a.has(o)).toBe(false);
+          expect(JSON.stringify(clonePlain(sim.state()))).toBe(JSON.stringify(structuredClone(sim.state())));
+        }
+      }
+      const b = sim.state();
+      sim.restartFromCheckpoint();
+      const a = containers(b, new Set());
+      for (const o of containers(sim.state(), new Set())) expect(a.has(o)).toBe(false);
+    }
   });
 });
