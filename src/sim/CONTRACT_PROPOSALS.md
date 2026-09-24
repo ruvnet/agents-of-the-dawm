@@ -23,5 +23,5 @@ Workaround in `src/sim/story.ts`: `reason: reasons[key] ?? key`.
 - Player anchors pick the target surface as "the surface whose `up` differs from the player's current
   `up`"; `AnchorState.activeSurface` records the last committed surface.
 - For machine targets (`keeper`, `hauler`), `AnchorSurface.dynamicPose` indexes `MachineDef.patrol`.
-- `surfaceBasis(up, yaw)` (exported from `src/sim`) defines yaw: floors/ceilings face +x at yaw 0,
-  walls face +y; right = forward × up. Renderer/camera should reuse it rather than re-derive it.
+- `surfaceBasis(up, yaw)` (exported from `src/sim`) now matches the renderer convention: reference tangent +x on ±y, else +y; yaw rotates it about up by the right-hand rule (positive yaw turns left);
+  right = forward × up. Worth freezing in src/contracts so sim and render cannot drift.

@@ -106,7 +106,13 @@ describe('failure trace (ADR 0004)', () => {
     step(sim, { control: { kind: 'restore-edge' } });
     const noPreview = step(sim, { control: { kind: 'authorize', destination: 'relief-channel' } });
     expect(noPreview.find((e) => e.type === 'TransferRejected')?.payload.reasonKey).toBe('reason.preview.incomplete');
-    for (const d of ['occupied-street', 'protected-pump', 'relief-channel'] as const) step(sim, { control: { kind: 'preview', destination: d } });
+    const streetPreview = step(sim, { control: { kind: 'preview', destination: 'occupied-street' } });
+    expect(streetPreview.find((e) => e.type === 'TransferRejected')?.payload.reasonKey).toBe('reason.street.occupied');
+    const pumpPreview = step(sim, { control: { kind: 'preview', destination: 'protected-pump' } });
+    expect(pumpPreview.find((e) => e.type === 'TransferRejected')?.payload.reasonKey).toBe('reason.pump.overload');
+    const reliefPreview = step(sim, { control: { kind: 'preview', destination: 'relief-channel' } });
+    expect(reliefPreview.map((e) => e.type)).not.toContain('TransferRejected');
+    expect(sim.state().pressure.routes.find((r) => r.id === 'reservoir-to-street')!.approved).toBe(false);
     const ok = step(sim, { control: { kind: 'authorize', destination: 'relief-channel' } });
     expect(ok.map((e) => e.type)).toEqual(expect.arrayContaining(['TransferAuthorized', 'GateOpened']));
     const again = step(sim, { control: { kind: 'authorize', destination: 'relief-channel' } });

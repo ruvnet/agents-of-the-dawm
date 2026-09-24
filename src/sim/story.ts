@@ -140,6 +140,8 @@ export function applyControl(c: Ctx, a: ControlAction, near: boolean): void {
         projectedLoad: f.projectedLoad, safeThreshold: f.safeThreshold, unit: 'kPa',
       });
       if (s.flags.channelSensorVerified) cue(c, 'preview-opened');
+      // Deterministic preflight rejects unsafe destinations with their reason; nothing is routed.
+      if (!preflightSafe(m, s, d)) reject(c, 'preview', reasonKeyFor(m, s, d), d);
       return;
     }
     case 'restore-edge': {

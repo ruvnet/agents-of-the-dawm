@@ -32,14 +32,14 @@ export function tangential(v: Vec3, up: Axis): V3 {
 }
 
 /**
- * Yaw-zero forward direction per up axis. Floors/ceilings face +x; walls face +y (up the wall).
- * right = forward x up (right handed). Positive yaw turns toward right.
+ * Yaw convention shared with the renderer (src/render/interpolate.ts surfaceBasis, copied not
+ * imported): the yaw-0 reference tangent R is world +x when up is ±y, otherwise world +y (so on a
+ * wall yaw 0 walks up it). Forward is R rotated about up by `yaw` with the right-hand rule, so
+ * positive yaw turns LEFT. right = forward × up. move2 = [strafe, forward] in this basis.
  */
-const FORWARD0: Record<Axis, V3> = {
-  '+y': [1, 0, 0], '-y': [1, 0, 0],
-  '+x': [0, 1, 0], '-x': [0, 1, 0],
-  '+z': [0, 1, 0], '-z': [0, 1, 0],
-};
+export function referenceTangent(up: Axis): V3 {
+  return up === '+y' || up === '-y' ? [1, 0, 0] : [0, 1, 0];
+}
 
 function cross(a: Vec3, b: Vec3): V3 {
   return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
@@ -54,15 +54,10 @@ export interface SurfaceBasis {
 /** Deterministic tangent frame for a local up and yaw. Exported for camera/render and the autopilot. */
 export function surfaceBasis(up: Axis, yaw: number): SurfaceBasis {
   const u = v3(axisToVec(up));
-  const f0 = FORWARD0[up];
-  const r0 = cross(f0, u);
-  const c = Math.cos(yaw);
-  const s = Math.sin(yaw);
-  return {
-    up: u,
-    forward: add(scale(f0, c), scale(r0, s)),
-    right: sub(scale(r0, c), scale(f0, s)),
-  };
+  const r = referenceTangent(up);
+  // Rodrigues rotation of r (perpendicular to u) about u: r cos + (u × r) sin.
+  const forward = add(scale(r, Math.cos(yaw)), scale(cross(u, r), Math.sin(yaw)));
+  return { up: u, forward, right: cross(forward, u) };
 }
 
 export interface MutBox { min: V3; max: V3 }
@@ -94,10 +89,5 @@ export function clamp(n: number, lo: number, hi: number): number {
   return n < lo ? lo : n > hi ? hi : n;
 }
 
-/** Round to 1e-9 so repeated float accumulation cannot drift between identical runs' canonical forms. */
-export function snap(n: number): number {
-  const r = Math.round(n * 1e9) / 1e9;
-  return Object.is(r, -0) ? 0 : r;
-}
 
 export const axisToVecV = (a: Axis): V3 => v3(axisToVec(a));

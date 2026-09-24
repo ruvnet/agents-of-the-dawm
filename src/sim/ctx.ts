@@ -81,5 +81,4 @@ export function cue(c: Ctx, key: string): void {
   if (once(c.s, `cue:${key}`)) emit(c, 'DialogueCue', key);
 }
 
-export const hasFired = (s: SimState, key: string): boolean => s.fired.includes(key);
 export const cueFired = (s: SimState, key: string): boolean => s.fired.includes(`cue:${key}`);

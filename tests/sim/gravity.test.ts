@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { AXES, validateManifest } from '../../src/contracts';
 import type { LevelManifest, WorldEvent } from '../../src/contracts';
-import { bodyBox } from '../../src/sim/frame';
+import { bodyBox, surfaceBasis } from '../../src/sim/frame';
 import { overlaps, sweepAxis, sweptCubeHits, worldColliders } from '../../src/sim/collision';
 import { isGrounded } from '../../src/sim/state';
 import { manifest, mutate, newSim, step, idleTicks } from './helpers';
@@ -107,6 +107,23 @@ describe('G01 anchor transitions', () => {
     step(sim);
     expect(sim.state().player.grounded).toBe(false);
     expect(step(sim, { shiftAnchorId: a.key }).find((e) => e.type === 'ShiftRejected')?.payload.reason).toBe('airborne');
+  });
+});
+
+describe('yaw convention (shared with renderer)', () => {
+  it('yaw 0 faces +x on floors and up the wall on walls; positive yaw turns left; right = forward x up', () => {
+    const close = (a: readonly number[], b: readonly number[]) => a.forEach((v, i) => expect(v).toBeCloseTo(b[i]!, 12));
+    close(surfaceBasis('+y', 0).forward, [1, 0, 0]);
+    close(surfaceBasis('+y', 0).right, [0, 0, 1]);
+    close(surfaceBasis('+y', Math.PI / 2).forward, [0, 0, -1]);
+    close(surfaceBasis('-z', 0).forward, [0, 1, 0]);
+    close(surfaceBasis('+x', 0).forward, [0, 1, 0]);
+    for (const up of AXES) for (const yaw of [0, 0.7, -2.1]) {
+      const b = surfaceBasis(up, yaw);
+      const c = [b.forward[1] * b.up[2] - b.forward[2] * b.up[1], b.forward[2] * b.up[0] - b.forward[0] * b.up[2], b.forward[0] * b.up[1] - b.forward[1] * b.up[0]];
+      close(b.right, c);
+      expect(b.forward[0] * b.up[0] + b.forward[1] * b.up[1] + b.forward[2] * b.up[2]).toBeCloseTo(0, 12);
+    }
   });
 });
 
