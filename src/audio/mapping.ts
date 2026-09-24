@@ -66,7 +66,10 @@ export function soundsForEvent(e: WorldEvent): SoundTrigger[] {
       const amb = BEAT_AMBIENCE[e.key];
       return amb ? one(amb) : [];
     }
-    case 'DialogueCue': return e.key === 'tram-in-view' ? one('tram-bell', 0.85) : [];
+    case 'DialogueCue':
+      // The player spawns inside west-approach (no BeatEntered), so the surf opens on first movement.
+      if (e.key === 'first-move') return one('surf');
+      return e.key === 'tram-in-view' ? one('tram-bell', 0.85) : [];
     default: return [];
   }
 }

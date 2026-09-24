@@ -174,7 +174,11 @@ export function createAudioEngine(opts: AudioEngineOptions = {}): FloodlineAudio
         }
         return false;
       } catch {
-        if (!graph) { unavailable = true; ctx = null; }
+        if (!graph) {
+          ctx?.close().catch(() => { /* ignore */ });
+          unavailable = true;
+          ctx = null;
+        }
         return false;
       }
     },

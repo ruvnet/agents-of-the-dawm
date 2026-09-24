@@ -40,7 +40,8 @@ describe('event -> sound mapping', () => {
 
   it('ignores events without a sound and covers every SoundEventId somewhere', () => {
     expect(ids(ev('CheckpointReached'))).toEqual([]);
-    expect(ids(ev('DialogueCue', 'first-move'))).toEqual([]);
+    expect(ids(ev('DialogueCue', 'first-move'))).toEqual(['surf']);
+    expect(ids(ev('DialogueCue', 'map-closed'))).toEqual([]);
     const reachable = new Set<SoundEventId>();
     const probes: WorldEvent[] = [
       ev('ShiftCommitted', 'g', { target: 'gantry', to: '+y' }), ev('BeatEntered', 'west-approach'), ev('BeatEntered', 'maintenance-deck'),
