@@ -1,7 +1,7 @@
 {
   "disclaimer": "Headless Chromium + SwiftShader software GL on a shared workstation (load avg 5-55). NOT reference-device evidence for ADR 0002 R01/R02; before/after comparison only.",
   "binding": {
-    "beforeSha": "8db6646 (ed8048c + instrumentation-only commit; baseline entry chunk hash identical to ed8048c build)",
+    "beforeSha": "8db6646 (ed8048c + instrumentation-only commit, so the measured marks exist in the baseline; entry chunk 946.07 kB at ed8048c -> 947.53 kB at 8db6646 from the probe alone; golden-hashes.json and sim-before.json were taken with src at ed8048c itself; bundle-before.json and browser baselines at 8db6646)",
     "afterSha": "0b5ad7e (final src/ + vite.config.ts)",
     "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
     "cpu": "AMD Ryzen 9 9950X 16-Core", "node": "v22.23.2",
