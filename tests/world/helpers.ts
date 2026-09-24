@@ -56,5 +56,6 @@ export function pressureView(m: LevelManifest): PressureView {
     playerAuthorized: false,
     capacityChecks: { pumpWithinTolerance: true, streetUnoccupiedByFlow: true, reliefWithinTolerance: true },
     capacitySafe: true,
+    gateOpen: false,
   };
 }

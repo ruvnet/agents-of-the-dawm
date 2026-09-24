@@ -211,6 +211,7 @@ export function pressureView(m: LevelManifest, s: SimState): PressureView {
     playerAuthorized: s.flags.playerAuthorized,
     capacityChecks: { ...s.pressure.capacityChecks },
     capacitySafe: s.flags.capacitySafe,
+    gateOpen: s.flags.gateOpen,
   };
 }
 

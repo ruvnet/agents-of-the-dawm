@@ -81,3 +81,22 @@ describe('contracts', () => {
     expect(ids).toContain('D01');
   });
 });
+
+describe('v1.1 frozen yaw convention', () => {
+  it('sim and renderer copies agree with the contract surfaceBasis', async () => {
+    const { surfaceBasis } = await import('../../src/contracts/math');
+    const sim = await import('../../src/sim/frame');
+    const render = await import('../../src/render/interpolate');
+    const ups = ['+x', '-x', '+y', '-y', '+z', '-z'] as const;
+    for (const up of ups) for (const yaw of [0, 0.7, Math.PI / 2, -2.1, Math.PI]) {
+      const c = surfaceBasis(up, yaw);
+      for (const other of [sim.surfaceBasis(up, yaw), render.surfaceBasis(up, yaw)]) {
+        for (const k of ['up', 'forward', 'right'] as const) {
+          for (let i = 0; i < 3; i++) expect(other[k][i]).toBeCloseTo(c[k][i]!, 9);
+        }
+      }
+    }
+    const b = surfaceBasis('+y', Math.PI / 2);
+    expect(b.forward[2]).toBeCloseTo(-1);
+  });
+});

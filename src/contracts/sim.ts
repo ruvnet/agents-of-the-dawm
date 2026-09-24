@@ -105,6 +105,10 @@ export interface SimState {
   anchors: AnchorState[];
   machines: MachineState[];
   dynamics: DynamicState[];
+  /**
+   * Named puzzle/pickup counters. Documented keys (v1.1): `cell:<interactableKey>` = tick at which a
+   * collected charge cell is available again (collected while > tick); valve/gantry state by key.
+   */
   puzzles: Record<string, number>;
   keeper: KeeperState;
   flags: StoryFlags;

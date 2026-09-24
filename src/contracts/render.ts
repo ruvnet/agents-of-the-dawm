@@ -9,6 +9,8 @@ export interface CameraSettings {
   reducedMotion: boolean;
   fovDeg: number;
   motionBlur: boolean;
+  /** v1.1 (W2 P2): reduce flashes independently of motion; defaults to reducedMotion. */
+  reducedFlashes?: boolean;
 }
 
 /** Interpolates two committed states. Holds no authority to mutate simulation (ADR 0004). */

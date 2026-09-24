@@ -37,7 +37,7 @@ function establishedFor(key: DerivedStateDef['key'], v: Readonly<PressureView>):
     case 'sensor-verified': return v.channelSensorVerified;
     case 'edge-restored': return v.channelEdgeRestored;
     case 'transfer-authorized': return v.playerAuthorized;
-    case 'gate-opened': return null; // gate state is not part of the pressure view
+    case 'gate-opened': return v.gateOpen;
   }
 }
 

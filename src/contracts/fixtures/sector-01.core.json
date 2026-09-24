@@ -656,7 +656,11 @@
    "reason.relief.safe": "Relief channel verified clear of people and within tolerance.",
    "reason.relief.unverified": "Relief channel not yet verified. Scan its in-world sensor first.",
    "reason.relief.unrestored": "Approved route missing. Restore the reservoir to relief channel connection first.",
-   "reason.relief.unlocated": "Relief channel not yet located in the district."
+   "reason.relief.unlocated": "Relief channel not yet located in the district.",
+   "reason.panel.keeper-active": "The keeper still holds the pressure lock.",
+   "reason.panel.out-of-reach": "Stand at the control screen to use it.",
+   "reason.panel.closed": "Open the control screen first.",
+   "reason.preview.incomplete": "Preview all three destinations before authorizing."
   }
  }
 }

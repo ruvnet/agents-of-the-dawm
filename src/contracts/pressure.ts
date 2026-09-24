@@ -42,6 +42,8 @@ export interface PressureView {
   playerAuthorized: boolean;
   capacityChecks: Readonly<CapacityChecks>;
   capacitySafe: boolean;    // all required checks true for selected relief
+  /** v1.1 (W3 P3): simulation gate state, so the authored fallback can report it. */
+  gateOpen: boolean;
 }
 
 export interface FinalGraphView {

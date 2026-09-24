@@ -82,6 +82,7 @@ describe('W04 fault injection and authored fallback', () => {
     expect(ev.privacyDecision).toBe('synthetic:no-personal-data');
     expect(ev.states.find((s) => s.key === 'sensor-verified')).toMatchObject({ established: true, statement: 'relief-channel clear in authored scenario' });
     expect(ev.states.find((s) => s.key === 'edge-restored')!.established).toBe(false);
+    expect(ev.states.find((s) => s.key === 'gate-opened')!.established).toBe(false);
     expect(ev.previewSources.every((p) => p.origin === 'authored-simulation')).toBe(true);
   });
 
