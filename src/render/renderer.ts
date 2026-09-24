@@ -74,6 +74,7 @@ export class FloodlineRenderer implements RendererAdapter {
   private lastInfo = { drawCalls: 0, triangles: 0 };
   private lost = false;
   private disposed = false;
+  private initStarted = false;
   private readonly lostCbs: ((info: { reason: string }) => void)[] = [];
 
   get backend(): RenderBackend {
@@ -82,6 +83,8 @@ export class FloodlineRenderer implements RendererAdapter {
 
   async init(canvas: HTMLCanvasElement, manifest: LevelManifest, options: RendererOptions): Promise<RenderInitResult> {
     if (this.disposed) return { ok: false, reason: 'renderer was disposed', tried: [] };
+    if (this.handle || this.initStarted) return { ok: false, reason: 'renderer already initialised; create a new one to re-init', tried: [] };
+    this.initStarted = true;
     this.options = options;
     this.tier = options.quality;
     const caps = await this.deps.probe(options.preferred);

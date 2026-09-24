@@ -6,18 +6,24 @@
 import { loadSector01 } from '../../../src/contracts/fixtures';
 import type { SimState } from '../../../src/contracts/sim';
 import type { RendererOptions } from '../../../src/contracts/render';
-import { createRenderer } from '../../../src/render';
+import { createRenderer, FloodlineRenderer } from '../../../src/render';
+import { initBackend } from '../../../src/render/backend-init';
 
-declare global { interface Window { __renderSmoke?: unknown } }
+const publish = (v: unknown): void => { (window as unknown as { __renderSmoke?: unknown }).__renderSmoke = v; };
 
 async function main(): Promise<void> {
   const params = new URLSearchParams(location.search);
   const preferred = (params.get('preferred') ?? 'auto') as RendererOptions['preferred'];
   const canvas = document.getElementById('c') as HTMLCanvasElement;
   const manifest = loadSector01();
-  const r = createRenderer();
+  // ?classic=1 forces the strict-exit path: every WebGPURenderer attempt is made to fail.
+  const r = params.get('classic')
+    ? new FloodlineRenderer({
+      initBackend: (c, attempt, o) => (attempt === 'webgl2-classic' ? initBackend(c, attempt, o) : Promise.reject(new Error(`forced failure: ${attempt}`))),
+    })
+    : createRenderer();
   const res = await r.init(canvas, manifest, { preferred, quality: 'medium', reducedMotion: false });
-  if (!res.ok) { window.__renderSmoke = { ok: false, res }; return; }
+  if (!res.ok) { publish({ ok: false, res }); return; }
   const lost: string[] = [];
   r.onDeviceLost((info) => lost.push(info.reason));
   r.resize(canvas.clientWidth, canvas.clientHeight, devicePixelRatio);
@@ -51,7 +57,7 @@ async function main(): Promise<void> {
     await new Promise((res2) => requestAnimationFrame(() => res2(null)));
   }
   const complete = phases.at(-1) === 'complete' && lost.length === 0;
-  window.__renderSmoke = { ok: complete, res, lost, phases: [...new Set(phases)], stats: r.stats() };
+  publish({ ok: complete, res, lost, phases: [...new Set(phases)], stats: r.stats() });
 }
 
-main().catch((err) => { window.__renderSmoke = { ok: false, error: String(err && (err as Error).stack || err) }; });
+main().catch((err) => { publish({ ok: false, error: String((err as Error)?.stack ?? err) }); });

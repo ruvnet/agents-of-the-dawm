@@ -74,6 +74,9 @@ describe('FloodlineRenderer adapter', () => {
     }
     expect(handles[0]!.attempt).toBe('webgpu-webgl2');
     expect(r.backend).toBe('webgl2');
+    const again = await r.init(canvas, loadSector01(), opts); // no second scene stacked
+    expect(again.ok).toBe(false);
+    expect(handles).toHaveLength(1);
   });
 
   it('strict exit to classic WebGLRenderer when both WebGPURenderer paths fail', async () => {

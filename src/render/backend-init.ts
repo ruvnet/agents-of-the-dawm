@@ -61,11 +61,24 @@ async function warmUpWebGPU(mod: typeof import('three/webgpu')): Promise<void> {
     const scene = new mod.Scene();
     const cam = new mod.PerspectiveCamera(50, 1, 0.1, 10);
     cam.position.set(0, 0, 3);
-    const mesh = new mod.Mesh(new mod.BoxGeometry(1, 1, 1), new mod.MeshStandardMaterial({ color: 0xe8e2d4 }));
-    scene.add(mesh, new mod.DirectionalLight(0xffffff, 1), new mod.HemisphereLight(0xffffff, 0x000000, 1));
+    // Mirror the scene's feature set: lit standard, instanced + transparent, vertex colours, fog.
+    const box = new mod.BoxGeometry(1, 1, 1);
+    const colors = new Float32Array(box.getAttribute('position').count * 3).fill(0.5);
+    box.setAttribute('color', new mod.BufferAttribute(colors, 3));
+    const lit = new mod.MeshStandardMaterial({ color: 0xe8e2d4 });
+    const glassy = new mod.MeshStandardMaterial({ color: 0x3e9c8c, transparent: true, opacity: 0.8 });
+    const tinted = new mod.MeshBasicMaterial({ vertexColors: true });
+    const inst = new mod.InstancedMesh(box, glassy, 2);
+    inst.setMatrixAt(0, new mod.Matrix4().makeTranslation(-0.6, 0, 0));
+    inst.setMatrixAt(1, new mod.Matrix4().makeTranslation(0.6, 0, 0));
+    scene.fog = new mod.Fog(0xcdb7ad, 1, 20);
+    scene.add(new mod.Mesh(box, lit), new mod.Mesh(box, tinted), inst,
+      new mod.DirectionalLight(0xffffff, 1), new mod.HemisphereLight(0xffffff, 0x000000, 1));
     r.render(scene as unknown as Scene, cam as unknown as Camera);
-    mesh.geometry.dispose();
-    (mesh.material as { dispose(): void }).dispose();
+    box.dispose();
+    lit.dispose();
+    glassy.dispose();
+    tinted.dispose();
   } finally {
     try { r.dispose(); } catch { /* ignore */ }
   }
