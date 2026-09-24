@@ -15,6 +15,7 @@ import type { GameUi, InputSource, SaveStore, UiSettings } from '../contracts/ui
 import { SAVE_SCHEMA_VERSION } from '../contracts/ui';
 import { FixedStepper } from './stepper';
 import { createPerfProbe, perfProbeRequested, type PerfSnapshot } from './perf-probe';
+import { cacheSemanticReads } from './semantic-cache';
 
 export interface AppDeps {
   manifest: LevelManifest;
@@ -239,7 +240,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     paused = false;
     // Semantic projection loads after the first interaction, never gating control (ADR 0003).
     if (!semantic) {
-      semantic = deps.createSemanticAdapter();
+      semantic = cacheSemanticReads(deps.createSemanticAdapter()).view;
       semantic.init(manifest).catch((e) => errors.push(`semantic init: ${String(e)}`));
     }
     if (!running) { running = true; raf(frame); }
