@@ -1,0 +1,12 @@
+export { createSemanticAdapter, createWorldgraphAdapter } from './adapter';
+export type { WorldAdapterOptions, WorldgraphAdapter } from './adapter';
+export { authoredEvidence, DEGRADED_LABEL } from './fallback';
+export type { AuthoredEvidence, AuthoredStateEvidence } from './fallback';
+export { composeFinalGraphView } from './compose';
+export type { ReadySemanticDetail } from './compose';
+export { canonicalProjection, digestOfSnapshot } from './digest';
+export { buildStaticProjection, footprintOf } from './projection';
+export type { Placement, StaticProjection } from './projection';
+export { validateCommands, ALLOWED_NODE_KINDS, ALLOWED_RELS } from './commands';
+export type { TwinCommand, WgNode, WgEdge } from './commands';
+export { commandsForEvent, SEMANTIC_EVENT_MAP, syntheticMs, CALIBRATION_VERSION, PRIVACY_DECISION } from './events';
