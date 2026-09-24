@@ -6,7 +6,7 @@
 import type { ControlAction, InputCommand } from '../contracts/input';
 import type { LevelManifest } from '../contracts/manifest';
 import type { FinalGraphView } from '../contracts/pressure';
-import type { RendererAdapter, RenderBackend } from '../contracts/render';
+import type { RendererAdapter, RenderBackend, RenderReadiness } from '../contracts/render';
 import type { SemanticAdapter, SemanticStatus } from '../contracts/semantic';
 import type { CreateSimulation, SimSnapshot, SimState, Simulation, WorldEvent } from '../contracts/sim';
 import type { AudioEngine } from '../contracts/audio';
@@ -14,6 +14,7 @@ import type { CaptionCue, NarrativeDirector, Objective } from '../contracts/narr
 import type { GameUi, InputSource, SaveStore, UiSettings } from '../contracts/ui';
 import { SAVE_SCHEMA_VERSION } from '../contracts/ui';
 import { FixedStepper } from './stepper';
+import { createPerfProbe, perfProbeRequested, type PerfSnapshot } from './perf-probe';
 
 export interface AppDeps {
   manifest: LevelManifest;
@@ -37,6 +38,8 @@ export interface AppDeps {
   speed?: number;
   now?: () => number;
   raf?: (cb: (t: number) => void) => number;
+  /** Record per-frame CPU timings (default: `?perf` present in the URL). Read-only evidence. */
+  perfProbe?: boolean;
 }
 
 export interface GameHandle {
@@ -50,6 +53,10 @@ export interface GameHandle {
   stepOnce(): void;
   setPaused(p: boolean): void;
   control(a: ControlAction): void;
+  /** Current renderer readiness phase (read-only). */
+  readiness(): RenderReadiness;
+  /** Startup marks and, when enabled, per-frame CPU timing ring buffers (read-only copies). */
+  perf(): PerfSnapshot;
 }
 
 const STORY_SEMANTIC_EVENTS = new Set(['ChannelLocated', 'SensorVerified', 'EdgeRestored', 'TransferAuthorized', 'GateOpened']);
@@ -58,6 +65,8 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   const { manifest } = deps;
   const now = deps.now ?? (() => performance.now());
   const raf = deps.raf ?? ((cb) => requestAnimationFrame(cb));
+  const probe = createPerfProbe(deps.perfProbe ?? perfProbeRequested());
+  probe.mark('fl:boot');
   const errors: string[] = [];
   const store = deps.createSaveStore() as SaveStore & { probe?: () => Promise<unknown> };
   await store.probe?.().catch(() => undefined);
@@ -96,6 +105,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     }
     renderer = deps.createRenderer();
     ui.setReadiness('initializing', 'none');
+    probe.mark('fl:renderer-init-start');
     const res = await renderer.init(canvas, manifest, {
       preferred, quality: settings.quality === 'auto' ? 'medium' : settings.quality, reducedMotion: settings.camera.reducedMotion,
     });
@@ -107,6 +117,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
       return false;
     }
     backend = res.backend;
+    probe.mark('fl:renderer-init-done');
     if (res.backend === 'webgpu') canvas.dataset.used = 'webgpu';
     renderer.onDeviceLost(({ reason }) => {
       errors.push(`device lost: ${reason}`);
@@ -147,6 +158,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     prev = s as SimState;
     commands.push(safeCmd);
     const events = sim.step(safeCmd);
+    probe.mark('fl:first-tick');
     if (events.length) pendingEvents.push(...events);
   }
 
@@ -157,10 +169,16 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
 
   function frame(): void {
     if (!running) return;
+    const timing = probe.enabled;
+    let tA = 0, tB = 0, tC = 0, tD = 0, tE = 0;
+    let nTicks = 0;
     try {
       const t = now();
+      if (timing) tA = performance.now();
       const { ticks, alpha } = stepper.advance(t, deps.speed ?? 1);
+      nTicks = ticks;
       for (let i = 0; i < ticks; i++) stepTick();
+      if (timing) tB = performance.now();
       const events = pendingEvents;
       pendingEvents = [];
       if (sim) {
@@ -175,15 +193,28 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
           if (events.some((e) => e.type === 'CheckpointReached')) persistCheckpoint();
         }
         semantic?.flush(t);
+        if (semantic?.status() === 'ready') probe.mark('fl:semantic-ready');
+        if (timing) tC = performance.now();
         renderer?.render({
           alpha: paused ? 1 : alpha, prev: prev ?? s, curr: s, events, camera: settings.camera,
           previewAnchorKey: input.previewAnchorKey(), nowMs: t,
         });
+        if (timing) tD = performance.now();
+        if (renderer && renderer.readiness() !== 'initializing') probe.mark('fl:controllable');
+        const g = graph();
+        if (timing) tE = performance.now();
         ui.update({
-          state: s, events, graph: graph(), captions, objective: deps.objectiveFor(s as SimState), backend,
+          state: s, events, graph: g, captions, objective: deps.objectiveFor(s as SimState), backend,
           readiness: renderer?.readiness() ?? 'initializing', renderStats: renderer?.stats() ?? null,
           semanticStatus: semantic?.status() ?? 'unavailable', device: input.activeDevice(), paused,
         });
+        if (timing) {
+          const tF = performance.now();
+          probe.record({
+            frame: tF - tA, ticks: tB - tA, render: tD - tC, graph: tE - tD, ui: tF - tE,
+            scale: renderer?.stats().internalScale ?? 0, nticks: nTicks,
+          });
+        }
       }
     } catch (e) {
       errors.push(String(e instanceof Error ? e.stack ?? e.message : e));
@@ -193,6 +224,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   }
 
   async function start(mode: 'new' | 'continue'): Promise<void> {
+    probe.mark('fl:start');
     ui.markStarted?.(mode);
     void audio.unlock();
     sim = deps.createSimulation(manifest, { seed: deps.seed ?? 1047, assist: settings.assist });
@@ -242,6 +274,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     const s = preview.state();
     r0.render({ alpha: 1, prev: s, curr: s, events: [], camera: settings.camera, previewAnchorKey: null, nowMs: now() });
     ui.setReadiness(r0.readiness(), backend);
+    if (r0.readiness() !== 'initializing') probe.mark('fl:controllable');
   }
 
   return {
@@ -255,5 +288,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     stepOnce: stepTick,
     setPaused,
     control: (a) => input.queueControl(a),
+    readiness: () => renderer?.readiness() ?? 'initializing',
+    perf: () => probe.snapshot(),
   };
 }
