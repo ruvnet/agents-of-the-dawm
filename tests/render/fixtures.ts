@@ -3,6 +3,7 @@ import { loadSector01 } from '../../src/contracts/fixtures';
 import type { GeometryManifest, LevelManifest } from '../../src/contracts/manifest';
 import type { SimState, WorldEvent, WorldEventType } from '../../src/contracts/sim';
 import type { RenderFrame } from '../../src/contracts/render';
+import starterGeometry from './starter-geometry.json';
 
 export function deepFreeze<T>(o: T): T {
   if (o && typeof o === 'object' && !Object.isFrozen(o)) {
@@ -51,8 +52,9 @@ export function frame(prev: SimState, curr: SimState, patch: Partial<RenderFrame
 
 /** sector-01 plus machines, dynamics, more decor and a second anchor: exercises every builder. */
 export function richManifest(): LevelManifest {
+  // Hermetic: extend the frozen starter geometry (contract commit 816e3be), not the evolving district.
   const base = loadSector01();
-  const g = base.geometry;
+  const g = starterGeometry as unknown as GeometryManifest;
   const geometry: GeometryManifest = {
     ...g,
     colliders: [
