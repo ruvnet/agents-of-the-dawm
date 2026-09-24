@@ -1,0 +1,21 @@
+{
+  "label": "SwiftShader headless on ruvultra — NOT a reference device; R01/R02 remain unmeasured on reference hardware",
+  "route": "upper",
+  "seed": 1047,
+  "speed": 1,
+  "preset": { "qualitySetting": "auto", "effectiveTier": "medium", "note": "src/app/game.ts maps quality 'auto' to 'medium' at renderer init; fresh profile, default settings" },
+  "viewport": { "width": 1280, "height": 720, "deviceScaleFactor": 1 },
+  "runsPerBackend": 3,
+  "backends": [
+    { "id": "webgpu-renderer-webgl2", "glMode": "observe", "expectPath": "three.webgpu-chunk", "description": "three WebGPURenderer, WebGL2 backend (app default when no WebGPU adapter)" },
+    { "id": "webgl-renderer-classic", "glMode": "force-classic", "expectPath": "main-chunk", "description": "three WebGLRenderer classic path (reached by withholding the WebGPURenderer WebGL2 context in a test stub)" }
+  ],
+  "coldLoad": {
+    "runsPerCondition": 3,
+    "conditions": [
+      { "id": "unthrottled", "network": null },
+      { "id": "50mbps", "network": { "offline": false, "latency": 20, "downloadThroughput": 6250000, "uploadThroughput": 6250000 } }
+    ]
+  },
+  "maxRouteSeconds": 240
+}

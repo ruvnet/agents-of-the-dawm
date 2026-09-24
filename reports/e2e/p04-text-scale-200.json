@@ -1,0 +1,20 @@
+{
+  "test": "P04 200 percent text scale setting doubles UI text size without horizontal overflow",
+  "status": "recorded",
+  "recordedAt": "2026-09-24T23:44:43.370Z",
+  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
+  "worktreeDirty": "no",
+  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "data": {
+    "playFontPxAt100": 16,
+    "playFontPxAt200": 32,
+    "ratio": 2,
+    "cssVar": "2",
+    "overflow": {
+      "docScrollWidth": 1280,
+      "innerWidth": 1280,
+      "clipped": []
+    }
+  }
+}

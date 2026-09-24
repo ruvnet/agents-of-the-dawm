@@ -1,0 +1,13 @@
+
+> agents-of-the-dawm-floodline@0.1.0 test:world
+> vitest run tests/world
+
+
+ RUN  v5.0.1 /home/ruvultra/projects/agents-of-the-dawm/.claude/worktrees/agent-a6583fd69cb1d6d7c
+
+
+ Test Files  2 passed (2)
+      Tests  21 passed (21)
+   Start at  19:29:58
+   Duration  234ms (transform 44%, tests 42%, import 12%, worker 1%)
+

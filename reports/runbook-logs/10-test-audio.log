@@ -1,0 +1,13 @@
+
+> agents-of-the-dawm-floodline@0.1.0 test:audio
+> vitest run tests/audio
+
+
+ RUN  v5.0.1 /home/ruvultra/projects/agents-of-the-dawm/.claude/worktrees/agent-a6583fd69cb1d6d7c
+
+
+ Test Files  4 passed (4)
+      Tests  58 passed (58)
+   Start at  19:29:59
+   Duration  941ms (import 51%, transform 27%, tests 21%, worker 1%)
+

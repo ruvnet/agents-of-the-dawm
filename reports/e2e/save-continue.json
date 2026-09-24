@@ -1,0 +1,45 @@
+{
+  "test": "Save/continue: checkpoint reached, reload, Continue restores the same checkpoint and hash; play continues",
+  "status": "recorded",
+  "recordedAt": "2026-09-24T23:44:21.494Z",
+  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
+  "worktreeDirty": "no",
+  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "data": {
+    "saved": {
+      "checkpointKey": "cp-deck",
+      "stateHash": "447d577c03e561f5",
+      "savedAtTick": 533,
+      "schema": 1,
+      "manifestId": "sector-01"
+    },
+    "restoredImmediately": {
+      "tick": 533,
+      "checkpointKey": "cp-deck",
+      "hash": "447d577c03e561f5",
+      "pos": [
+        34.84731066042226,
+        14,
+        5.852899891734061
+      ]
+    },
+    "afterPlay": {
+      "tick0": 563,
+      "tick1": 658,
+      "pos0": [
+        34.84731066042226,
+        14,
+        5.852899891734061
+      ],
+      "pos1": [
+        39.84731066042233,
+        14,
+        5.852899891734061
+      ]
+    },
+    "appErrors": [],
+    "pageErrors": [],
+    "consoleErrors": []
+  }
+}

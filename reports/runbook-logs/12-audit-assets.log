@@ -1,0 +1,8 @@
+
+> agents-of-the-dawm-floodline@0.1.0 audit:assets
+> node scripts/audit-assets.mjs
+
+asset audit: PASS
+  assets registered: src/wasm/pkg/worldgraph_wasm_bg.wasm (wasm, MIT OR Apache-2.0); dist/assets/worldgraph_wasm_bg-C4Ty8y7V.wasm (wasm, MIT OR Apache-2.0)
+  unknown: 0, unclassified: 0, external runtime URLs in first-party source: 0
+  report: reports/asset-register.json

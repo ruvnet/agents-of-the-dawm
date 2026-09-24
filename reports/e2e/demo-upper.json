@@ -1,0 +1,58 @@
+{
+  "test": "P01/P03 demo upper route reaches gateOpen, playerAuthorized, channelEdgeRestored, tramCrossed with zero errors",
+  "status": "recorded",
+  "recordedAt": "2026-09-24T23:44:26.425Z",
+  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
+  "worktreeDirty": "no",
+  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "data": {
+    "route": "upper",
+    "speed": 8,
+    "seed": 1047,
+    "wallMsToTramCrossed": 11781,
+    "backend": "webgl2",
+    "semanticStatus": "ready",
+    "finalFlags": {
+      "channelLocated": true,
+      "channelSensorVerified": true,
+      "channelEdgeRestored": true,
+      "playerAuthorized": true,
+      "capacitySafe": true,
+      "gateOpen": true
+    },
+    "tramCrossed": true,
+    "branch": "upper",
+    "beat": "control-room",
+    "checkpointKey": "cp-control",
+    "tick": 4228,
+    "hash": "375ff01ac760cc56",
+    "captionLines": 40,
+    "commands": 4228,
+    "gateOpenedEvents": 1,
+    "appErrors": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "Failed to create WebGPU Context Provider",
+      "[GroupMarkerNotSet(crbug.com/242999)!:A0B02000D4210000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content.",
+      "[.WebGL-0x224006df800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x224006df800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x224006df800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x224006df800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ],
+    "nodeReference": {
+      "planDoneTick": 3812,
+      "tramTick": 3626,
+      "keyEvents": 14
+    },
+    "hashComparison": {
+      "commonTicks": 31,
+      "mismatches": [],
+      "lastCommonTick": 4250
+    },
+    "keyEventIdsMatch": true,
+    "observerPatchedSims": 1,
+    "observerErrors": []
+  }
+}
