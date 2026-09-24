@@ -1,0 +1,59 @@
+{
+  "label": "before",
+  "sourceSha": "8db66464848d46305a3f4709043564ee07d5c323",
+  "entry": [
+    "index-B8qriiPO.js",
+    "index-D2gQwDtg.css"
+  ],
+  "files": [
+    {
+      "file": "index-B8qriiPO.js",
+      "raw": 947538,
+      "gzip": 254074,
+      "staticImports": [],
+      "dynamicImports": []
+    },
+    {
+      "file": "index-D2gQwDtg.css",
+      "raw": 15961,
+      "gzip": 4157,
+      "staticImports": [],
+      "dynamicImports": []
+    },
+    {
+      "file": "three.webgpu-Bvo3hW6M.js",
+      "raw": 705041,
+      "gzip": 195372,
+      "staticImports": [
+        "index-B8qriiPO.js"
+      ],
+      "dynamicImports": []
+    },
+    {
+      "file": "worldgraph_wasm-CJ0BnHsu.js",
+      "raw": 10037,
+      "gzip": 3567,
+      "staticImports": [],
+      "dynamicImports": []
+    },
+    {
+      "file": "worldgraph_wasm_bg-C4Ty8y7V.wasm",
+      "raw": 943135,
+      "gzip": 201111,
+      "staticImports": [],
+      "dynamicImports": []
+    }
+  ],
+  "staticCriticalPath": {
+    "files": [
+      "index-B8qriiPO.js",
+      "index-D2gQwDtg.css"
+    ],
+    "raw": 963499,
+    "gzip": 258231
+  },
+  "total": {
+    "raw": 2621712,
+    "gzip": 658281
+  }
+}

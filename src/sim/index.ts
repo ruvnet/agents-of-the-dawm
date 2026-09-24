@@ -5,7 +5,7 @@
  * nothing). Every accepted command advances `tick` by exactly one. `cmd.pause` is a level, not a
  * toggle: while it is true the tick still advances (so an input stream stays dense and replayable)
  * but no game action happens: no movement, timers, AI, damage, pickups or story changes.
- * Each tick works on a structured clone, so a state returned by `state()` is never mutated later.
+ * Each tick works on a full deep copy (clonePlain), so a state returned by `state()` is never mutated later.
  * No wall clock, no Math.random, no DOM; the only randomness is the seeded mulberry32 in `rngState`.
  */
 import type { InputCommand, ControlAction } from '../contracts/input';
@@ -14,6 +14,7 @@ import type { LevelManifest } from '../contracts/manifest';
 import { DESTINATIONS } from '../contracts/pressure';
 import type { CreateSimulation, SimOptions, SimSnapshot, SimState, Simulation, WorldEvent } from '../contracts/sim';
 import { canonicalHash } from '../contracts/hash';
+import { clonePlain } from './clone';
 import type { Ctx } from './ctx';
 import { RULES, emit } from './ctx';
 import { bodyCenter, clamp } from './frame';
@@ -108,7 +109,7 @@ export const createSimulation: CreateSimulation = (manifest: LevelManifest, opti
     step(raw: InputCommand): readonly WorldEvent[] {
       if (!raw || raw.tick !== cur.tick) return [];
       const cmd = sanitizeCommand(raw);
-      const next = structuredClone(cur);
+      const next = clonePlain(cur);
       const c: Ctx = { m: manifest, s: next, tick: next.tick, events: [] };
       next.paused = cmd.pause;
       if (!next.paused) gameTick(c, cmd);
@@ -125,7 +126,7 @@ export const createSimulation: CreateSimulation = (manifest: LevelManifest, opti
       if (log.length > snap.eventCount) log = log.slice(0, snap.eventCount);
     },
     restartFromCheckpoint(): void {
-      const next = structuredClone(cur);
+      const next = clonePlain(cur);
       const c: Ctx = { m: manifest, s: next, tick: next.tick, events: [] };
       applyRetry(c, 'manual');
       cur = next;

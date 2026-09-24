@@ -1,0 +1,8 @@
+{
+  "route": "lower",
+  "frames": 3500,
+  "batches": 3,
+  "fills": 24,
+  "uncachedUsPerCompose": 430.29976942857144,
+  "cachedUsPerCompose": 1.0693625714285715
+}

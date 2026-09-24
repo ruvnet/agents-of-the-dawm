@@ -1,0 +1,365 @@
+{
+  "before": "/home/ruvultra/.cache/claude-code/tmp/claude-1000/-home-ruvultra/cddebd4b-8f26-4ec6-96ed-d699a2b90660/scratchpad/dist-before",
+  "afterDist": "/home/ruvultra/.cache/claude-code/tmp/claude-1000/-home-ruvultra/cddebd4b-8f26-4ec6-96ed-d699a2b90660/scratchpad/dist-preload-only",
+  "throttle": {
+    "downloadMbps": 50,
+    "uploadMbps": 10,
+    "latencyMs": 20
+  },
+  "rounds": 10,
+  "loadavg1m": [
+    10.68,
+    10.47,
+    10.47,
+    10.19,
+    10.19,
+    13.3,
+    13.3,
+    14.56,
+    15.15,
+    22.19
+  ],
+  "summary": {
+    "fl:boot": {
+      "beforeMedian": 99.40000009536743,
+      "afterMedian": 131.59999990463257,
+      "beforeMin": 97.09999990463257,
+      "afterMin": 128.40000009536743,
+      "pairedDiffMedian": 31.200000286102295
+    },
+    "fl:renderer-init-start": {
+      "beforeMedian": 112.09999990463257,
+      "afterMedian": 145.40000009536743,
+      "beforeMin": 108.79999995231628,
+      "afterMin": 140.90000009536743,
+      "pairedDiffMedian": 31.300000190734863
+    },
+    "fl:renderer-init-done": {
+      "beforeMedian": 220.5,
+      "afterMedian": 246.90000009536743,
+      "beforeMin": 213.5,
+      "afterMin": 244.80000019073486,
+      "pairedDiffMedian": 31.899999856948853
+    },
+    "fl:controllable": {
+      "beforeMedian": 332.40000009536743,
+      "afterMedian": 361.80000019073486,
+      "beforeMin": 318,
+      "afterMin": 349.60000014305115,
+      "pairedDiffMedian": 31.399999856948853
+    },
+    "fl:first-tick": {
+      "beforeMedian": 375.2000000476837,
+      "afterMedian": 405.80000019073486,
+      "beforeMin": 358.2999999523163,
+      "afterMin": 390.60000014305115,
+      "pairedDiffMedian": 32.19999980926514
+    }
+  },
+  "runs": {
+    "before": [
+      {
+        "round": 0,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 102.59999990463257,
+          "fl:renderer-init-start": 121.09999990463257,
+          "fl:renderer-init-done": 243.20000004768372,
+          "fl:controllable": 353.7999999523163,
+          "fl:start": 353.90000009536743,
+          "fl:first-tick": 395.90000009536743
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 1,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 99.09999990463257,
+          "fl:renderer-init-start": 110.79999995231628,
+          "fl:renderer-init-done": 214.79999995231628,
+          "fl:controllable": 329.2999999523163,
+          "fl:start": 329.2999999523163,
+          "fl:first-tick": 370.09999990463257
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 2,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 99.89999985694885,
+          "fl:renderer-init-start": 112.59999990463257,
+          "fl:renderer-init-done": 217,
+          "fl:controllable": 320.59999990463257,
+          "fl:start": 320.69999980926514,
+          "fl:first-tick": 361
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 3,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 97.09999990463257,
+          "fl:renderer-init-start": 108.79999995231628,
+          "fl:renderer-init-done": 213.5,
+          "fl:controllable": 318,
+          "fl:start": 318,
+          "fl:first-tick": 358.2999999523163
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 4,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 97.20000004768372,
+          "fl:renderer-init-start": 108.90000009536743,
+          "fl:renderer-init-done": 214.40000009536743,
+          "fl:controllable": 324.90000009536743,
+          "fl:start": 325,
+          "fl:first-tick": 365.90000009536743
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 5,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 98.20000004768372,
+          "fl:renderer-init-start": 110,
+          "fl:renderer-init-done": 217,
+          "fl:controllable": 332.40000009536743,
+          "fl:start": 332.5,
+          "fl:first-tick": 378.7000000476837
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 6,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 108.90000009536743,
+          "fl:renderer-init-start": 122.90000009536743,
+          "fl:renderer-init-done": 232,
+          "fl:controllable": 342.2000000476837,
+          "fl:start": 342.2999999523163,
+          "fl:first-tick": 384.7000000476837
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 7,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 98.5,
+          "fl:renderer-init-start": 111.5,
+          "fl:renderer-init-done": 221.20000004768372,
+          "fl:controllable": 332.7000000476837,
+          "fl:start": 332.7000000476837,
+          "fl:first-tick": 375.2000000476837
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 8,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 99.40000009536743,
+          "fl:renderer-init-start": 112.09999990463257,
+          "fl:renderer-init-done": 220.5,
+          "fl:controllable": 329.59999990463257,
+          "fl:start": 329.7000000476837,
+          "fl:first-tick": 371.09999990463257
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 9,
+        "sourceSha": "8db6646",
+        "marks": {
+          "fl:boot": 116.90000009536743,
+          "fl:renderer-init-start": 145.10000014305115,
+          "fl:renderer-init-done": 445.90000009536743,
+          "fl:controllable": 836.7000000476837,
+          "fl:start": 836.9000000953674,
+          "fl:first-tick": 915
+        },
+        "criticalBytes": 456611,
+        "backend": "webgl2",
+        "errors": []
+      }
+    ],
+    "after": [
+      {
+        "round": 0,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 130.79999995231628,
+          "fl:renderer-init-start": 143.20000004768372,
+          "fl:renderer-init-done": 246.29999995231628,
+          "fl:controllable": 355.5,
+          "fl:start": 355.5,
+          "fl:first-tick": 395.2000000476837
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 1,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 128.79999995231628,
+          "fl:renderer-init-start": 141,
+          "fl:renderer-init-done": 246.90000009536743,
+          "fl:controllable": 355.2000000476837,
+          "fl:start": 355.2000000476837,
+          "fl:first-tick": 397.40000009536743
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 2,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 131.10000014305115,
+          "fl:renderer-init-start": 143.90000009536743,
+          "fl:renderer-init-done": 246,
+          "fl:controllable": 361.80000019073486,
+          "fl:start": 361.80000019073486,
+          "fl:first-tick": 405.80000019073486
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 3,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 129.29999995231628,
+          "fl:renderer-init-start": 141.20000004768372,
+          "fl:renderer-init-done": 246.70000004768372,
+          "fl:controllable": 360.7999999523163,
+          "fl:start": 360.7999999523163,
+          "fl:first-tick": 401
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 4,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 134.29999995231628,
+          "fl:renderer-init-start": 145.89999985694885,
+          "fl:renderer-init-done": 246.29999995231628,
+          "fl:controllable": 356.2999999523163,
+          "fl:start": 356.39999985694885,
+          "fl:first-tick": 398.09999990463257
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 5,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 128.40000009536743,
+          "fl:renderer-init-start": 140.90000009536743,
+          "fl:renderer-init-done": 244.80000019073486,
+          "fl:controllable": 349.60000014305115,
+          "fl:start": 349.60000014305115,
+          "fl:first-tick": 390.60000014305115
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 6,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 135.5,
+          "fl:renderer-init-start": 150,
+          "fl:renderer-init-done": 256.5,
+          "fl:controllable": 370.7000000476837,
+          "fl:start": 370.7999999523163,
+          "fl:first-tick": 415.2000000476837
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 7,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 131.59999990463257,
+          "fl:renderer-init-start": 145.40000009536743,
+          "fl:renderer-init-done": 259.59999990463257,
+          "fl:controllable": 381.59999990463257,
+          "fl:start": 381.7000000476837,
+          "fl:first-tick": 424.7000000476837
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 8,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 133,
+          "fl:renderer-init-start": 152.29999995231628,
+          "fl:renderer-init-done": 299.2999999523163,
+          "fl:controllable": 449.2000000476837,
+          "fl:start": 449.2999999523163,
+          "fl:first-tick": 493.2000000476837
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      },
+      {
+        "round": 9,
+        "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+        "marks": {
+          "fl:boot": 139,
+          "fl:renderer-init-start": 165.5,
+          "fl:renderer-init-done": 342.30000019073486,
+          "fl:controllable": 615,
+          "fl:start": 615.1000001430511,
+          "fl:first-tick": 697.8000001907349
+        },
+        "criticalBytes": 457067,
+        "backend": "webgl2",
+        "errors": []
+      }
+    ]
+  }
+}
