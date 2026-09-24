@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Floodline UI harness</title>
+  <link rel="stylesheet" href="../../../src/ui/styles.css" />
+  <style>
+    /* Stand-in for the rendered scene (the harness does not start the renderer). */
+    #game { background: linear-gradient(180deg, #f6c98a 0%, #e9a36b 18%, #7fb3bf 42%, #2b5d78 64%, #122c44 100%); }
+  </style>
+</head>
+<body>
+  <canvas id="game" aria-label="Floodline game view (harness backdrop)"></canvas>
+  <div id="ui-root"></div>
+  <script type="module" src="./harness.ts"></script>
+</body>
+</html>
