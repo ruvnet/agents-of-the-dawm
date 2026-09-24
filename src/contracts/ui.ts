@@ -94,6 +94,8 @@ export interface GameUi {
   showFatal(title: string, detail: string, actions?: { label: string; run: () => void }[]): void;
   /** True while a modal owns input (menu, settings, control screen). */
   capturing(): boolean;
+  /** v1.1 (C1): the app started play without the UI Play button (demo, autostart). No hook re-entry. */
+  markStarted?(mode: 'new' | 'continue'): void;
   dispose(): void;
 }
 

@@ -193,6 +193,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   }
 
   async function start(mode: 'new' | 'continue'): Promise<void> {
+    ui.markStarted?.(mode);
     void audio.unlock();
     sim = deps.createSimulation(manifest, { seed: deps.seed ?? 1047, assist: settings.assist });
     if (mode === 'continue' && existing && existing.manifestId === manifest.id) {

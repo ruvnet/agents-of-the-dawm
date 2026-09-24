@@ -87,8 +87,9 @@ export function createUi(options: UiOptions = {}): GameUi {
     const o = overlays[overlays.length - 1];
     if (o) return o;
     if (!started) return 'start';
-    if (frame?.state.pressure.panelOpen) return 'control';
     if (frame?.state.tramCrossed) return 'ending';
+    // After a safe transfer the panel steps aside so the release and tram crossing are visible (display only).
+    if (frame?.state.pressure.panelOpen && !frame.state.flags.gateOpen) return 'control';
     if (frame?.paused) return 'pause';
     return null;
   }
@@ -286,6 +287,13 @@ export function createUi(options: UiOptions = {}): GameUi {
       refresh();
     },
     capturing: () => modalName() !== null,
+    markStarted: (mode: 'new' | 'continue') => {
+      if (started) return;
+      started = true;
+      if (mode === 'new') captions.clear(); else captions.reset();
+      lastRejection = null;
+      refresh();
+    },
     dispose() {
       for (const off of offs.splice(0)) off();
       app?.remove();
