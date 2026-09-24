@@ -1,11 +1,10 @@
 {
   "label": "after",
-  "sourceSha": "90c95cf58cd4d1280b3a03786e4efe887d9aff82",
+  "sourceSha": "0b5ad7e6f313323e488d421c0656aee537e78812",
   "entry": [
     "index-XajgnTsy.js",
     "vendor-three-C4ojHK4u.js",
-    "index-D2gQwDtg.css",
-    "three.webgpu-DmpQjWyQ.js"
+    "index-D2gQwDtg.css"
   ],
   "files": [
     {
@@ -59,11 +58,10 @@
     "files": [
       "index-XajgnTsy.js",
       "vendor-three-C4ojHK4u.js",
-      "index-D2gQwDtg.css",
-      "three.webgpu-DmpQjWyQ.js"
+      "index-D2gQwDtg.css"
     ],
-    "raw": 1669422,
-    "gzip": 453944
+    "raw": 964381,
+    "gzip": 258634
   },
   "total": {
     "raw": 2622594,

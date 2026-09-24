@@ -1,0 +1,22 @@
+{
+  "disclaimer": "Headless Chromium + SwiftShader software GL on a shared workstation (load avg 5-55). NOT reference-device evidence for ADR 0002 R01/R02; before/after comparison only.",
+  "binding": {
+    "beforeSha": "8db6646 (ed8048c + instrumentation-only commit; baseline entry chunk hash identical to ed8048c build)",
+    "afterSha": "0b5ad7e (final src/ + vite.config.ts)",
+    "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+    "cpu": "AMD Ryzen 9 9950X 16-Core", "node": "v22.23.2",
+    "browser": "Playwright 1.55 chromium 140.0.7339.16 headless, --use-angle=swiftshader, 1280x720, backend webgl2",
+    "seed": 1047, "level": "sector-01", "frameRoute": "?demo=upper&speed=1", "quality": "default (auto->medium), governor live"
+  },
+  "sim_node_interleaved": { "file": "sim-ab.json", "meanUs": [32.8, 11.4], "p95Us": [53.3, 18.0], "note": "3 interleaved rounds x 20 runs x 7312 ticks" },
+  "sim_node_quiet": { "files": ["sim-before.json", "sim-after-clone.json"], "meanUs": [28.2, 9.3], "structuredCloneShareBefore": 0.82 },
+  "compose_node_real_wasm": { "files": ["semantic-compose-upper.json", "semantic-compose-lower.json"], "usPerFrame": { "upper": [439.1, 1.5], "lower": [430.3, 1.1] } },
+  "browser_frame_pair1": { "files": ["browser-before.json", "browser-after.json"], "frameMs": { "mean": [1.81, 0.81], "p50": [1.5, 0.6], "p95": [2.5, 1.2] }, "graphMeanMs": [0.668, 0.008], "ticksMeanMs": [0.132, 0.057], "renderMeanMs_confounded": [0.925, 0.684] },
+  "browser_frame_pair2_contaminated": { "files": ["browser-before-frames2.json", "browser-after-frames2.json"], "graphMeanMs": [0.620, 0.024], "note": "load 22->55, after run saturated (1919 vs 2931 frames); only the graph component is claimed" },
+  "main_thread_profile_15s": { "files": ["profile-before.json", "profile-after.json"], "busyMs": [1351, 1137] },
+  "startup_unthrottled_interleaved_n12": { "file": "ab-startup.json", "controllableMedianMs": [333.2, 322.2], "pairedDiffMs": 0.3, "verdict": "no change" },
+  "startup_50mbps_interleaved_n10_final": { "file": "ab-startup-throttled-split-only.json", "pairedDiffControllableMs": 8.3, "verdict": "neutral within noise" },
+  "rejected_modulepreload_50mbps_n10": { "file": "ab-startup-throttled-preload-only.json", "pairedDiffControllableMs": 31.4, "verdict": "regression, reverted" },
+  "bytes_before_controllable": [456611, 457336],
+  "golden": { "upper": { "ticks": 3812, "final": "ddb976c986ef06ca", "perTickChain": "7439aaeabe70db7a" }, "lower": { "ticks": 3500, "final": "bbdedb2d2bd95d87", "perTickChain": "258e791bedb193ce" }, "identical": true }
+}

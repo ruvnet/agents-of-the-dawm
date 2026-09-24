@@ -1,0 +1,189 @@
+{
+  "note": "Interleaved before(8db6646 src/sim)/after(HEAD src/sim) node runs, same process shape; shared workstation, load avg ~30-44 during these runs.",
+  "runs": [
+    {
+      "which": "before",
+      "round": 1,
+      "env": {
+        "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+        "node": "v22.23.2",
+        "runs": 20,
+        "warmup": 5,
+        "ticksPerRun": 7312
+      },
+      "nsPerTick": {
+        "mean": 32847,
+        "p50": 29850,
+        "p95": 53730,
+        "p99": 59540,
+        "max": 1920709
+      },
+      "runTotalMs": {
+        "min": 220.118974,
+        "median": 230.292058
+      },
+      "structuredCloneFinalStateNs": 25767,
+      "finalStateBytesJson": 3252,
+      "commandsHash": "d1f47d643d872939"
+    },
+    {
+      "which": "after",
+      "round": 1,
+      "env": {
+        "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+        "node": "v22.23.2",
+        "runs": 20,
+        "warmup": 5,
+        "ticksPerRun": 7312
+      },
+      "nsPerTick": {
+        "mean": 11250,
+        "p50": 10050,
+        "p95": 17460,
+        "p99": 20610,
+        "max": 2013989
+      },
+      "runTotalMs": {
+        "min": 76.155583,
+        "median": 79.052522
+      },
+      "structuredCloneFinalStateNs": 26719,
+      "finalStateBytesJson": 3252,
+      "commandsHash": "d1f47d643d872939"
+    },
+    {
+      "which": "before",
+      "round": 2,
+      "env": {
+        "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+        "node": "v22.23.2",
+        "runs": 20,
+        "warmup": 5,
+        "ticksPerRun": 7312
+      },
+      "nsPerTick": {
+        "mean": 32925,
+        "p50": 30060,
+        "p95": 53330,
+        "p99": 58700,
+        "max": 2145229
+      },
+      "runTotalMs": {
+        "min": 220.563244,
+        "median": 234.127138
+      },
+      "structuredCloneFinalStateNs": 27408,
+      "finalStateBytesJson": 3252,
+      "commandsHash": "d1f47d643d872939"
+    },
+    {
+      "which": "after",
+      "round": 2,
+      "env": {
+        "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+        "node": "v22.23.2",
+        "runs": 20,
+        "warmup": 5,
+        "ticksPerRun": 7312
+      },
+      "nsPerTick": {
+        "mean": 11694,
+        "p50": 10210,
+        "p95": 18800,
+        "p99": 21880,
+        "max": 2303159
+      },
+      "runTotalMs": {
+        "min": 75.123253,
+        "median": 83.819669
+      },
+      "structuredCloneFinalStateNs": 28415,
+      "finalStateBytesJson": 3252,
+      "commandsHash": "d1f47d643d872939"
+    },
+    {
+      "which": "before",
+      "round": 3,
+      "env": {
+        "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+        "node": "v22.23.2",
+        "runs": 20,
+        "warmup": 5,
+        "ticksPerRun": 7312
+      },
+      "nsPerTick": {
+        "mean": 32761,
+        "p50": 29900,
+        "p95": 53190,
+        "p99": 59170,
+        "max": 2225558
+      },
+      "runTotalMs": {
+        "min": 222.424112,
+        "median": 234.148307
+      },
+      "structuredCloneFinalStateNs": 27951,
+      "finalStateBytesJson": 3252,
+      "commandsHash": "d1f47d643d872939"
+    },
+    {
+      "which": "after",
+      "round": 3,
+      "env": {
+        "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+        "node": "v22.23.2",
+        "runs": 20,
+        "warmup": 5,
+        "ticksPerRun": 7312
+      },
+      "nsPerTick": {
+        "mean": 11361,
+        "p50": 9930,
+        "p95": 18010,
+        "p99": 21430,
+        "max": 1019779
+      },
+      "runTotalMs": {
+        "min": 74.150664,
+        "median": 76.867492
+      },
+      "structuredCloneFinalStateNs": 29319,
+      "finalStateBytesJson": 3252,
+      "commandsHash": "d1f47d643d872939"
+    }
+  ],
+  "before": {
+    "meanNsPerTick": [
+      32847,
+      32925,
+      32761
+    ],
+    "p95NsPerTick": [
+      53730,
+      53330,
+      53190
+    ],
+    "runTotalMsMedian": [
+      230.3,
+      234.1,
+      234.1
+    ]
+  },
+  "after": {
+    "meanNsPerTick": [
+      11250,
+      11694,
+      11361
+    ],
+    "p95NsPerTick": [
+      17460,
+      18800,
+      18010
+    ],
+    "runTotalMsMedian": [
+      79.1,
+      83.8,
+      76.9
+    ]
+  }
+}

@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 // W7.PERF.01 note: a `modulepreload` hint for the lazily imported three/webgpu chunk was tried and
 // REJECTED: under the R01 network (50 Mbps, cold cache) it competed with the entry chunk for
 // bandwidth and delayed the first controllable frame by ~30 ms (interleaved A/B, see
-// bench/perf/REPORT.md). The dynamic import stays as the renderer's lazy load.
+// bench/perf/results/ab-startup-throttled*.json). The dynamic import stays as the renderer's lazy load.
 export default defineConfig({
   base: './',
   build: {
