@@ -25,6 +25,8 @@ export interface AppDeps {
   createUi: () => GameUi;
   createAudioEngine: () => AudioEngine;
   createNarrativeDirector: () => NarrativeDirector;
+  /** Once-only lines already played, derived from a restored state (W5: SaveRecord has no played list). */
+  playedFromState?: (s: SimState) => readonly string[];
   objectiveFor: (s: SimState) => Objective;
   createSaveStore: () => SaveStore;
   defaultSettings: () => UiSettings;
@@ -57,7 +59,8 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   const now = deps.now ?? (() => performance.now());
   const raf = deps.raf ?? ((cb) => requestAnimationFrame(cb));
   const errors: string[] = [];
-  const store = deps.createSaveStore();
+  const store = deps.createSaveStore() as SaveStore & { probe?: () => Promise<unknown> };
+  await store.probe?.().catch(() => undefined);
   const stored = await store.loadSettings().catch(() => null);
   let settings: UiSettings = (stored && deps.validateSettings ? deps.validateSettings(stored) : stored) ?? deps.defaultSettings();
   const existing = await store.load().catch(() => null);
@@ -197,7 +200,7 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     }
     prev = sim.state() as SimState;
     commands.length = 0;
-    narrative.reset([]);
+    narrative.reset(deps.playedFromState ? deps.playedFromState(sim.state() as SimState) : []);
     captions = [];
     stepper.reset();
     paused = false;
@@ -226,6 +229,10 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   }, settings, { hasSave: !!existing });
   audio.setSettings(settings.audio);
   input.attach(canvasHost);
+  // Autoplay policy: retry audio unlock on the next gesture while suspended (W5 note).
+  const regesture = () => { if (audio.state() === 'suspended' || audio.state() === 'locked') void audio.unlock(); };
+  window.addEventListener('pointerdown', regesture);
+  window.addEventListener('keydown', regesture);
   await initRenderer(settings.renderer);
   // Draw the start state behind the menu so the first view is the game (ADR 0001).
   const r0 = renderer as RendererAdapter | null;
