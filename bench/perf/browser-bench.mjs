@@ -23,6 +23,12 @@ const label = opt('label', 'run');
 const startupRuns = Number(opt('startup-runs', '7'));
 const frameRuns = Number(opt('frame-runs', '1'));
 const verify = !args.includes('--no-verify');
+// Serve a prebuilt dist (e.g. the baseline build) instead of ./dist; its source SHA is passed in.
+const distDir = opt('dist', 'dist');
+const distSha = opt('dist-sha', null);
+// ADR 0002 R01 network: emulated 50 Mbps down (plus 20 ms latency, our choice), cold cache.
+const throttle = args.includes('--throttle');
+const skipFrames = args.includes('--startup-only');
 const PORT = 4174;
 const BASE = `http://127.0.0.1:${PORT}`;
 
@@ -43,14 +49,16 @@ async function waitHttp(url, ms = 30000) {
   }
 }
 
-const server = spawn('node_modules/.bin/vite', ['preview', '--host', '127.0.0.1', '--port', String(PORT), '--strictPort'], { stdio: 'ignore' });
+const server = spawn('node_modules/.bin/vite', ['preview', '--host', '127.0.0.1', '--port', String(PORT), '--strictPort', '--outDir', distDir], { stdio: 'ignore' });
 const stopServer = () => { try { server.kill('SIGTERM'); } catch { /* gone */ } };
 process.on('exit', stopServer);
 
 const env = {
   label,
   date: new Date().toISOString(),
-  sourceSha: execSync('git rev-parse HEAD').toString().trim(),
+  sourceSha: distSha ?? execSync('git rev-parse HEAD').toString().trim(),
+  distDir,
+  network: throttle ? { downloadMbps: 50, uploadMbps: 10, latencyMs: 20 } : 'unthrottled localhost',
   dirty: execSync('git status --porcelain -- src vite.config.ts').toString().trim().length > 0,
   lockfileSha256: createHash('sha256').update(readFileSync('package-lock.json')).digest('hex'),
   cpu: cpus()[0]?.model,
@@ -67,6 +75,13 @@ async function page(ctx) {
   await p.setViewportSize({ width: 1280, height: 720 });
   const consoleErrors = [];
   p.on('pageerror', (e) => consoleErrors.push(String(e)));
+  if (throttle) {
+    const cdp = await ctx.newCDPSession(p);
+    await cdp.send('Network.enable');
+    await cdp.send('Network.emulateNetworkConditions', {
+      offline: false, latency: 20, downloadThroughput: (50e6 / 8), uploadThroughput: (10e6 / 8),
+    });
+  }
   return { p, consoleErrors };
 }
 
@@ -108,7 +123,7 @@ try {
   }
 
   // ---- 2. frame CPU over a full upper playthrough at speed 1
-  for (let i = 0; i < frameRuns; i++) {
+  for (let i = 0; i < (skipFrames ? 0 : frameRuns); i++) {
     const ctx = await browser.newContext();
     const { p, consoleErrors } = await page(ctx);
     const t0 = Date.now();
@@ -135,7 +150,7 @@ try {
   }
 
   // ---- 3. both demo routes still complete, zero errors
-  if (verify) {
+  if (verify && !skipFrames) {
     for (const route of ['upper', 'lower']) {
       const ctx = await browser.newContext();
       const { p, consoleErrors } = await page(ctx);
