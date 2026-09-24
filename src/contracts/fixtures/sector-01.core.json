@@ -1,0 +1,662 @@
+{
+ "version": 1,
+ "id": "sector-01",
+ "provenance": {
+  "source": "ruv://agents-of-the-dawm/level/sector-01/manifest-v1",
+  "modelVersion": "floodline-authored-sim-v1",
+  "calibrationVersion": "fictional-scene-enu-v1",
+  "privacyDecision": "synthetic:no-personal-data",
+  "syntheticEpochMs": 1893456000000
+ },
+ "entities": [
+  {
+   "id": 1,
+   "key": "west-approach",
+   "kind": "room",
+   "label": "West approach"
+  },
+  {
+   "id": 2,
+   "key": "inspection-wall",
+   "kind": "room",
+   "label": "Inspection wall"
+  },
+  {
+   "id": 3,
+   "key": "maintenance-deck",
+   "kind": "room",
+   "label": "Maintenance deck"
+  },
+  {
+   "id": 4,
+   "key": "floating-gantry",
+   "kind": "room",
+   "label": "Floating gantry"
+  },
+  {
+   "id": 5,
+   "key": "junction",
+   "kind": "room",
+   "label": "Route junction"
+  },
+  {
+   "id": 6,
+   "key": "upper-lattice",
+   "kind": "room",
+   "label": "Upper lattice"
+  },
+  {
+   "id": 7,
+   "key": "lower-conduit",
+   "kind": "room",
+   "label": "Lower conduit"
+  },
+  {
+   "id": 8,
+   "key": "keeper-arena",
+   "kind": "room",
+   "label": "Gate keeper arena"
+  },
+  {
+   "id": 9,
+   "key": "control-room",
+   "kind": "room",
+   "label": "Pressure control room"
+  },
+  {
+   "id": 101,
+   "key": "pressure-map",
+   "kind": "object_anchor",
+   "label": "Waist-high pressure map",
+   "roomKey": "west-approach"
+  },
+  {
+   "id": 102,
+   "key": "anchor-a1-inspection",
+   "kind": "object_anchor",
+   "label": "Inspection anchor (floor/wall)",
+   "roomKey": "inspection-wall"
+  },
+  {
+   "id": 103,
+   "key": "anchor-a2-ledge",
+   "kind": "object_anchor",
+   "label": "Ledge anchor (wall/ledge)",
+   "roomKey": "inspection-wall"
+  },
+  {
+   "id": 104,
+   "key": "anchor-gantry",
+   "kind": "object_anchor",
+   "label": "Gantry rail anchor",
+   "roomKey": "floating-gantry"
+  },
+  {
+   "id": 105,
+   "key": "channel-marker",
+   "kind": "object_anchor",
+   "label": "Old relief channel marker",
+   "roomKey": "floating-gantry"
+  },
+  {
+   "id": 106,
+   "key": "anchor-lattice",
+   "kind": "object_anchor",
+   "label": "Lattice anchor",
+   "roomKey": "upper-lattice"
+  },
+  {
+   "id": 107,
+   "key": "anchor-conduit",
+   "kind": "object_anchor",
+   "label": "Conduit anchor",
+   "roomKey": "lower-conduit"
+  },
+  {
+   "id": 108,
+   "key": "valve-1",
+   "kind": "object_anchor",
+   "label": "Conduit valve one",
+   "roomKey": "lower-conduit"
+  },
+  {
+   "id": 109,
+   "key": "valve-2",
+   "kind": "object_anchor",
+   "label": "Conduit valve two",
+   "roomKey": "lower-conduit"
+  },
+  {
+   "id": 110,
+   "key": "anchor-keeper-left",
+   "kind": "object_anchor",
+   "label": "Keeper arena left anchor",
+   "roomKey": "keeper-arena"
+  },
+  {
+   "id": 111,
+   "key": "anchor-keeper-right",
+   "kind": "object_anchor",
+   "label": "Keeper arena right anchor",
+   "roomKey": "keeper-arena"
+  },
+  {
+   "id": 112,
+   "key": "anchor-panel",
+   "kind": "object_anchor",
+   "label": "Floating panel anchor",
+   "roomKey": "keeper-arena"
+  },
+  {
+   "id": 113,
+   "key": "control-screen",
+   "kind": "object_anchor",
+   "label": "Local pressure control screen",
+   "roomKey": "control-room"
+  },
+  {
+   "id": 114,
+   "key": "relief-sensor",
+   "kind": "object_anchor",
+   "label": "In-world relief channel presence sensor (fictional)",
+   "roomKey": "control-room"
+  },
+  {
+   "id": 115,
+   "key": "reservoir",
+   "kind": "object_anchor",
+   "label": "Storm reservoir",
+   "roomKey": "control-room"
+  },
+  {
+   "id": 116,
+   "key": "protected-pump",
+   "kind": "object_anchor",
+   "label": "Protected pump chamber",
+   "roomKey": "keeper-arena"
+  },
+  {
+   "id": 117,
+   "key": "locked-gate",
+   "kind": "object_anchor",
+   "label": "Locked floodgate",
+   "roomKey": "keeper-arena"
+  },
+  {
+   "id": 118,
+   "key": "tram",
+   "kind": "object_anchor",
+   "label": "Stranded tram (four occupants, implied)",
+   "roomKey": "control-room"
+  },
+  {
+   "id": 119,
+   "key": "occupied-street",
+   "kind": "object_anchor",
+   "label": "Occupied street outlet",
+   "roomKey": "control-room"
+  },
+  {
+   "id": 120,
+   "key": "relief-channel",
+   "kind": "object_anchor",
+   "label": "Physical relief channel",
+   "roomKey": "floating-gantry"
+  },
+  {
+   "id": 301,
+   "key": "inspection-wall-face",
+   "kind": "wall",
+   "label": "Ceramic inspection wall face",
+   "roomKey": "inspection-wall"
+  },
+  {
+   "id": 302,
+   "key": "west-seawall",
+   "kind": "wall",
+   "label": "West storm barrier",
+   "roomKey": "west-approach"
+  },
+  {
+   "id": 201,
+   "key": "door-west-approach--inspection-wall",
+   "kind": "doorway",
+   "label": "Passage West approach to Inspection wall",
+   "roomKey": "west-approach"
+  },
+  {
+   "id": 202,
+   "key": "door-inspection-wall--maintenance-deck",
+   "kind": "doorway",
+   "label": "Passage Inspection wall to Maintenance deck",
+   "roomKey": "inspection-wall"
+  },
+  {
+   "id": 203,
+   "key": "door-maintenance-deck--floating-gantry",
+   "kind": "doorway",
+   "label": "Passage Maintenance deck to Floating gantry",
+   "roomKey": "maintenance-deck"
+  },
+  {
+   "id": 204,
+   "key": "door-floating-gantry--junction",
+   "kind": "doorway",
+   "label": "Passage Floating gantry to Route junction",
+   "roomKey": "floating-gantry"
+  },
+  {
+   "id": 205,
+   "key": "door-junction--upper-lattice",
+   "kind": "doorway",
+   "label": "Passage Route junction to Upper lattice",
+   "roomKey": "junction"
+  },
+  {
+   "id": 206,
+   "key": "door-junction--lower-conduit",
+   "kind": "doorway",
+   "label": "Passage Route junction to Lower conduit",
+   "roomKey": "junction"
+  },
+  {
+   "id": 207,
+   "key": "door-upper-lattice--keeper-arena",
+   "kind": "doorway",
+   "label": "Passage Upper lattice to Gate keeper arena",
+   "roomKey": "upper-lattice"
+  },
+  {
+   "id": 208,
+   "key": "door-lower-conduit--keeper-arena",
+   "kind": "doorway",
+   "label": "Passage Lower conduit to Gate keeper arena",
+   "roomKey": "lower-conduit"
+  },
+  {
+   "id": 209,
+   "key": "door-keeper-arena--control-room",
+   "kind": "doorway",
+   "label": "Passage Gate keeper arena to Pressure control room",
+   "roomKey": "keeper-arena"
+  }
+ ],
+ "semanticEdges": [
+  {
+   "id": 20001,
+   "from": "pressure-map",
+   "to": "west-approach",
+   "rel": "located_in"
+  },
+  {
+   "id": 20002,
+   "from": "anchor-a1-inspection",
+   "to": "inspection-wall",
+   "rel": "located_in"
+  },
+  {
+   "id": 20003,
+   "from": "anchor-a2-ledge",
+   "to": "inspection-wall",
+   "rel": "located_in"
+  },
+  {
+   "id": 20004,
+   "from": "anchor-gantry",
+   "to": "floating-gantry",
+   "rel": "located_in"
+  },
+  {
+   "id": 20005,
+   "from": "channel-marker",
+   "to": "floating-gantry",
+   "rel": "located_in"
+  },
+  {
+   "id": 20006,
+   "from": "anchor-lattice",
+   "to": "upper-lattice",
+   "rel": "located_in"
+  },
+  {
+   "id": 20007,
+   "from": "anchor-conduit",
+   "to": "lower-conduit",
+   "rel": "located_in"
+  },
+  {
+   "id": 20008,
+   "from": "valve-1",
+   "to": "lower-conduit",
+   "rel": "located_in"
+  },
+  {
+   "id": 20009,
+   "from": "valve-2",
+   "to": "lower-conduit",
+   "rel": "located_in"
+  },
+  {
+   "id": 20010,
+   "from": "anchor-keeper-left",
+   "to": "keeper-arena",
+   "rel": "located_in"
+  },
+  {
+   "id": 20011,
+   "from": "anchor-keeper-right",
+   "to": "keeper-arena",
+   "rel": "located_in"
+  },
+  {
+   "id": 20012,
+   "from": "anchor-panel",
+   "to": "keeper-arena",
+   "rel": "located_in"
+  },
+  {
+   "id": 20013,
+   "from": "control-screen",
+   "to": "control-room",
+   "rel": "located_in"
+  },
+  {
+   "id": 20014,
+   "from": "relief-sensor",
+   "to": "control-room",
+   "rel": "located_in"
+  },
+  {
+   "id": 20015,
+   "from": "reservoir",
+   "to": "control-room",
+   "rel": "located_in"
+  },
+  {
+   "id": 20016,
+   "from": "protected-pump",
+   "to": "keeper-arena",
+   "rel": "located_in"
+  },
+  {
+   "id": 20017,
+   "from": "locked-gate",
+   "to": "keeper-arena",
+   "rel": "located_in"
+  },
+  {
+   "id": 20018,
+   "from": "tram",
+   "to": "control-room",
+   "rel": "located_in"
+  },
+  {
+   "id": 20019,
+   "from": "occupied-street",
+   "to": "control-room",
+   "rel": "located_in"
+  },
+  {
+   "id": 20020,
+   "from": "relief-channel",
+   "to": "floating-gantry",
+   "rel": "located_in"
+  },
+  {
+   "id": 20021,
+   "from": "inspection-wall-face",
+   "to": "inspection-wall",
+   "rel": "located_in"
+  },
+  {
+   "id": 20022,
+   "from": "west-seawall",
+   "to": "west-approach",
+   "rel": "located_in"
+  },
+  {
+   "id": 20023,
+   "from": "door-west-approach--inspection-wall",
+   "to": "west-approach",
+   "rel": "located_in"
+  },
+  {
+   "id": 20024,
+   "from": "door-inspection-wall--maintenance-deck",
+   "to": "inspection-wall",
+   "rel": "located_in"
+  },
+  {
+   "id": 20025,
+   "from": "door-maintenance-deck--floating-gantry",
+   "to": "maintenance-deck",
+   "rel": "located_in"
+  },
+  {
+   "id": 20026,
+   "from": "door-floating-gantry--junction",
+   "to": "floating-gantry",
+   "rel": "located_in"
+  },
+  {
+   "id": 20027,
+   "from": "door-junction--upper-lattice",
+   "to": "junction",
+   "rel": "located_in"
+  },
+  {
+   "id": 20028,
+   "from": "door-junction--lower-conduit",
+   "to": "junction",
+   "rel": "located_in"
+  },
+  {
+   "id": 20029,
+   "from": "door-upper-lattice--keeper-arena",
+   "to": "upper-lattice",
+   "rel": "located_in"
+  },
+  {
+   "id": 20030,
+   "from": "door-lower-conduit--keeper-arena",
+   "to": "lower-conduit",
+   "rel": "located_in"
+  },
+  {
+   "id": 20031,
+   "from": "door-keeper-arena--control-room",
+   "to": "keeper-arena",
+   "rel": "located_in"
+  },
+  {
+   "id": 20032,
+   "from": "west-approach",
+   "to": "inspection-wall",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20033,
+   "from": "inspection-wall",
+   "to": "maintenance-deck",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20034,
+   "from": "maintenance-deck",
+   "to": "floating-gantry",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20035,
+   "from": "floating-gantry",
+   "to": "junction",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20036,
+   "from": "junction",
+   "to": "upper-lattice",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20037,
+   "from": "junction",
+   "to": "lower-conduit",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20038,
+   "from": "upper-lattice",
+   "to": "keeper-arena",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20039,
+   "from": "lower-conduit",
+   "to": "keeper-arena",
+   "rel": "adjacent_to"
+  },
+  {
+   "id": 20040,
+   "from": "keeper-arena",
+   "to": "control-room",
+   "rel": "adjacent_to"
+  }
+ ],
+ "derivedStates": [
+  {
+   "id": 10001,
+   "key": "channel-located",
+   "subjectKey": "channel-marker",
+   "edgeId": 20201,
+   "statement": "relief-channel physically located at old marker in authored scenario"
+  },
+  {
+   "id": 10002,
+   "key": "sensor-verified",
+   "subjectKey": "relief-sensor",
+   "edgeId": 20202,
+   "statement": "relief-channel clear in authored scenario"
+  },
+  {
+   "id": 10003,
+   "key": "edge-restored",
+   "subjectKey": "relief-channel",
+   "edgeId": 20203,
+   "statement": "approved reservoir-to-relief route restored in game pressure graph"
+  },
+  {
+   "id": 10004,
+   "key": "transfer-authorized",
+   "subjectKey": "control-screen",
+   "edgeId": 20204,
+   "statement": "pressure transfer to relief-channel explicitly authorized by player"
+  },
+  {
+   "id": 10005,
+   "key": "gate-opened",
+   "subjectKey": "locked-gate",
+   "edgeId": 20205,
+   "statement": "floodgate opened after safe pressure transfer in authored scenario"
+  }
+ ],
+ "pressure": {
+  "fixtureId": "sector-01/pressure-scenario-v1",
+  "unit": "kPa",
+  "nodes": [
+   {
+    "key": "reservoir",
+    "label": "Reservoir",
+    "entityKey": "reservoir"
+   },
+   {
+    "key": "protected-pump",
+    "label": "Protected pump",
+    "entityKey": "protected-pump"
+   },
+   {
+    "key": "locked-gate",
+    "label": "Locked gate",
+    "entityKey": "locked-gate"
+   },
+   {
+    "key": "tram",
+    "label": "Tram",
+    "entityKey": "tram"
+   },
+   {
+    "key": "occupied-street",
+    "label": "Occupied street",
+    "entityKey": "occupied-street"
+   },
+   {
+    "key": "relief-channel",
+    "label": "Relief channel",
+    "entityKey": "relief-channel"
+   }
+  ],
+  "routes": [
+   {
+    "id": "reservoir-to-pump",
+    "from": "reservoir",
+    "to": "protected-pump",
+    "physicalPipePresent": true,
+    "approved": true,
+    "safeCapacity": false
+   },
+   {
+    "id": "reservoir-to-street",
+    "from": "reservoir",
+    "to": "occupied-street",
+    "physicalPipePresent": true,
+    "approved": false,
+    "safeCapacity": false
+   },
+   {
+    "id": "reservoir-to-relief",
+    "from": "reservoir",
+    "to": "relief-channel",
+    "physicalPipePresent": true,
+    "approved": false,
+    "safeCapacity": true
+   }
+  ],
+  "previews": [
+   {
+    "destination": "occupied-street",
+    "occupied": true,
+    "projectedLoad": 180,
+    "safeThreshold": 120,
+    "pumpLoadAfter": 95,
+    "pumpThreshold": 200,
+    "reasonKey": "reason.street.occupied"
+   },
+   {
+    "destination": "protected-pump",
+    "occupied": false,
+    "projectedLoad": 260,
+    "safeThreshold": 200,
+    "pumpLoadAfter": 260,
+    "pumpThreshold": 200,
+    "reasonKey": "reason.pump.overload"
+   },
+   {
+    "destination": "relief-channel",
+    "occupied": false,
+    "projectedLoad": 150,
+    "safeThreshold": 220,
+    "pumpLoadAfter": 95,
+    "pumpThreshold": 200,
+    "reasonKey": "reason.relief.safe"
+   }
+  ],
+  "reasons": {
+   "reason.street.occupied": "People are present in the street. Projected impact exceeds the safe limit.",
+   "reason.pump.overload": "The pump chamber overloads. Projected load exceeds its tolerance.",
+   "reason.relief.safe": "Relief channel verified clear of people and within tolerance.",
+   "reason.relief.unverified": "Relief channel not yet verified. Scan its in-world sensor first.",
+   "reason.relief.unrestored": "Approved route missing. Restore the reservoir to relief channel connection first.",
+   "reason.relief.unlocated": "Relief channel not yet located in the district."
+  }
+ }
+}

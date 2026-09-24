@@ -1,0 +1,290 @@
+{
+ "version": 1,
+ "locale": "en",
+ "lines": [
+  {
+   "id": "S01",
+   "speaker": "Kest",
+   "text": "Tala, the tram is stopped beyond the gate. Four people aboard.",
+   "trigger": "DialogueCue:first-move",
+   "once": true
+  },
+  {
+   "id": "S02",
+   "speaker": "Tala",
+   "text": "Why will the gate not open?",
+   "trigger": "DialogueCue:tram-in-view",
+   "once": true
+  },
+  {
+   "id": "S03",
+   "speaker": "Kest",
+   "text": "DAWM locked it to protect the pumps. Its map shows nowhere safe to send the pressure.",
+   "trigger": "DialogueCue:map-inspected",
+   "once": true
+  },
+  {
+   "id": "S04",
+   "speaker": "Tala",
+   "text": "Then we find the missing route.",
+   "trigger": "DialogueCue:map-closed",
+   "once": true
+  },
+  {
+   "id": "S05",
+   "speaker": "Kest",
+   "text": "Use the inspection anchor. Wait for its crescent to turn white.",
+   "trigger": "DialogueCue:enter-anchor-a1",
+   "once": true
+  },
+  {
+   "id": "S06",
+   "speaker": "Tala",
+   "text": "So down is a setting.",
+   "trigger": "DialogueCue:first-shift",
+   "once": true
+  },
+  {
+   "id": "S07",
+   "speaker": "Kest",
+   "text": "Only inside a marked field. Follow the white seams.",
+   "trigger": "DialogueCue:begin-wall-walk",
+   "once": true
+  },
+  {
+   "id": "S08",
+   "speaker": "Kest",
+   "text": "Flood protocol sees you as an obstruction. Disable those skimmers.",
+   "trigger": "DialogueCue:first-skimmer-wakes",
+   "once": true
+  },
+  {
+   "id": "S09",
+   "speaker": "Tala",
+   "text": "They are doing what the map tells them.",
+   "trigger": "DialogueCue:first-skimmer-disabled",
+   "once": true
+  },
+  {
+   "id": "S10",
+   "speaker": "Kest",
+   "text": "Then we correct the map.",
+   "trigger": "DialogueCue:deck-cleared",
+   "once": true
+  },
+  {
+   "id": "S11",
+   "speaker": "Kest",
+   "text": "The gantry is still attached to its rail.",
+   "trigger": "DialogueCue:preview-gantry",
+   "once": true
+  },
+  {
+   "id": "S12",
+   "speaker": "Tala",
+   "text": "Change the rail's down; move the bridge.",
+   "trigger": "DialogueCue:gantry-settled",
+   "once": true
+  },
+  {
+   "id": "S13",
+   "speaker": "Tala",
+   "text": "The relief channel is still here.",
+   "trigger": "DialogueCue:channel-marker",
+   "once": true
+  },
+  {
+   "id": "S14",
+   "speaker": "Kest",
+   "text": "The new district map dropped its connection.",
+   "trigger": "DialogueCue:channel-marker",
+   "once": true,
+   "after": "S13"
+  },
+  {
+   "id": "S15",
+   "speaker": "Kest",
+   "text": "Upper route is exposed and defended. Lower route is flooded. Both lead to the lock.",
+   "trigger": "DialogueCue:enter-junction",
+   "once": true
+  },
+  {
+   "id": "S16U",
+   "speaker": "Tala",
+   "text": "I am taking the lattice.",
+   "trigger": "DialogueCue:choose-upper",
+   "once": true,
+   "branch": "upper"
+  },
+  {
+   "id": "S16L",
+   "speaker": "Tala",
+   "text": "I am taking the conduit.",
+   "trigger": "DialogueCue:choose-lower",
+   "once": true,
+   "branch": "lower"
+  },
+  {
+   "id": "S17U",
+   "speaker": "Kest",
+   "text": "That charge cell can stun the keeper through its shield.",
+   "trigger": "DialogueCue:clear-upper",
+   "once": true,
+   "branch": "upper"
+  },
+  {
+   "id": "S17L",
+   "speaker": "Kest",
+   "text": "The valves bought us more time between surges.",
+   "trigger": "DialogueCue:clear-lower",
+   "once": true,
+   "branch": "lower"
+  },
+  {
+   "id": "S18",
+   "speaker": "Kest",
+   "text": "The keeper is holding the gate. Expose its three seals.",
+   "trigger": "DialogueCue:enter-arena",
+   "once": true
+  },
+  {
+   "id": "S19",
+   "speaker": "Tala",
+   "text": "I can make it fall sideways.",
+   "trigger": "DialogueCue:first-keeper-preview",
+   "once": true
+  },
+  {
+   "id": "S20",
+   "speaker": "Kest",
+   "text": "One down. Its shield follows gravity.",
+   "trigger": "DialogueCue:seal-1",
+   "once": true
+  },
+  {
+   "id": "S21",
+   "speaker": "Tala",
+   "text": "Last one. Get the district map ready.",
+   "trigger": "DialogueCue:seal-2",
+   "once": true
+  },
+  {
+   "id": "S22",
+   "speaker": "Kest",
+   "text": "Lock released. The gate still needs somewhere safe to send the water.",
+   "trigger": "DialogueCue:keeper-disabled",
+   "once": true
+  },
+  {
+   "id": "S23",
+   "speaker": "Kest",
+   "text": "The keeper was guarding the pressure lock.",
+   "trigger": "DialogueCue:panel-opened",
+   "once": true
+  },
+  {
+   "id": "S24",
+   "speaker": "Tala",
+   "text": "That missing channel is our outlet.",
+   "trigger": "DialogueCue:relief-selected",
+   "once": true
+  },
+  {
+   "id": "S25",
+   "speaker": "Kest",
+   "text": "Scan it first. The last survey is old.",
+   "trigger": "DialogueCue:before-scan",
+   "once": true
+  },
+  {
+   "id": "S26",
+   "speaker": "Kest",
+   "text": "Clear of people. The channel can take this pressure.",
+   "trigger": "DialogueCue:sensor-verified",
+   "once": true
+  },
+  {
+   "id": "S27",
+   "speaker": "Kest",
+   "text": "The street is occupied. The pump chamber overloads. The relief channel stays within tolerance.",
+   "trigger": "DialogueCue:preview-opened",
+   "once": true
+  },
+  {
+   "id": "S28",
+   "speaker": "Tala",
+   "text": "The route is restored. I authorize the transfer.",
+   "trigger": "DialogueCue:authorized",
+   "once": true
+  },
+  {
+   "id": "D01",
+   "speaker": "DAWM",
+   "text": "RELIEF CHANNEL: VERIFIED / PRESSURE TRANSFER: SAFE / GATE: OPEN",
+   "trigger": "DialogueCue:authorized",
+   "once": true,
+   "display": true,
+   "after": "S28"
+  },
+  {
+   "id": "S29",
+   "speaker": "Kest",
+   "text": "Pressure down. Gate open. Four people aboard.",
+   "trigger": "DialogueCue:tram-crossed",
+   "once": true
+  },
+  {
+   "id": "S30",
+   "speaker": "Tala",
+   "text": "One missing route nearly trapped them.",
+   "trigger": "DialogueCue:wider-map",
+   "once": true
+  },
+  {
+   "id": "S31",
+   "speaker": "Kest",
+   "text": "And I found two more.",
+   "trigger": "DialogueCue:more-outlines",
+   "once": true,
+   "after": "S30"
+  }
+ ],
+ "cues": [
+  {
+   "id": "C-surge-horn",
+   "speaker": null,
+   "text": "[surge horn]",
+   "trigger": "SurgeTelegraph:*"
+  },
+  {
+   "id": "C-tram-bell",
+   "speaker": null,
+   "text": "[tram bell]",
+   "trigger": "DialogueCue:tram-in-view"
+  },
+  {
+   "id": "C-water-surge",
+   "speaker": null,
+   "text": "[water surge]",
+   "trigger": "Surge:*"
+  },
+  {
+   "id": "C-orientation",
+   "speaker": null,
+   "text": "[orientation chime]",
+   "trigger": "ShiftCommitted:*"
+  },
+  {
+   "id": "C-shift-reject",
+   "speaker": null,
+   "text": "[shift rejected]",
+   "trigger": "ShiftRejected:*"
+  },
+  {
+   "id": "C-gate",
+   "speaker": null,
+   "text": "[floodgate opens]",
+   "trigger": "GateOpened:*"
+  }
+ ]
+}

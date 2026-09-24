@@ -1,0 +1,39 @@
+{
+ "version": 1,
+ "_note": "STARTER geometry by coordinator. W1 (simulation worker) owns this file in wave 1 and must author the full district.",
+ "spawn": { "up": "+y", "feet": [2, 0, 0], "yaw": 0 },
+ "colliders": [
+  { "key": "floor-west", "box": { "min": [0, -1, -4], "max": [34, 0, 4] }, "material": "ceramic" },
+  { "key": "inspection-wall", "box": { "min": [22, 0, 4], "max": [34, 14, 9] }, "material": "ceramic" },
+  { "key": "parapet", "box": { "min": [22, 14, 9], "max": [34, 16, 10] }, "material": "metal" }
+ ],
+ "killVolumes": [ { "key": "sea", "box": { "min": [-100, -60, -100], "max": [400, -3, 100] } } ],
+ "zones": [
+  { "key": "west-approach", "beat": "west-approach", "box": { "min": [0, -1, -4], "max": [24, 6, 4] } },
+  { "key": "inspection-wall", "beat": "inspection-wall", "box": { "min": [24, -1, -4], "max": [34, 17, 10] } }
+ ],
+ "anchors": [
+  {
+   "key": "anchor-a1-inspection", "entityKey": "anchor-a1-inspection", "beat": "inspection-wall",
+   "volume": { "min": [26, 0, 1.5], "max": [30, 2.5, 4] },
+   "surfaces": [
+    { "up": "+y", "glyph": "crescent-floor", "landing": { "up": "+y", "feet": [28, 0, 3], "yaw": 0 } },
+    { "up": "-z", "glyph": "crescent-wall", "landing": { "up": "-z", "feet": [28, 1.5, 4], "yaw": 0 } }
+   ],
+   "initial": 0, "target": "player"
+  }
+ ],
+ "checkpoints": [
+  { "key": "cp-spawn", "beat": "west-approach", "trigger": { "min": [0, 0, -4], "max": [4, 3, 4] }, "pose": { "up": "+y", "feet": [2, 0, 0], "yaw": 0 } }
+ ],
+ "interactables": [
+  { "key": "pressure-map", "kind": "pressure-map", "pos": [18, 1, 2.5], "radius": 1.6, "entityKey": "pressure-map" }
+ ],
+ "machines": [],
+ "dynamics": [],
+ "triggers": [],
+ "decor": [
+  { "key": "tram", "kind": "tram", "box": { "min": [240, 2, -4], "max": [252, 6, -1] } },
+  { "key": "gate", "kind": "gate", "box": { "min": [230, 0, -6], "max": [232, 14, 6] } }
+ ]
+}
