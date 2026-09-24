@@ -56,7 +56,9 @@ safe-integer check. Returned IDs are plain numbers (JSON-compatible serializer).
 
 ## Test evidence
 
-`npm run test:world` — **20 passed** (2 files). Real-module tests load the built `.wasm` bytes with the
+`npm run test:world` — **21 passed** (2 files; initMs varies per run, 17–25 ms observed).
+Geometry assertions are data-driven over `geometry.zones`, so they hold after W1 replaces the starter
+geometry; the digests below are a snapshot for the starter geometry only. Real-module tests load the built `.wasm` bytes with the
 wasm-bindgen initializer (`default({ module_or_path: bytes })`); no mocked bridge counts toward W03.
 Mocks are used only for failure injection.
 
@@ -74,7 +76,8 @@ digest); round trip export -> `new WorldgraphBridge(snapshot)` -> identical dige
 rejected (pre-check and real WASM decoder); cadence at most 10 batches/s with coalescing; unsafe IDs,
 NaN coordinates, unknown kinds and `pressure_route` rejected with the loader never called; W04 loader
 failure, invalid module and injected update failure -> `unavailable` + reason, last export kept, final
-view keeps the full pressure view plus labelled authored evidence.
+view keeps the full pressure view plus labelled authored evidence; an invalid event enqueued during
+loading makes `init` end `unavailable` (never `ready`).
 
 `npm run test:contracts` — 8 passed. `npx tsc --noEmit` — clean.
 

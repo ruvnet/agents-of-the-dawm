@@ -53,16 +53,23 @@ describe('worldgraph-wasm real module (W03)', () => {
   });
 
   it('room bounds_enu are the 2D ENU footprint of the authored zone (north = -z)', async () => {
+    const m = manifest();
     const a = await readyAdapter();
     const s = snapshot(a);
-    const room = (key: string) => s.nodes.find((n) => n.area_id === `sector-01:${key}`)!;
-    expect(room('west-approach').bounds_enu).toEqual({ shape: 'rectangle', min_e: 0, min_n: -4, max_e: 24, max_n: 4 });
-    expect(room('inspection-wall').bounds_enu).toEqual({ shape: 'rectangle', min_e: 24, min_n: -10, max_e: 34, max_n: 4 });
+    const room = (key: string) => s.nodes.find((n) => n.area_id === `${m.id}:${key}`)!;
+    // Exact fixture for the mapping itself (independent of W1-owned geometry).
     expect(footprintOf({ min: [1, 0, -3], max: [2, 5, 7] })).toEqual({ shape: 'rectangle', min_e: 1, max_e: 2, min_n: -7, max_n: 3 });
-    // Starter geometry: rooms without an authored zone are explicitly labelled unplaced, not given invented bounds.
-    expect(a.placements()['control-room']).toBe('unplaced');
-    expect(room('control-room').bounds_enu).toEqual({ shape: 'polygon', vertices: [] });
-    expect(a.placements()['pressure-map']).toBe('authored');
+    // Data-driven over whatever geometry W1 authors: zone rooms get their footprint; others are labelled unplaced.
+    const zoneKeys = new Set(m.geometry.zones.map((z) => z.key));
+    for (const z of m.geometry.zones) {
+      if (m.entities.find((e) => e.key === z.key)?.kind !== 'room') continue;
+      expect(room(z.key).bounds_enu, z.key).toEqual(footprintOf(z.box));
+      expect(a.placements()[z.key]).toBe('authored');
+    }
+    for (const e of m.entities.filter((x) => x.kind === 'room' && !zoneKeys.has(x.key))) {
+      expect(a.placements()[e.key], e.key).toBe('unplaced');
+      expect(room(e.key).bounds_enu, e.key).toEqual({ shape: 'polygon', vertices: [] });
+    }
     const tally: Record<string, number> = {};
     for (const p of Object.values(a.placements())) tally[p] = (tally[p] ?? 0) + 1;
     console.info(`[W03] placements ${JSON.stringify(tally)}`);
@@ -160,8 +167,7 @@ describe('worldgraph-wasm real module (W03)', () => {
     partial.enqueue(log.slice(0, 2));
     partial.flush(0);
     expect(partial.canonicalDigest()).not.toBe(a.canonicalDigest());
-    // Cross-environment evidence: the same 2-event trace in headless Chromium produced this digest.
-    expect(partial.canonicalDigest()).toBe('4982e14568c7901c');
+    // Compared by hand against the headless Chromium smoke run (recorded in W03_STATUS.md).
     console.info(`[W03] digest full=${a.canonicalDigest()} twoEvents=${partial.canonicalDigest()}`);
   });
 

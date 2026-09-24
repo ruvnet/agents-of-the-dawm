@@ -85,6 +85,15 @@ describe('W04 fault injection and authored fallback', () => {
     expect(ev.previewSources.every((p) => p.origin === 'authored-simulation')).toBe(true);
   });
 
+  it('an invalid event enqueued while loading makes init end unavailable, never ready', async () => {
+    const a = createWorldgraphAdapter({ loader: realLoader });
+    const pending = a.init(manifest());
+    a.enqueue([{ id: 'SensorVerified:-1:relief-sensor', tick: -1, type: 'SensorVerified', key: 'relief-sensor', payload: {} }]);
+    expect(await pending).toBe('unavailable');
+    expect(a.unavailableReason()).toMatch(/tick must be a non-negative/);
+    expect(a.canonicalDigest()).toBeNull();
+  });
+
   it('a module without the expected bindings is rejected', async () => {
     const a = createWorldgraphAdapter({ loader: async () => ({ default: async () => undefined }) });
     expect(await a.init(manifest())).toBe('unavailable');

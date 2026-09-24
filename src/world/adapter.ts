@@ -61,6 +61,7 @@ export function createWorldgraphAdapter(options: WorldAdapterOptions = {}): Worl
 
   const fail = (why: string): SemanticStatus => {
     if (status === 'disposed') return status;
+    ++generation; // an in-flight init must not later flip a failed projection to 'ready'
     status = 'unavailable';
     reason = why;
     pending.clear();
