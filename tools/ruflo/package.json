@@ -3,6 +3,6 @@
   "private": true,
   "description": "Coordination-only toolchain pinned per ADR 0005; not part of the game build",
   "devDependencies": {
-    "@claude-flow/cli": "3.25.6"
+    "@claude-flow/cli": "3.44.0"
   }
 }

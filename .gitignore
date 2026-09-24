@@ -10,3 +10,5 @@ target/
 *.log
 .claude-flow/
 .swarm/
+.claude/
+tools/ruflo/*.db

@@ -11,27 +11,27 @@ The coordinator owns the scope, contracts, dependency changes, shared configurat
 
 ## 2. Ruflo command preflight, for the future implementation
 
-The validated workflow calls for the exact `@claude-flow/cli@3.25.6` pin. The reviewed Ruflo source snapshot `0a96fb8857dabd343d71d76c3ca703100a2923bc` reported `3.44.0`, so do not substitute `@latest` or infer that source examples apply to the pin. Review the resolved package and transitive dependencies before running install scripts. Commit `package.json` and its package lock, then use the installed local binary throughout one run.
+The workflow pins the exact `@claude-flow/cli@3.44.0` release (npm `latest` on 2026-09-24, same version as the reviewed Ruflo source snapshot `0a96fb8857dabd343d71d76c3ca703100a2923bc`) in `tools/ruflo/`, separate from the game's own `package.json`. Do not substitute `@latest` at run time; a newer release needs its own tested pin change. Review the resolved package and transitive dependencies before running install scripts. Commit `tools/ruflo/package.json` and its package lock, then use the installed local binary throughout one run.
 
 ```bash
 # Run later, from the game repository root, after package and lock review.
-npm install --save-dev --save-exact @claude-flow/cli@3.25.6
-./node_modules/.bin/claude-flow --version
-./node_modules/.bin/claude-flow swarm init --help
-./node_modules/.bin/claude-flow hooks route --help
-./node_modules/.bin/claude-flow swarm init --topology hierarchical --max-agents 4 --strategy specialized
-./node_modules/.bin/claude-flow swarm status
-./node_modules/.bin/claude-flow agent list --all
+(cd tools/ruflo && npm install --save-dev --save-exact --ignore-scripts @claude-flow/cli@3.44.0)
+./tools/ruflo/node_modules/.bin/claude-flow --version
+./tools/ruflo/node_modules/.bin/claude-flow swarm init --help
+./tools/ruflo/node_modules/.bin/claude-flow hooks route --help
+./tools/ruflo/node_modules/.bin/claude-flow swarm init --topology hierarchical --max-agents 4 --strategy specialized
+./tools/ruflo/node_modules/.bin/claude-flow swarm status
+./tools/ruflo/node_modules/.bin/claude-flow agent list --all
 ```
 
-If the local binary, expected flags, or pinned release is absent, stop and update this runbook with verified syntax. The fallback `npx -y @claude-flow/cli@3.25.6 ...` is appropriate only after package execution is reviewed and a local locked binary is not available. Do not use the removed CLI `task orchestrate`; some older files on Ruflo `main` still show it. Do not use CLI agent records as a substitute for real execution workers unless their provider credentials and execution semantics have been checked.
+If the local binary, expected flags, or pinned release is absent, stop and update this runbook with verified syntax. The fallback `npx -y @claude-flow/cli@3.44.0 ...` is appropriate only after package execution is reviewed and a local locked binary is not available. Do not use the removed CLI `task orchestrate`; some older files on Ruflo `main` still show it. Do not use CLI agent records as a substitute for real execution workers unless their provider credentials and execution semantics have been checked.
 
 At each phase boundary, the coordinator may call `hooks route --task "specification: ..."`, then substitute `pseudocode`, `architecture`, `refinement`, and `completion`. A route is advice about role choice. Save its output with the phase artifact. It never overrides ownership, budgets, or gate results.
 
 ```bash
-./node_modules/.bin/claude-flow hooks route --task "architecture: browser gravity simulation, WebGPU fallback and WorldGraph adapter"
-./node_modules/.bin/claude-flow swarm status
-./node_modules/.bin/claude-flow agent list --all
+./tools/ruflo/node_modules/.bin/claude-flow hooks route --task "architecture: browser gravity simulation, WebGPU fallback and WorldGraph adapter"
+./tools/ruflo/node_modules/.bin/claude-flow swarm status
+./tools/ruflo/node_modules/.bin/claude-flow agent list --all
 ```
 
 ## 3. Ownership and task cards
