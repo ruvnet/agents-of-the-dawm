@@ -19,7 +19,8 @@
     "test:e2e": "playwright test",
     "audit:assets": "node scripts/audit-assets.mjs",
     "bench:frame": "node scripts/bench-frame.mjs",
-    "build:wasm": "bash scripts/build-worldgraph-wasm.sh"
+    "build:wasm": "bash scripts/build-worldgraph-wasm.sh",
+    "test:app": "vitest run tests/app"
   },
   "dependencies": {
     "three": "0.186.1"
