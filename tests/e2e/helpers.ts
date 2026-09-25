@@ -1,3 +1,5 @@
+import { createRequire } from 'node:module';
+const PW_VERSION: string = createRequire(import.meta.url)('@playwright/test/package.json').version;
 /// <reference types="node" />
 /**
  * W6 validation helpers. Test-side only: nothing here edits or replaces app code. The observer
@@ -32,7 +34,7 @@ export function writeEvidence(name: string, data: unknown, info?: TestInfo): str
     test: info?.title ?? name,
     status: info ? (info.errors.length ? 'failed' : 'recorded') : 'recorded',
     recordedAt: new Date().toISOString(),
-    environment: 'Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra',
+    environment: `Headless Chromium (Playwright ${PW_VERSION}) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra`,
     ...sourceReceipt(),
     data,
   };

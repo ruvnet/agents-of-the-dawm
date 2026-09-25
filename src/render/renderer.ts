@@ -314,6 +314,10 @@ export class FloodlineRenderer implements RendererAdapter {
     this.lostCbs.push(cb);
   }
 
+  attempt(): string | null {
+    return this.handle?.attempt ?? null;
+  }
+
   stats(): RenderStats {
     return {
       backend: this.backendKind,

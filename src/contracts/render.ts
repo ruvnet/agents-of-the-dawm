@@ -58,6 +58,8 @@ export interface RendererAdapter {
   readiness(): RenderReadiness;
   onDeviceLost(cb: (info: { reason: string }) => void): void;
   stats(): RenderStats;
+  /** v1.1 (VR1): concrete init attempt in use, e.g. webgpu | webgpu-webgl2 | webgl2-classic. */
+  attempt?(): string | null;
   dispose(): void;
 }
 

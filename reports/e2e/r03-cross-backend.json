@@ -1,11 +1,11 @@
 {
   "test": "R03 cross-backend: identical final hash across all variants; WebGPU availability recorded",
   "status": "recorded",
-  "recordedAt": "2026-09-24T23:45:25.610Z",
+  "recordedAt": "2026-09-25T00:02:43.897Z",
   "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
-  "worktreeDirty": "no",
-  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
+  "worktreeDirty": "yes (src/config changed)",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "route": "upper",
     "seed": 1047,
@@ -60,14 +60,14 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.Gb [as probe] (http://127.0.0.1:4173/assets/index-BXEggQyn.js:4221:61445)"
+            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
           },
           {
             "type": "webgl2",
             "onGameCanvas": true,
             "module": "three.webgpu-chunk",
             "blocked": false,
-            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DW6-S86P.js:205:50542)"
+            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js:205:50541)"
           }
         ]
       },
@@ -92,14 +92,14 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.Gb [as probe] (http://127.0.0.1:4173/assets/index-BXEggQyn.js:4221:61445)"
+            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
           },
           {
             "type": "webgl2",
             "onGameCanvas": true,
             "module": "three.webgpu-chunk",
             "blocked": false,
-            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DW6-S86P.js:205:50542)"
+            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js:205:50541)"
           }
         ]
       },
@@ -122,21 +122,21 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.Gb [as probe] (http://127.0.0.1:4173/assets/index-BXEggQyn.js:4221:61445)"
+            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
           },
           {
             "type": "webgl2",
             "onGameCanvas": true,
             "module": "three.webgpu-chunk",
             "blocked": true,
-            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DW6-S86P.js:205:50542)"
+            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js:205:50541)"
           },
           {
             "type": "webgl2",
             "onGameCanvas": true,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "we (http://127.0.0.1:4173/assets/index-BXEggQyn.js:4221:23809)"
+            "frame": "Ce (http://127.0.0.1:4173/assets/vendor-three-C4ojHK4u.js:4220:23799)"
           }
         ]
       },
@@ -149,7 +149,7 @@
         "finalHash": "eb7b397c34004556",
         "referenceFinalHash": "eb7b397c34004556",
         "mismatches": 0,
-        "commonTicks": 30,
+        "commonTicks": 31,
         "appErrors": [],
         "pageErrors": [],
         "consoleErrors": [],
@@ -159,14 +159,14 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.Gb [as probe] (http://127.0.0.1:4173/assets/index-BXEggQyn.js:4221:61445)"
+            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
           },
           {
             "type": "webgl2",
             "onGameCanvas": true,
             "module": "three.webgpu-chunk",
             "blocked": false,
-            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DW6-S86P.js:205:50542)"
+            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js:205:50541)"
           }
         ]
       },
@@ -189,14 +189,14 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.Gb [as probe] (http://127.0.0.1:4173/assets/index-BXEggQyn.js:4221:61445)"
+            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
           },
           {
             "type": "webgl2",
             "onGameCanvas": true,
             "module": "three.webgpu-chunk",
             "blocked": false,
-            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DW6-S86P.js:205:50542)"
+            "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js:205:50541)"
           }
         ]
       }

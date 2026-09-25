@@ -211,7 +211,7 @@ async function main() {
       loadavgAtStart: load0.map((x) => Math.round(x * 100) / 100), loadavgAtEnd: loadavg().map((x) => Math.round(x * 100) / 100),
       note: 'shared workstation; other sessions were running. Runs are sequential because SwiftShader rasterises on the CPU and concurrent runs would contaminate frame times.',
     },
-    browser: { engine: 'chromium (Playwright 1.55.0 bundled chromium-1187), headless', version: browserVersion, ...env },
+    browser: { engine: `chromium (Playwright ${JSON.parse(fs.readFileSync(new URL('../node_modules/@playwright/test/package.json', import.meta.url))).version} bundled), headless`, version: browserVersion, ...env },
     route: CFG.route, seed: CFG.seed, speed: CFG.speed, preset: CFG.preset, viewport: CFG.viewport,
     server: server.note,
     rendererStats: 'NOT REACHABLE: RendererAdapter.stats() is not exposed on window.__floodline and is not rendered in the UI (see reports/validation-requests.md). Frame intervals are rAF deltas measured in the page.',

@@ -270,10 +270,12 @@ describe('remapping, look scaling and anchors', () => {
     expect(stick.look2[0]).toBeLessThan(0);
   });
 
-  it('shift targets the anchor the player is inside, else null', () => {
+  it('shift targets the anchor the player is inside, else the nearest player anchor (sim rejects it, VR6)', () => {
     const acc = createAccumulator();
     acc.keyDown('KeyF');
-    expect(acc.sample(ctx(0)).shiftAnchorId).toBeNull();
+    const outside = acc.sample(ctx(0)).shiftAnchorId;
+    expect(outside).not.toBeNull();
+    expect(manifest.geometry.anchors.find((a) => a.key === outside)?.target).toBe('player');
     acc.keyUp('KeyF');
     acc.keyDown('KeyF');
     const inside = withPlayer({ anchorKey: 'anchor-gantry' });

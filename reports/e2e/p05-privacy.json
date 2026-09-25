@@ -1,19 +1,20 @@
 {
   "test": "P05 privacy: full demo network log is same-origin GET for own assets only",
   "status": "recorded",
-  "recordedAt": "2026-09-24T23:44:26.694Z",
+  "recordedAt": "2026-09-25T00:02:07.750Z",
   "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
-  "worktreeDirty": "no",
-  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
+  "worktreeDirty": "yes (src/config changed)",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "origin": "http://127.0.0.1:4173",
-    "requestCount": 6,
+    "requestCount": 7,
     "uniquePaths": [
       "/",
-      "/assets/index-BXEggQyn.js",
       "/assets/index-D2gQwDtg.css",
-      "/assets/three.webgpu-DW6-S86P.js",
+      "/assets/index-DwlVjQDK.js",
+      "/assets/three.webgpu-DmpQjWyQ.js",
+      "/assets/vendor-three-C4ojHK4u.js",
       "/assets/worldgraph_wasm-CJ0BnHsu.js",
       "/assets/worldgraph_wasm_bg-C4Ty8y7V.wasm"
     ],
@@ -23,7 +24,7 @@
         "url": "http://127.0.0.1:4173/?demo=upper&speed=8",
         "type": "document",
         "status": 200,
-        "bytes": 800
+        "bytes": 884
       },
       {
         "method": "GET",
@@ -34,17 +35,24 @@
       },
       {
         "method": "GET",
-        "url": "http://127.0.0.1:4173/assets/index-BXEggQyn.js",
+        "url": "http://127.0.0.1:4173/assets/index-DwlVjQDK.js",
         "type": "script",
         "status": 200,
-        "bytes": 254784
+        "bytes": 71553
       },
       {
         "method": "GET",
-        "url": "http://127.0.0.1:4173/assets/three.webgpu-DW6-S86P.js",
+        "url": "http://127.0.0.1:4173/assets/vendor-three-C4ojHK4u.js",
         "type": "script",
         "status": 200,
-        "bytes": 196408
+        "bytes": 184769
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js",
+        "type": "script",
+        "status": 200,
+        "bytes": 196342
       },
       {
         "method": "GET",
@@ -66,7 +74,7 @@
     "beacons": [],
     "websockets": [],
     "jsNetworkApiCalls": [],
-    "transferBytesIncludingHeaders": 1403872,
+    "transferBytesIncludingHeaders": 1405428,
     "tramCrossed": true,
     "pageErrors": []
   }

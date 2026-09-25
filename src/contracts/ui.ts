@@ -92,6 +92,8 @@ export interface GameUi {
   setReadiness(readiness: RenderReadiness, backend: RenderBackend): void;
   /** Actionable compatibility / error state; never a blank canvas (R05). */
   showFatal(title: string, detail: string, actions?: { label: string; run: () => void }[]): void;
+  /** v1.1 (VR5): dismiss the fatal overlay after a later renderer init succeeds. */
+  clearFatal?(): void;
   /** True while a modal owns input (menu, settings, control screen). */
   capturing(): boolean;
   /** v1.1 (C1): the app started play without the UI Play button (demo, autostart). No hook re-entry. */

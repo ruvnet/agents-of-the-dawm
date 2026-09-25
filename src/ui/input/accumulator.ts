@@ -163,7 +163,9 @@ export function createAccumulator(): InputAccumulator {
         touchMove, touchLookDx: touchDx, touchLookDy: touchDy, touchDown, touchPressed, lookCarry,
       };
       const res = normalizeDetailed(raw, ctx.settings.bindings, ctx.settings, {
-        tick: ctx.tick, uiCapturing: ctx.uiCapturing, anchorKey: s.player.anchorKey,
+        // Outside every volume a shift still reaches the sim (nearest player anchor), so the engine
+        // emits ShiftRejected with feedback instead of the press vanishing (ADR 0004 failure trace, VR6).
+        tick: ctx.tick, uiCapturing: ctx.uiCapturing, anchorKey: s.player.anchorKey ?? nearestPlayerAnchor(ctx.manifest, s.player.pos),
       });
       // Consume latches and pointer deltas: later ticks of the same frame see no new presses.
       keysPressed = new Set();
@@ -202,4 +204,17 @@ export function createAccumulator(): InputAccumulator {
     activeDevice: () => device,
     held: () => lastHeld,
   };
+}
+
+/** Nearest player-target anchor by volume centre; the sim rejects it when the player is outside its volume. */
+export function nearestPlayerAnchor(m: LevelManifest | undefined, pos: Vec3): string | null {
+  let best: string | null = null;
+  let bestD = Infinity;
+  for (const an of m?.geometry.anchors ?? []) {
+    if (an.target !== 'player') continue;
+    const c = [0, 1, 2].map((i) => (an.volume.min[i]! + an.volume.max[i]!) / 2);
+    const d = (c[0]! - pos[0]) ** 2 + (c[1]! - pos[1]) ** 2 + (c[2]! - pos[2]) ** 2;
+    if (d < bestD) { bestD = d; best = an.key; }
+  }
+  return best;
 }

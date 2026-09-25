@@ -25,7 +25,7 @@ export async function installGlProbe(page: Page, mode: GlMode): Promise<void> {
     (HTMLCanvasElement.prototype as any).getContext = function (this: HTMLCanvasElement, type: string, attrs?: unknown) {
       const lines = (new Error().stack ?? '').split('\n').slice(2).map((s) => s.trim());
       const frame = lines.find((l) => /assets\//.test(l)) ?? lines[0] ?? '';
-      const module = /three\.webgpu/.test(frame) ? 'three.webgpu-chunk' : /assets\/index-/.test(frame) ? 'main-chunk' : 'other';
+      const module = /three\.webgpu/.test(frame) ? 'three.webgpu-chunk' : /assets\/(index|vendor-three)-/.test(frame) ? 'main-chunk' : 'other';
       const onGameCanvas = this.isConnected;
       let blocked = false;
       if (mode === 'force-classic' && type === 'webgl2' && onGameCanvas && module === 'three.webgpu-chunk' && forced === 0) { forced += 1; blocked = true; }

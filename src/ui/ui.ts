@@ -286,6 +286,12 @@ export function createUi(options: UiOptions = {}): GameUi {
       top = null;
       refresh();
     },
+    clearFatal() {
+      if (!fatal) return;
+      fatal.remove();
+      fatal = null;
+      refresh();
+    },
     capturing: () => modalName() !== null,
     markStarted: (mode: 'new' | 'continue') => {
       if (started) return;

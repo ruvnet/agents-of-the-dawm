@@ -47,6 +47,10 @@ export interface GameHandle {
   readonly sim: () => Simulation | null;
   readonly backend: () => RenderBackend;
   readonly semanticStatus: () => SemanticStatus;
+  /** Read-only evidence getters (VR2, VR8). */
+  readonly renderStats: () => ReturnType<RendererAdapter['stats']> | null;
+  readonly rendererAttempt: () => string | null;
+  readonly semanticReceipt: () => ReturnType<SemanticAdapter['receipt']> | null;
   readonly commands: () => readonly InputCommand[];
   readonly captions: () => readonly string[];
   readonly errors: () => readonly string[];
@@ -93,9 +97,10 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   const commands: InputCommand[] = [];
   const stepper = new FixedStepper();
 
-  async function initRenderer(preferred: UiSettings['renderer']): Promise<boolean> {
+  async function initRenderer(preferred: UiSettings['renderer'], freshCanvas = false): Promise<boolean> {
     renderer?.dispose();
-    if (!canvas || canvas.dataset.used === 'webgpu') {
+    // A lost WebGL context or a canvas that ever held WebGPU cannot be reused (VR4, W2 P4): replace it.
+    if (!canvas || freshCanvas || canvas.dataset.used === 'webgpu') {
       // A canvas that ever held a WebGPU context cannot hand out WebGL2 (W2 P4): replace it.
       const fresh = document.createElement('canvas');
       fresh.id = 'game';
@@ -114,16 +119,17 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
       backend = 'none';
       ui.showFatal('This browser could not start the renderer',
         `${res.reason} (tried: ${res.tried.join(', ') || 'none'}). Try a current Chrome, Edge, Firefox or Safari with hardware acceleration enabled.`,
-        [{ label: 'Retry', run: () => void initRenderer('auto') }, { label: 'Use WebGL2', run: () => void initRenderer('webgl2') }]);
+        [{ label: 'Retry', run: () => void initRenderer('auto', true) }, { label: 'Use WebGL2', run: () => void initRenderer('webgl2', true) }]);
       return false;
     }
     backend = res.backend;
+    ui.clearFatal?.();
     probe.mark('fl:renderer-init-done');
     if (res.backend === 'webgpu') canvas.dataset.used = 'webgpu';
     renderer.onDeviceLost(({ reason }) => {
       errors.push(`device lost: ${reason}`);
       // Recover on a fresh canvas with the WebGL2 path; simulation state is untouched (R05).
-      void initRenderer('webgl2');
+      void initRenderer('webgl2', true);
     });
     resize();
     return true;
@@ -282,6 +288,9 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
     sim: () => sim,
     backend: () => backend,
     semanticStatus: () => semantic?.status() ?? 'unavailable',
+    renderStats: () => renderer?.stats() ?? null,
+    rendererAttempt: () => renderer?.attempt?.() ?? null,
+    semanticReceipt: () => semantic?.receipt() ?? null,
     commands: () => commands,
     captions: () => captionLog,
     errors: () => errors,

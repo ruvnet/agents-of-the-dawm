@@ -1,11 +1,11 @@
 {
   "test": "P04 touch-emulated 390x844 smoke: tap Play, touch layer visible, virtual stick moves the player",
   "status": "recorded",
-  "recordedAt": "2026-09-24T23:44:51.830Z",
+  "recordedAt": "2026-09-25T00:02:03.904Z",
   "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
-  "worktreeDirty": "no",
-  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
+  "worktreeDirty": "yes (src/config changed)",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "touchVisible": true,
     "touchButtons": 6,
@@ -16,7 +16,7 @@
       "height": 132
     },
     "horizontalOverflowPx": 0,
-    "stickMovedMetres": 5.443112947658383,
+    "stickMovedMetres": 5.3914600550964,
     "device": "webgl2",
     "appErrors": [],
     "pageErrors": []
