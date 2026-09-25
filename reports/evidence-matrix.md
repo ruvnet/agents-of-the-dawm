@@ -21,6 +21,14 @@ Status key: **PASS** = the evidence meets the requirement as written. **PARTIAL*
 
 That covers all 25 IDs: P01–P06, R01–R05, W01–W04, G01–G06 and O01–O04.
 
+## Real-GPU evidence (coordinator, 61ed882 to 6e88d20; not a named reference device)
+
+- **Hardware:** NVIDIA GeForce RTX 5080 (ANGLE Vulkan 1.4.312), system Google Chrome. Evidence came from headed Chrome under Xvfb, and separately from the maintainer's own Windows Chrome loading the hosted private candidate.
+- **Native WebGPU works.** `rendererAttempt()` returns `webgpu`. The upper route completes with `tramCrossed` and 0 app errors. GPU frame time is about 0.05 ms (timestamp queries); the WebGL2 backend on the same GPU is about 0.06 ms.
+- **Start screen was blank on WebGPU.** The single start-state preview render ran before three's asynchronous pipeline compilation finished, so it presented nothing. Fixed in `61ed882`: the preview renders every frame until play starts. Re-verified headed on the RTX 5080 and in the maintainer's Windows Chrome, where the scene is visible behind the menu and readiness shows WebGPU.
+- **Headless capture caveat:** headless Chrome here cannot capture or read back WebGPU canvases. Even a minimal three.js red-clear page is blank in headless and correct in headed. Headless screenshots are therefore not evidence either way for the WebGPU path.
+- **Still open:** R01/R02 remain NOT MEASURED on the agreed reference devices. The numbers above are single-machine observations.
+
 ## Resolution (coordinator re-run at 55cafc1, all runbook gates exit 0, e2e 26/26)
 
 Both failures below were fixed in `f6ef94e`: VR4 (fresh canvas on recovery), VR5 (`clearFatal`) and VR6 (a shift pressed outside an anchor reaches the sim and is rejected). The same unchanged tests now pass: `renderer-failure.spec.ts` "renderer recovers" (backend returns to webgl2 and ticks keep advancing after `loseContext`) and `real-input.spec.ts` (a real F press outside an anchor emits `ShiftRejected` with state intact). A real-GPU device loss is still untested; this is SwiftShader evidence only. The text below is the original W6 finding, kept for the record.
