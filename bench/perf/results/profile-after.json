@@ -1,0 +1,211 @@
+{
+  "label": "after",
+  "distDir": "dist",
+  "seconds": 15,
+  "totalMs": 15101.071,
+  "idleMs": 13964.353,
+  "programMs": 226.013,
+  "gcMs": 12.818,
+  "top": [
+    {
+      "fn": "(idle) :0",
+      "pct": 92.5,
+      "ms": 13964.4
+    },
+    {
+      "fn": "(program) :0",
+      "pct": 1.5,
+      "ms": 226
+    },
+    {
+      "fn": "setSize three.webgpu-DmpQjWyQ.js:29",
+      "pct": 1.3,
+      "ms": 198.5
+    },
+    {
+      "fn": "get three.webgpu-DmpQjWyQ.js:23",
+      "pct": 0.3,
+      "ms": 46
+    },
+    {
+      "fn": "equals three.webgpu-DmpQjWyQ.js:1",
+      "pct": 0.3,
+      "ms": 39.1
+    },
+    {
+      "fn": "updateMatrixWorld vendor-three-C4ojHK4u.js:1",
+      "pct": 0.2,
+      "ms": 32.9
+    },
+    {
+      "fn": "_renderObjectDirect three.webgpu-DmpQjWyQ.js:29",
+      "pct": 0.2,
+      "ms": 29.3
+    },
+    {
+      "fn": "draw three.webgpu-DmpQjWyQ.js:205",
+      "pct": 0.1,
+      "ms": 21.7
+    },
+    {
+      "fn": "_projectObject three.webgpu-DmpQjWyQ.js:29",
+      "pct": 0.1,
+      "ms": 21.6
+    },
+    {
+      "fn": "bindBufferBase :0",
+      "pct": 0.1,
+      "ms": 21.4
+    },
+    {
+      "fn": "render index-XajgnTsy.js:3",
+      "pct": 0.1,
+      "ms": 17
+    },
+    {
+      "fn": "_bindUniforms three.webgpu-DmpQjWyQ.js:217",
+      "pct": 0.1,
+      "ms": 16.6
+    },
+    {
+      "fn": "bindBufferBase three.webgpu-DmpQjWyQ.js:205",
+      "pct": 0.1,
+      "ms": 13.1
+    },
+    {
+      "fn": "(garbage collector) :0",
+      "pct": 0.1,
+      "ms": 12.8
+    },
+    {
+      "fn": "get three.webgpu-DmpQjWyQ.js:205",
+      "pct": 0.1,
+      "ms": 12.5
+    },
+    {
+      "fn": "update index-XajgnTsy.js:3",
+      "pct": 0.1,
+      "ms": 11.7
+    },
+    {
+      "fn": "useProgram :0",
+      "pct": 0.1,
+      "ms": 9.9
+    },
+    {
+      "fn": "_renderScene three.webgpu-DmpQjWyQ.js:29",
+      "pct": 0.1,
+      "ms": 9.8
+    },
+    {
+      "fn": "get needsGeometryUpdate three.webgpu-DmpQjWyQ.js:23",
+      "pct": 0.1,
+      "ms": 9.5
+    },
+    {
+      "fn": "updateForRender three.webgpu-DmpQjWyQ.js:29",
+      "pct": 0.1,
+      "ms": 9.4
+    },
+    {
+      "fn": "render index-XajgnTsy.js:57",
+      "pct": 0.1,
+      "ms": 8.2
+    },
+    {
+      "fn": "oe index-XajgnTsy.js:57",
+      "pct": 0.1,
+      "ms": 8.2
+    },
+    {
+      "fn": "bindVertexArray :0",
+      "pct": 0.1,
+      "ms": 8.1
+    },
+    {
+      "fn": "setTimeout :0",
+      "pct": 0.1,
+      "ms": 8
+    },
+    {
+      "fn": "drawElements :0",
+      "pct": 0.1,
+      "ms": 7.8
+    },
+    {
+      "fn": "be index-XajgnTsy.js:3",
+      "pct": 0.1,
+      "ms": 7.6
+    },
+    {
+      "fn": "wo index-XajgnTsy.js:57",
+      "pct": 0,
+      "ms": 7.4
+    },
+    {
+      "fn": "clearBufferfv :0",
+      "pct": 0,
+      "ms": 7.4
+    },
+    {
+      "fn": "bufferSubData :0",
+      "pct": 0,
+      "ms": 7.3
+    },
+    {
+      "fn": "bindBuffer :0",
+      "pct": 0,
+      "ms": 7.2
+    },
+    {
+      "fn": "_update three.webgpu-DmpQjWyQ.js:23",
+      "pct": 0,
+      "ms": 7.1
+    },
+    {
+      "fn": "getGamepads :0",
+      "pct": 0,
+      "ms": 6.8
+    },
+    {
+      "fn": "updateByType three.webgpu-DmpQjWyQ.js:29",
+      "pct": 0,
+      "ms": 6.7
+    },
+    {
+      "fn": "sort three.webgpu-DmpQjWyQ.js:23",
+      "pct": 0,
+      "ms": 6.6
+    },
+    {
+      "fn": "multiplyMatrices vendor-three-C4ojHK4u.js:1",
+      "pct": 0,
+      "ms": 6.2
+    },
+    {
+      "fn": "equals vendor-three-C4ojHK4u.js:1",
+      "pct": 0,
+      "ms": 6.1
+    },
+    {
+      "fn": "_getChildren three.webgpu-DmpQjWyQ.js:3",
+      "pct": 0,
+      "ms": 5.8
+    },
+    {
+      "fn": "get needsUpdate three.webgpu-DmpQjWyQ.js:23",
+      "pct": 0,
+      "ms": 5.4
+    },
+    {
+      "fn": "renderObject three.webgpu-DmpQjWyQ.js:29",
+      "pct": 0,
+      "ms": 4.9
+    },
+    {
+      "fn": "getQueryParameter :0",
+      "pct": 0,
+      "ms": 4.8
+    }
+  ]
+}

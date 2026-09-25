@@ -1,0 +1,23 @@
+{
+  "env": {
+    "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+    "node": "v22.23.2",
+    "runs": 20,
+    "warmup": 5,
+    "ticksPerRun": 7312
+  },
+  "nsPerTick": {
+    "mean": 9262,
+    "p50": 8850,
+    "p95": 10490,
+    "p99": 14950,
+    "max": 1760399
+  },
+  "runTotalMs": {
+    "min": 64.768091,
+    "median": 67.140641
+  },
+  "structuredCloneFinalStateNs": 23546,
+  "finalStateBytesJson": 3252,
+  "commandsHash": "d1f47d643d872939"
+}

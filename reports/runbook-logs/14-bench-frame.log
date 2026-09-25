@@ -1,0 +1,23 @@
+
+> agents-of-the-dawm-floodline@0.1.0 bench:frame
+> node scripts/bench-frame.mjs
+
+frame run webgpu-renderer-webgl2 #1 ... p50 33.4 ms, p95 50 ms, frames 1625, path three.webgpu-chunk
+frame run webgpu-renderer-webgl2 #2 ... p50 33.3 ms, p95 50 ms, frames 1721, path three.webgpu-chunk
+frame run webgpu-renderer-webgl2 #3 ... p50 33.3 ms, p95 50 ms, frames 1724, path three.webgpu-chunk
+frame run webgl-renderer-classic #1 ... p50 16.7 ms, p95 33.4 ms, frames 2912, path main-chunk
+frame run webgl-renderer-classic #2 ... p50 16.7 ms, p95 33.4 ms, frames 2723, path main-chunk
+frame run webgl-renderer-classic #3 ... p50 16.7 ms, p95 33.4 ms, frames 2943, path main-chunk
+cold load unthrottled #1 ... first controllable 185 ms, 456520 bytes
+cold load unthrottled #2 ... first controllable 180 ms, 456520 bytes
+cold load unthrottled #3 ... first controllable 187 ms, 456520 bytes
+cold load 50mbps #1 ... first controllable 303 ms, 456520 bytes
+cold load 50mbps #2 ... first controllable 305 ms, 456520 bytes
+cold load 50mbps #3 ... first controllable 299 ms, 456520 bytes
+
+SwiftShader headless on ruvultra — NOT a reference device; R01/R02 remain unmeasured on reference hardware
+  webgpu-renderer-webgl2: pooled p50 33.3 ms, p95 50 ms over 5070 frames (3 runs)
+  webgl-renderer-classic: pooled p50 16.7 ms, p95 33.4 ms over 8578 frames (3 runs)
+  first controllable frame, cold, unthrottled: 185, 180, 187 ms
+  first controllable frame, cold, 50mbps: 303, 305, 299 ms
+  receipt: reports/bench-frame.json

@@ -1,0 +1,103 @@
+
+> agents-of-the-dawm-floodline@0.1.0 test:e2e
+> playwright test
+
+
+Running 26 tests using 8 workers
+
+  ✓   2 tests/e2e/save-continue.spec.ts:10:1 › Save/continue: checkpoint reached, reload, Continue restores the same checkpoint and hash; play continues (11.4s)
+  ✓   8 tests/e2e/determinism.spec.ts:61:1 › R03 variant A: default (auto) renderer -> three WebGPURenderer WebGL2 backend (15.1s)
+  ✓   4 tests/e2e/accessibility.spec.ts:25:1 › P04 reduced motion: prefers-reduced-motion is honoured and leaves story/authorization identical (G06) (16.0s)
+  ✓   7 tests/e2e/demo-routes.spec.ts:13:3 › P01/P03 demo upper route reaches gateOpen, playerAuthorized, channelEdgeRestored, tramCrossed with zero errors (16.5s)
+  ✓   9 tests/e2e/save-continue.spec.ts:58:1 › Save/continue: corrupt IndexedDB save and settings records do not break boot (5.2s)
+  ✓   1 tests/e2e/privacy.spec.ts:8:1 › P05 privacy: full demo network log is same-origin GET for own assets only (16.7s)
+  ✓   3 tests/e2e/renderer-failure.spec.ts:73:1 › R05 context loss: error recorded, simulation keeps running, screen never blank (17.9s)
+  ✓  12 tests/e2e/demo-routes.spec.ts:13:3 › P01/P03 demo lower route reaches gateOpen, playerAuthorized, channelEdgeRestored, tramCrossed with zero errors (13.0s)
+  ✓  10 tests/e2e/determinism.spec.ts:70:1 › R03 variant B: renderer setting "webgl2" chosen in the settings UI (14.5s)
+  ✓  11 tests/e2e/accessibility.spec.ts:55:1 › P04 captions toggle: start-screen toggle hides and restores in-game captions (15.2s)
+  ✓  15 tests/e2e/accessibility.spec.ts:92:1 › P04 200 percent text scale setting doubles UI text size without horizontal overflow (1.5s)
+  ✓  16 tests/e2e/accessibility.spec.ts:118:1 › P04 keyboard-only walk through the start screen and settings with visible focus (3.3s)
+  ✘  13 tests/e2e/renderer-failure.spec.ts:84:1 › R05 context loss: renderer recovers and rendering continues (backend back to webgl2) (18.3s)
+  ✓  18 tests/e2e/renderer-failure.spec.ts:91:1 › R05 fatal compatibility screen when no graphics context can be created (1.0s)
+  ✓  19 tests/e2e/renderer-failure.spec.ts:111:1 › R05 no WebGPU adapter (host default): app selects WebGL2 and reaches controllable readiness (1.0s)
+  ✓   5 tests/e2e/control-screen.spec.ts:65:1 › G04 at the UI boundary: authorizing the occupied street or the protected pump never opens the gate (39.5s)
+  ✓  14 tests/e2e/determinism.spec.ts:78:1 › R03 variant C: classic WebGLRenderer (WebGPURenderer WebGL2 context withheld by test stub) (10.0s)
+  ✓  17 tests/e2e/accessibility.spec.ts:157:3 › touch 390x844 › P04 touch-emulated 390x844 smoke: tap Play, touch layer visible, virtual stick moves the player (5.2s)
+  ✓  21 tests/e2e/determinism.spec.ts:89:3 › R04 quality preset "low" (start-screen quality select) leaves every simulation hash unchanged (11.1s)
+  ✓  20 tests/e2e/control-screen.spec.ts:113:1 › W04/G05: WASM blocked -> semantic status unavailable, degraded/authored label on the control screen, rescue completes (24.7s)
+  ✓  23 tests/e2e/control-screen.spec.ts:156:1 › W04/G05: demo route completes with WASM blocked (seeded upper route) (9.4s)
+  ✓  22 tests/e2e/determinism.spec.ts:89:3 › R04 quality preset "high" (start-screen quality select) leaves every simulation hash unchanged (23.8s)
+  ✓  24 tests/e2e/determinism.spec.ts:98:1 › R03 cross-backend: identical final hash across all variants; WebGPU availability recorded (572ms)
+  ✓   6 tests/e2e/real-input.spec.ts:33:1 › Real input: Play button, WASD to the first anchor, F shifts gravity (ShiftCommitted, player.up changes) (1.9m)
+  ✘  25 tests/e2e/real-input.spec.ts:96:1 › Real input: F outside any anchor emits ShiftRejected and leaves state intact (2.8s)
+  ✓  26 tests/e2e/real-input.spec.ts:130:1 › Sim boundary: a shift request for an anchor the player is not inside is rejected (ShiftRejected, state intact) (2.1s)
+
+
+  1) tests/e2e/real-input.spec.ts:96:1 › Real input: F outside any anchor emits ShiftRejected and leaves state intact 
+
+    Error: ShiftRejected emitted for a real F press outside an anchor
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      125 |   expect(committed.length).toBe(0);
+      126 |   // Task-card requirement: the failed attempt is rejected explicitly.
+    > 127 |   expect(rejected.length, 'ShiftRejected emitted for a real F press outside an anchor').toBeGreaterThan(0);
+          |                                                                                         ^
+      128 | });
+      129 |
+      130 | test('Sim boundary: a shift request for an anchor the player is not inside is rejected (ShiftRejected, state intact)', async ({ page }, info) => {
+        at /home/ruvultra/projects/agents-of-the-dawm/.claude/worktrees/agent-a6583fd69cb1d6d7c/tests/e2e/real-input.spec.ts:127:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/real-input-Real-input-F-ou-84307-ted-and-leaves-state-intact/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/real-input-Real-input-F-ou-84307-ted-and-leaves-state-intact/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/real-input-Real-input-F-ou-84307-ted-and-leaves-state-intact/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/real-input-Real-input-F-ou-84307-ted-and-leaves-state-intact/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/renderer-failure.spec.ts:84:1 › R05 context loss: renderer recovers and rendering continues (backend back to webgl2) 
+
+    Error: automatic recovery after webglcontextlost
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"webgl2"[39m
+    Received: [31m"none"[39m
+
+      85 |   const r = await runContextLoss(page);
+      86 |   writeEvidence('r05-context-loss-recovery', r.data, info);
+    > 87 |   expect(r.afterLoss?.backend, 'automatic recovery after webglcontextlost').toBe('webgl2');
+         |                                                                             ^
+      88 |   expect(r.end?.backend, 'recovered after restoreContext + Retry').toBe('webgl2');
+      89 | });
+      90 |
+        at /home/ruvultra/projects/agents-of-the-dawm/.claude/worktrees/agent-a6583fd69cb1d6d7c/tests/e2e/renderer-failure.spec.ts:87:77
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/renderer-failure-R05-conte-c711e-ues-backend-back-to-webgl2-/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/renderer-failure-R05-conte-c711e-ues-backend-back-to-webgl2-/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/renderer-failure-R05-conte-c711e-ues-backend-back-to-webgl2-/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/renderer-failure-R05-conte-c711e-ues-backend-back-to-webgl2-/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/real-input.spec.ts:96:1 › Real input: F outside any anchor emits ShiftRejected and leaves state intact 
+    tests/e2e/renderer-failure.spec.ts:84:1 › R05 context loss: renderer recovers and rendering continues (backend back to webgl2) 
+  24 passed (2.0m)

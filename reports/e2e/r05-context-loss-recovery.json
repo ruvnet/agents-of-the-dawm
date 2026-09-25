@@ -1,0 +1,74 @@
+{
+  "test": "R05 context loss: renderer recovers and rendering continues (backend back to webgl2)",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:34:18.094Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "speed": 2,
+    "lose": {
+      "hasGl": true,
+      "hasExt": true,
+      "lostAfter": true
+    },
+    "pathBefore": "WebGPURenderer(WebGL2 backend)",
+    "backendBefore": "webgl2",
+    "tickAtLoss": 340,
+    "afterLoss": {
+      "backend": "webgl2",
+      "tick": 583,
+      "appErrors": [
+        "device lost: Unknown reason"
+      ],
+      "fatal": {
+        "visible": false,
+        "text": "",
+        "buttons": []
+      }
+    },
+    "retryOnLostContext": null,
+    "afterRestoreContextAndRetry": {
+      "backend": "webgl2",
+      "fatal": {
+        "visible": false,
+        "text": "",
+        "buttons": []
+      }
+    },
+    "end": {
+      "backend": "webgl2",
+      "tick": 996,
+      "beat": "maintenance-deck",
+      "appErrors": [
+        "device lost: Unknown reason"
+      ]
+    },
+    "contextCallsAfterLoss": [
+      {
+        "type": "webgl2",
+        "onGameCanvas": true,
+        "module": "other",
+        "blocked": false,
+        "frame": "eval (eval at evaluate (:291:30), <anonymous>:3:56)"
+      },
+      {
+        "type": "webgl2",
+        "onGameCanvas": false,
+        "module": "main-chunk",
+        "blocked": false,
+        "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
+      },
+      {
+        "type": "webgl2",
+        "onGameCanvas": true,
+        "module": "three.webgpu-chunk",
+        "blocked": false,
+        "frame": "DN.init (http://127.0.0.1:4173/assets/three.webgpu-DmpQjWyQ.js:205:50541)"
+      }
+    ],
+    "pageErrors": [],
+    "consoleErrors": []
+  }
+}

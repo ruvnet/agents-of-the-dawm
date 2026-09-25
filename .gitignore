@@ -1,0 +1,14 @@
+node_modules/
+dist/
+tools/ruflo/node_modules/
+.vite/
+test-results/
+playwright-report/
+reports/e2e-results.json
+.wg-src/
+target/
+*.log
+.claude-flow/
+.swarm/
+.claude/
+tools/ruflo/*.db

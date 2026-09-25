@@ -1,0 +1,17 @@
+
+> agents-of-the-dawm-floodline@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 97 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                 0.55 kB │ gzip:   0.33 kB
+dist/assets/worldgraph_wasm_bg-C4Ty8y7V.wasm  943.13 kB │ gzip: 203.54 kB
+dist/assets/index-D2gQwDtg.css                 15.96 kB │ gzip:   4.16 kB
+dist/assets/worldgraph_wasm-CJ0BnHsu.js        10.03 kB │ gzip:   3.58 kB │ map:    38.64 kB
+dist/assets/three.webgpu-DW6-S86P.js          705.04 kB │ gzip: 197.53 kB │ map: 3,391.22 kB
+dist/assets/index-BXEggQyn.js                 946.07 kB │ gzip: 256.26 kB │ map: 3,827.77 kB
+
+✓ built in 347ms

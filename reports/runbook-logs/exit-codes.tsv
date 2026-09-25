@@ -1,0 +1,14 @@
+git diff --check HEAD~1	0
+npm ci	0
+npm run typecheck	0
+npm run test:contracts	0
+npm run test:sim	0
+npm run test:render	0
+npm run test:world	0
+npm run test:ui	0
+npm run test:audio	0
+npm run test:app	0
+npm run test:e2e	0
+npm run audit:assets	0
+npm run build	0
+npm run bench:frame	0

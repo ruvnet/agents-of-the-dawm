@@ -1,0 +1,31 @@
+{
+  "test": "R05 fatal compatibility screen when no graphics context can be created",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:34:19.419Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "backend": "none",
+    "fatal": {
+      "visible": true,
+      "text": "⚠ This browser could not start the renderer\n\nThis browser could not start a 3D renderer. WebGPU exposed but no GPU adapter was returned WebGL2 context unavailable (disabled, blocklisted GPU, or unsupported browser) Try a current Chrome, Edge, Firefox or Safari; enable hardware acceleration; or update your graphics driver. (tried: none). Try a current Chrome, Edge, Firefox or Safari with hardware acceleration enabled.\n\nRetry\nUse WebGL2",
+      "buttons": [
+        "Retry",
+        "Use WebGL2"
+      ]
+    },
+    "contextCalls": [
+      {
+        "type": "webgl2",
+        "onGameCanvas": false,
+        "module": "main-chunk",
+        "blocked": true,
+        "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
+      }
+    ],
+    "pageErrors": [],
+    "consoleErrors": []
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "upper": {
+    "seed": 1047,
+    "ticks": 3812,
+    "finalHash": "ddb976c986ef06ca",
+    "eventCount": 151,
+    "eventLogHash": "571305dbd82c86b1",
+    "commandsHash": "a626ef3aa810887a",
+    "perTickChain": "7439aaeabe70db7a",
+    "checkpoints": [
+      {
+        "tick": 419,
+        "key": "cp-ledge",
+        "hash": "e5a1c93289889046",
+        "eventCount": 14
+      },
+      {
+        "tick": 525,
+        "key": "cp-deck",
+        "hash": "ee4924bc18fea489",
+        "eventCount": 20
+      },
+      {
+        "tick": 1011,
+        "key": "cp-bank-near",
+        "hash": "818a2209f0b87568",
+        "eventCount": 37
+      },
+      {
+        "tick": 1226,
+        "key": "cp-bank-far",
+        "hash": "b0cb56f6e16fd350",
+        "eventCount": 44
+      },
+      {
+        "tick": 2035,
+        "key": "cp-junction",
+        "hash": "3dc2d595a728c6e6",
+        "eventCount": 59
+      },
+      {
+        "tick": 2303,
+        "key": "cp-mid-upper",
+        "hash": "b17fdec7d1557a96",
+        "eventCount": 75
+      },
+      {
+        "tick": 2951,
+        "key": "cp-converge",
+        "hash": "bfa4550c17fcd6ab",
+        "eventCount": 93
+      },
+      {
+        "tick": 3015,
+        "key": "cp-arena",
+        "hash": "fc612f94dc845f49",
+        "eventCount": 96
+      },
+      {
+        "tick": 3183,
+        "key": "cp-arena",
+        "hash": "e5a1c96ca91444a3",
+        "eventCount": 107
+      },
+      {
+        "tick": 3225,
+        "key": "cp-arena",
+        "hash": "3fcd76f9686035a4",
+        "eventCount": 116
+      },
+      {
+        "tick": 3362,
+        "key": "cp-arena",
+        "hash": "070e6a10481b47ec",
+        "eventCount": 128
+      },
+      {
+        "tick": 3405,
+        "key": "cp-control",
+        "hash": "9519521c8de22c94",
+        "eventCount": 131
+      }
+    ]
+  },
+  "lower": {
+    "seed": 1047,
+    "ticks": 3500,
+    "finalHash": "bbdedb2d2bd95d87",
+    "eventCount": 135,
+    "eventLogHash": "d88428eccc30384a",
+    "commandsHash": "ac68f56f41dde0b3",
+    "perTickChain": "258e791bedb193ce",
+    "checkpoints": [
+      {
+        "tick": 419,
+        "key": "cp-ledge",
+        "hash": "e5a1c93289889046",
+        "eventCount": 14
+      },
+      {
+        "tick": 525,
+        "key": "cp-deck",
+        "hash": "ee4924bc18fea489",
+        "eventCount": 20
+      },
+      {
+        "tick": 1011,
+        "key": "cp-bank-near",
+        "hash": "818a2209f0b87568",
+        "eventCount": 37
+      },
+      {
+        "tick": 1226,
+        "key": "cp-bank-far",
+        "hash": "b0cb56f6e16fd350",
+        "eventCount": 44
+      },
+      {
+        "tick": 2061,
+        "key": "cp-junction",
+        "hash": "90558bc0a08701f4",
+        "eventCount": 59
+      },
+      {
+        "tick": 2657,
+        "key": "cp-mid-lower",
+        "hash": "9e1867b65ee49a38",
+        "eventCount": 74
+      },
+      {
+        "tick": 2727,
+        "key": "cp-converge",
+        "hash": "f70e8003dfc1b2cc",
+        "eventCount": 79
+      },
+      {
+        "tick": 2758,
+        "key": "cp-arena",
+        "hash": "c2b7dcd3c228538e",
+        "eventCount": 82
+      },
+      {
+        "tick": 2815,
+        "key": "cp-arena",
+        "hash": "5f5255d580be513e",
+        "eventCount": 91
+      },
+      {
+        "tick": 2895,
+        "key": "cp-arena",
+        "hash": "a4fdf90036f3fd9f",
+        "eventCount": 100
+      },
+      {
+        "tick": 3049,
+        "key": "cp-arena",
+        "hash": "3d8905f4b88f3163",
+        "eventCount": 112
+      },
+      {
+        "tick": 3092,
+        "key": "cp-control",
+        "hash": "379d9a22b3b9b62e",
+        "eventCount": 115
+      }
+    ]
+  }
+}

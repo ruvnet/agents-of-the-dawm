@@ -1,0 +1,18 @@
+{
+  "test": "P04 captions toggle: start-screen toggle hides and restores in-game captions",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:33:30.830Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "initial": "true",
+    "afterToggle": "false",
+    "classOff": "fl-app is-capturing fl-no-captions",
+    "captionsRenderedWhileOff": 0,
+    "narrativeLinesWhileOff": 3,
+    "classOn": "fl-app",
+    "captionsRenderedWhileOn": 3
+  }
+}

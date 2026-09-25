@@ -1,0 +1,45 @@
+{
+  "test": "Real input: F outside any anchor emits ShiftRejected and leaves state intact",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:35:21.896Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "before": {
+      "pos": [
+        2,
+        0,
+        0
+      ],
+      "up": "+y",
+      "anchorKey": null,
+      "health": 100,
+      "charge": 1,
+      "anchors": "[{\"key\":\"anchor-a1-inspection\",\"activeSurface\":0,\"enabled\":true,\"cooldownTicks\":0},{\"key\":\"anchor-a2-ledge\",\"activeSurface\":0,\"enabled\":true,\"cooldownTicks\":0},{\"key\":\"anchor-gantry\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-lattice\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-conduit\",\"activeSurface\":0,\"enabled\":true,\"cooldownTicks\":0},{\"key\":\"anchor-keeper-left\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-keeper-right\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-panel\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0}]",
+      "flags": "{\"channelLocated\":false,\"channelSensorVerified\":false,\"channelEdgeRestored\":false,\"playerAuthorized\":false,\"capacitySafe\":false,\"gateOpen\":false}"
+    },
+    "after": {
+      "pos": [
+        2,
+        0,
+        0
+      ],
+      "up": "+y",
+      "anchorKey": null,
+      "health": 100,
+      "charge": 1,
+      "anchors": "[{\"key\":\"anchor-a1-inspection\",\"activeSurface\":0,\"enabled\":true,\"cooldownTicks\":0},{\"key\":\"anchor-a2-ledge\",\"activeSurface\":0,\"enabled\":true,\"cooldownTicks\":0},{\"key\":\"anchor-gantry\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-lattice\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-conduit\",\"activeSurface\":0,\"enabled\":true,\"cooldownTicks\":0},{\"key\":\"anchor-keeper-left\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-keeper-right\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0},{\"key\":\"anchor-panel\",\"activeSurface\":0,\"enabled\":false,\"cooldownTicks\":0}]",
+      "flags": "{\"channelLocated\":false,\"channelSensorVerified\":false,\"channelEdgeRestored\":false,\"playerAuthorized\":false,\"capacitySafe\":false,\"gateOpen\":false}"
+    },
+    "eventsAfterF": [
+      "ShiftRejected:anchor-a1-inspection@66"
+    ],
+    "shiftRejected": 1,
+    "shiftCommitted": 0,
+    "hudTextAfterF": "Health 100/100\n●○○Charge 1/3\nObjective: Reach the inspection anchor.\n☰ Script\n❚❚\n\n[shift rejected]",
+    "note": "src/ui/input/core.ts sets shiftAnchorId only when state.player.anchorKey is non-null, so F outside an anchor never reaches the simulation; no ShiftRejected is emitted and no feedback is shown. The simulation-level rejection is covered by the next test.",
+    "pageErrors": []
+  }
+}

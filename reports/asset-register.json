@@ -1,0 +1,191 @@
+{
+  "schema": "floodline-asset-register/1",
+  "generatedAt": "2026-09-25T00:07:41.114Z",
+  "command": "npm run audit:assets",
+  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "build": "dist/ present and newer than src/",
+  "requirement": "P02 original rights provenance: every asset has author, license, source, modification and attribution; zero unknown entries",
+  "verdict": "PASS",
+  "problems": [],
+  "scopes": [
+    {
+      "scope": "src",
+      "files": 108
+    },
+    {
+      "scope": "index.html",
+      "files": 1
+    },
+    {
+      "scope": "public",
+      "files": 0
+    },
+    {
+      "scope": "dist",
+      "files": 11
+    }
+  ],
+  "codeAndDataFileCounts": {
+    ".ts": 88,
+    ".json": 9,
+    ".md": 6,
+    ".css": 2,
+    ".d.ts": 2,
+    ".js": 5,
+    ".html": 2,
+    ".map": 4
+  },
+  "assets": [
+    {
+      "path": "src/wasm/pkg/worldgraph_wasm_bg.wasm",
+      "scope": "src",
+      "kind": "wasm",
+      "bytes": 943135,
+      "sha256": "a6e37742f1d8f638a32f15b596fcd8e8ae0fb0a71b39ebed6dcbd1471d0e0762",
+      "id": "worldgraph-wasm",
+      "author": "ruvnet/worldgraph contributors (upstream crate authors)",
+      "license": "MIT OR Apache-2.0",
+      "source": "https://github.com/ruvnet/worldgraph @ 9b1c79c836cdacfb7b44f058c593157bac4c1dab (crate worldgraph-wasm 0.3.1)",
+      "modification": "compiled from pinned source with wasm-pack 0.14.0, wasm-bindgen 0.2.127, rustc 1.98.1 (48a229cea 2026-09-01), profile release, target web, wasmOpt=false; generated output committed unmodified",
+      "attribution": "WorldGraph (c) ruvnet/worldgraph contributors, dual licensed MIT OR Apache-2.0; include the MIT and Apache-2.0 notices with any redistribution",
+      "evidence": "src/wasm/pkg/RECEIPT.json (wasmSha256, sourceCommit, crateLicense)"
+    },
+    {
+      "path": "dist/assets/worldgraph_wasm_bg-C4Ty8y7V.wasm",
+      "scope": "dist",
+      "kind": "wasm",
+      "bytes": 943135,
+      "sha256": "a6e37742f1d8f638a32f15b596fcd8e8ae0fb0a71b39ebed6dcbd1471d0e0762",
+      "id": "worldgraph-wasm",
+      "author": "ruvnet/worldgraph contributors (upstream crate authors)",
+      "license": "MIT OR Apache-2.0",
+      "source": "https://github.com/ruvnet/worldgraph @ 9b1c79c836cdacfb7b44f058c593157bac4c1dab (crate worldgraph-wasm 0.3.1)",
+      "modification": "compiled from pinned source with wasm-pack 0.14.0, wasm-bindgen 0.2.127, rustc 1.98.1 (48a229cea 2026-09-01), profile release, target web, wasmOpt=false; generated output committed unmodified",
+      "attribution": "WorldGraph (c) ruvnet/worldgraph contributors, dual licensed MIT OR Apache-2.0; include the MIT and Apache-2.0 notices with any redistribution",
+      "evidence": "src/wasm/pkg/RECEIPT.json (wasmSha256, sourceCommit, crateLicense)"
+    }
+  ],
+  "unknown": [],
+  "unclassified": [],
+  "inlineAndProceduralContent": [
+    {
+      "id": "ui-logo-svg",
+      "where": "src/ui/menus.ts LOGO_SVG",
+      "kind": "inline vector mark",
+      "author": "this repository (W4 UI worker)",
+      "license": "repository license (original work)",
+      "note": "hand-written SVG path data in source; no external file"
+    },
+    {
+      "id": "procedural-audio",
+      "where": "src/audio/recipes.ts",
+      "kind": "procedural WebAudio recipes",
+      "author": "this repository (W5 audio worker)",
+      "license": "repository license (original work)",
+      "note": "oscillator/noise synthesis at runtime; no audio files"
+    },
+    {
+      "id": "procedural-geometry",
+      "where": "src/render/**",
+      "kind": "three.js primitives and palette",
+      "author": "this repository (W2 renderer worker)",
+      "license": "repository license (original work)",
+      "note": "boxes/capsules/instanced meshes built in code; no model or texture files"
+    },
+    {
+      "id": "fonts",
+      "where": "src/ui/styles.css",
+      "kind": "system font stack",
+      "author": "n/a",
+      "license": "n/a",
+      "note": "system-ui stack only; no webfont files or @font-face"
+    }
+  ],
+  "bundledSoftware": [
+    {
+      "name": "three",
+      "version": "0.186.1",
+      "license": "MIT",
+      "resolved": "https://registry.npmjs.org/three/-/three-0.186.1.tgz",
+      "integrity": "sha512-blFeqb49wRCSGUGj7gtpfnSGHy2lwDk94RhUmS1c/hTby70kvChbWpkJ4Pm1390LqzzvTmzgXKHPEafJwCb8jA==",
+      "bundledIn": "dist/assets/*.js"
+    }
+  ],
+  "externalUrlScan": {
+    "method": "regex scan for absolute http(s) URLs and network APIs; first-party source is scanned with comments stripped; the built bundle is scanned verbatim (third-party library strings included)",
+    "firstPartySourceUrls": [],
+    "firstPartySourceNetworkApis": [
+      {
+        "file": "src/wasm/pkg/worldgraph_wasm.js",
+        "line": 716,
+        "api": "fetch(",
+        "context": "module_or_path = fetch(module_or_path);"
+      }
+    ],
+    "runtimeExternalUrlsInFirstPartySource": [],
+    "distIndexHtmlExternalRefs": [],
+    "bundle": [
+      {
+        "file": "dist/assets/index-D2gQwDtg.css",
+        "bytes": 15951,
+        "absoluteUrls": [],
+        "networkApiMentions": {}
+      },
+      {
+        "file": "dist/assets/index-DwlVjQDK.js",
+        "bytes": 217785,
+        "absoluteUrls": [
+          {
+            "url": "https://github.com/ruvnet/worldgraph",
+            "namespace": false
+          }
+        ],
+        "networkApiMentions": {
+          "fetch(": 1
+        }
+      },
+      {
+        "file": "dist/assets/three.webgpu-DmpQjWyQ.js",
+        "bytes": 705041,
+        "absoluteUrls": [
+          {
+            "url": "https://github.com/mrdoob/three.js/issues/32012",
+            "namespace": false
+          },
+          {
+            "url": "https://www.shadertoy.com/view/WtyXRy",
+            "namespace": false
+          }
+        ],
+        "networkApiMentions": {}
+      },
+      {
+        "file": "dist/assets/vendor-three-C4ojHK4u.js",
+        "bytes": 730993,
+        "absoluteUrls": [
+          {
+            "url": "http://www.w3.org/1999/xhtml",
+            "namespace": true
+          },
+          {
+            "url": "https://jcgt.org/published/0007/04/01/",
+            "namespace": false
+          }
+        ],
+        "networkApiMentions": {
+          "fetch(": 3
+        }
+      },
+      {
+        "file": "dist/assets/worldgraph_wasm-CJ0BnHsu.js",
+        "bytes": 10037,
+        "absoluteUrls": [],
+        "networkApiMentions": {
+          "fetch(": 1
+        }
+      }
+    ],
+    "note": "Bundle URLs are string constants inside three.js (docs links in warnings, XML namespaces). Whether any is fetched at runtime is measured by the P05 e2e network log (reports/e2e/p05-privacy.json), not by this static scan."
+  }
+}

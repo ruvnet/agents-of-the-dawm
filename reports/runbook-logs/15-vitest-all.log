@@ -1,0 +1,13 @@
+
+ RUN  v5.0.1 /home/ruvultra/projects/agents-of-the-dawm/.claude/worktrees/agent-a6583fd69cb1d6d7c
+
+
+ Test Files  24 passed (24)
+      Tests  262 passed (262)
+   Start at  19:40:18
+   Duration  1.72s (tests 43%, transform 36%, import 21%, worker 1%)
+
+  Transform  transforming modules took 3.62s · 36% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

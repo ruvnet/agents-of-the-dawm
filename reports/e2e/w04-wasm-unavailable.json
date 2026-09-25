@@ -1,0 +1,40 @@
+{
+  "test": "W04/G05: WASM blocked -> semantic status unavailable, degraded/authored label on the control screen, rescue completes",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:35:10.707Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "openedBy": "keyboard E (2 press(es))",
+    "savedCheckpoint": "cp-control",
+    "demoLegStatus": "see semanticStatus below (same blocked context)",
+    "blockedRequests": [
+      "http://127.0.0.1:4173/assets/worldgraph_wasm_bg-C4Ty8y7V.wasm",
+      "http://127.0.0.1:4173/assets/worldgraph_wasm_bg-C4Ty8y7V.wasm"
+    ],
+    "semanticStatus": "unavailable",
+    "semanticSectionClass": "fl-control-step fl-semantic is-unavailable",
+    "semanticSectionText": "Semantic detail unavailable — authored evidence\n\nSemantic detail unavailable: showing authored manifest evidence (fictional scenario, no live sensing, not a WorldGraph query).\n\nSource: ruv://agents-of-the-dawm/level/sector-01/manifest-v1\nFixture: sector-01/pressure-scenario-v1\nModel: floodline-authored-sim-v1\nCalibration: fictional-scene-enu-v1\nPrivacy: synthetic:no-personal-data\n✓ established: relief-channel physically located at old marker in authored scenario\n○ not yet: relief-channel clear in authored scenario\n○ not yet: approved reservoir-to-relief route restored in game pressure graph\n○ ",
+    "controlScreenText": "Local pressure control\n\nDAWM approved-route graph · fictional district\n\nClose ✕\napproved route missing\nReservoir\nProtected pump\nUNSAFE\nOccupied street\nUNSAFE\nRelief channel\nUNVERIFIED\nGate: LOCKED\nTram\n\n━ approved route\n╌ ✕ approved route missing\n┄ not approved\n\n1 · Relief channel sensor\n\nFictional in-world sensor: authored/synthetic game evidence, not real sensing.\n\nNot scanned yet.\n\nScan relief sensor\n2 · Destinations\nOccupied street\n✕ UNSAFE: Rejected by preflight\nPROJECTED\n180 kPa\nSAFE LIMIT\n120 kPa\nOCCUPANCY\nPeople present\n\nPeople are present in the street. Projected impact exceeds the safe limit.\n\nEvidence: authored simulation (fictional) · fixture sector-01/pressure-scenario-v1\n\nPreview Occupied street\n\n✕ Cannot authorize: People are present in the street. Projected impact exceeds the safe limit.\n\nProtected pump\n✕ UNSAFE: Rejected by preflight\nPROJECTED\n260 kPa\nSAFE LIMIT\n200 kPa\nOCCUPANCY\nNo people\n\nThe pump chamber overloads. Projected load exceeds its tolerance.\n\nEvidence: authored simulation (fictional) · fixture sector-01/pressure-scenario-v1\n\nPreview Protected pump\n\n✕ Cannot authorize: The pump chamber overloads. Projected load exceeds its tolerance.\n\nRelief channel\n✕ UNSAFE: Rejected by preflight\nPROJECTED\n150 kPa\nSAFE LIMIT\n220 kPa\nOCCUPANCY\nOccupancy unverified\n\nRelief channel not yet verified. Scan its in-world sensor first.\n\nEvidence: authored simulation (fictional) · fixture sector-01/pressure-scenario-v1\n\nPreview Relief channel\nCapacity checks for selected",
+    "final": {
+      "flags": {
+        "channelLocated": true,
+        "channelSensorVerified": true,
+        "channelEdgeRestored": true,
+        "playerAuthorized": true,
+        "capacitySafe": true,
+        "gateOpen": true
+      },
+      "tramCrossed": true
+    },
+    "gateOpenedEvents": 1,
+    "appErrors": [],
+    "pageErrors": [],
+    "consoleErrors": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED"
+    ]
+  }
+}

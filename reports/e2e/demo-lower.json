@@ -1,0 +1,54 @@
+{
+  "test": "P01/P03 demo lower route reaches gateOpen, playerAuthorized, channelEdgeRestored, tramCrossed with zero errors",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:33:23.269Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "route": "lower",
+    "speed": 8,
+    "seed": 1047,
+    "wallMsToTramCrossed": 8252,
+    "backend": "webgl2",
+    "semanticStatus": "ready",
+    "finalFlags": {
+      "channelLocated": true,
+      "channelSensorVerified": true,
+      "channelEdgeRestored": true,
+      "playerAuthorized": true,
+      "capacitySafe": true,
+      "gateOpen": true
+    },
+    "tramCrossed": true,
+    "branch": "lower",
+    "beat": "control-room",
+    "checkpointKey": "cp-control",
+    "tick": 3709,
+    "hash": "0850e889b2da1f9e",
+    "captionLines": 42,
+    "commands": 3709,
+    "gateOpenedEvents": 1,
+    "appErrors": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "Failed to create WebGPU Context Provider",
+      "[GroupMarkerNotSet(crbug.com/242999)!:A0B020009C390000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content."
+    ],
+    "nodeReference": {
+      "planDoneTick": 3500,
+      "tramTick": 3314,
+      "keyEvents": 14
+    },
+    "hashComparison": {
+      "commonTicks": 29,
+      "mismatches": [],
+      "lastCommonTick": 3750
+    },
+    "keyEventIdsMatch": true,
+    "observerPatchedSims": 1,
+    "observerErrors": []
+  }
+}

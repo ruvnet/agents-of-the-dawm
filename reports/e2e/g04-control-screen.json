@@ -1,0 +1,215 @@
+{
+  "test": "G04 at the UI boundary: authorizing the occupied street or the protected pump never opens the gate",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:33:56.609Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "openedBy": "keyboard E (1 press(es))",
+    "savedCheckpoint": "cp-control",
+    "panelVisible": true,
+    "attempts": [
+      {
+        "action": "authorize occupied-street (before evidence)",
+        "events": [
+          "TransferRejected:authorize:{\"reasonKey\":\"reason.street.occupied\",\"reason\":\"People are present in the street. Projected impact exceeds the safe limit.\",\"destination\":\"occupied-street\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": false,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": false,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "authorize protected-pump (before evidence)",
+        "events": [
+          "TransferRejected:authorize:{\"reasonKey\":\"reason.pump.overload\",\"reason\":\"The pump chamber overloads. Projected load exceeds its tolerance.\",\"destination\":\"protected-pump\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": false,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": false,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "authorize relief-channel before sensor scan",
+        "events": [
+          "TransferRejected:authorize:{\"reasonKey\":\"reason.relief.unverified\",\"reason\":\"Relief channel not yet verified. Scan its in-world sensor first.\",\"destination\":\"relief-channel\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": false,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": false,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "scan-sensor",
+        "events": [
+          "DialogueCue:relief-selected:{}",
+          "DialogueCue:before-scan:{}",
+          "SensorVerified:relief-sensor:{\"occupied\":false,\"fixtureId\":\"sector-01/pressure-scenario-v1\"}",
+          "DialogueCue:sensor-verified:{}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": false,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "preview occupied-street",
+        "events": [
+          "PreviewShown:occupied-street:{\"safe\":false,\"reasonKey\":\"reason.street.occupied\",\"projectedLoad\":180,\"safeThreshold\":120,\"unit\":\"kPa\"}",
+          "DialogueCue:preview-opened:{}",
+          "TransferRejected:preview:{\"reasonKey\":\"reason.street.occupied\",\"reason\":\"People are present in the street. Projected impact exceeds the safe limit.\",\"destination\":\"occupied-street\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": false,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "preview protected-pump",
+        "events": [
+          "PreviewShown:protected-pump:{\"safe\":false,\"reasonKey\":\"reason.pump.overload\",\"projectedLoad\":260,\"safeThreshold\":200,\"unit\":\"kPa\"}",
+          "TransferRejected:preview:{\"reasonKey\":\"reason.pump.overload\",\"reason\":\"The pump chamber overloads. Projected load exceeds its tolerance.\",\"destination\":\"protected-pump\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": false,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "preview relief-channel",
+        "events": [
+          "PreviewShown:relief-channel:{\"safe\":true,\"reasonKey\":\"reason.relief.unrestored\",\"projectedLoad\":150,\"safeThreshold\":220,\"unit\":\"kPa\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": false,
+          "playerAuthorized": false,
+          "capacitySafe": true,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "restore-edge",
+        "events": [
+          "EdgeRestored:reservoir-to-relief:{\"from\":\"reservoir\",\"to\":\"relief-channel\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": true,
+          "playerAuthorized": false,
+          "capacitySafe": true,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "authorize occupied-street (all evidence present)",
+        "events": [
+          "TransferRejected:authorize:{\"reasonKey\":\"reason.street.occupied\",\"reason\":\"People are present in the street. Projected impact exceeds the safe limit.\",\"destination\":\"occupied-street\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": true,
+          "playerAuthorized": false,
+          "capacitySafe": true,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "authorize protected-pump (all evidence present)",
+        "events": [
+          "TransferRejected:authorize:{\"reasonKey\":\"reason.pump.overload\",\"reason\":\"The pump chamber overloads. Projected load exceeds its tolerance.\",\"destination\":\"protected-pump\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": true,
+          "playerAuthorized": false,
+          "capacitySafe": true,
+          "gateOpen": false
+        }
+      },
+      {
+        "action": "authorize relief-channel (safe, all evidence present)",
+        "events": [
+          "TransferAuthorized:relief-channel:{\"route\":\"reservoir-to-relief\"}",
+          "DialogueCue:authorized:{}",
+          "GateOpened:locked-gate:{\"destination\":\"relief-channel\"}"
+        ],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": true,
+          "playerAuthorized": true,
+          "capacitySafe": true,
+          "gateOpen": true
+        }
+      },
+      {
+        "action": "authorize relief-channel again (duplicate)",
+        "events": [],
+        "flagsAfter": {
+          "channelLocated": true,
+          "channelSensorVerified": true,
+          "channelEdgeRestored": true,
+          "playerAuthorized": true,
+          "capacitySafe": true,
+          "gateOpen": true
+        }
+      }
+    ],
+    "uiAuthorizeEnabledBeforeSafeAuthorize": true,
+    "flagsBeforeSafeAuthorize": {
+      "channelLocated": true,
+      "channelSensorVerified": true,
+      "channelEdgeRestored": true,
+      "playerAuthorized": false,
+      "capacitySafe": true,
+      "gateOpen": false
+    },
+    "gateOpenedEvents": 1,
+    "final": {
+      "flags": {
+        "channelLocated": true,
+        "channelSensorVerified": true,
+        "channelEdgeRestored": true,
+        "playerAuthorized": true,
+        "capacitySafe": true,
+        "gateOpen": true
+      },
+      "tramCrossed": true,
+      "semanticStatus": "ready"
+    },
+    "appErrors": [],
+    "pageErrors": [],
+    "consoleErrors": []
+  }
+}

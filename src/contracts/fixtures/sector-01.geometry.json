@@ -1,0 +1,202 @@
+{
+ "version": 1,
+ "_note": "W1-authored sector-01 district. Scene coords: metres, Y up. Main walk axis +x. Floors after the inspection wall sit at y=14. Route split: upper lattice z in [2,9], lower conduit z in [-8,-2].",
+ "spawn": { "up": "+y", "feet": [2, 0, 0], "yaw": 0 },
+ "colliders": [
+  { "key": "floor-west", "box": { "min": [0, -1, -4], "max": [34, 0, 4] }, "material": "ceramic" },
+  { "key": "west-seawall", "box": { "min": [0, 0, -4.5], "max": [34, 1.5, -4] }, "material": "ceramic" },
+  { "key": "west-end-rail", "box": { "min": [-0.5, 0, -4.5], "max": [0, 1.5, 4.5] }, "material": "metal" },
+  { "key": "approach-rail-north", "box": { "min": [0, 0, 4], "max": [22, 1.5, 4.5] }, "material": "metal" },
+  { "key": "inspection-wall", "box": { "min": [22, 0, 4], "max": [34, 14, 9] }, "material": "ceramic" },
+  { "key": "parapet", "box": { "min": [22, 14, 9], "max": [34, 17, 10] }, "material": "metal" },
+  { "key": "deck", "box": { "min": [34, 13, 2], "max": [52, 14, 9] }, "material": "mesh" },
+  { "key": "deck-rail-south", "box": { "min": [34, 14, 1.5], "max": [52, 15.5, 2] }, "material": "mesh" },
+  { "key": "deck-rail-north", "box": { "min": [34, 14, 9], "max": [52, 15.5, 9.5] }, "material": "mesh" },
+  { "key": "gantry-deck", "box": { "min": [52, 13.6, 4], "max": [61, 14, 7] }, "material": "metal", "dynamicKey": "gantry" },
+  { "key": "far-bank", "box": { "min": [61, 13, 2], "max": [74, 14, 9] }, "material": "concrete" },
+  { "key": "far-bank-rail-south", "box": { "min": [61, 14, 1.5], "max": [74, 15.5, 2] }, "material": "metal" },
+  { "key": "far-bank-rail-north", "box": { "min": [61, 14, 9], "max": [74, 15.5, 9.5] }, "material": "metal" },
+  { "key": "junction-floor", "box": { "min": [74, 13, -8], "max": [82, 14, 9] }, "material": "concrete" },
+  { "key": "junction-rail-west", "box": { "min": [73.5, 14, -8.5], "max": [74, 15.5, 2] }, "material": "metal" },
+  { "key": "junction-rail-north", "box": { "min": [74, 14, 9], "max": [82, 15.5, 9.5] }, "material": "metal" },
+  { "key": "junction-rail-south", "box": { "min": [74, 14, -8.5], "max": [82, 15.5, -8] }, "material": "metal" },
+  { "key": "route-divider", "box": { "min": [82, 14, -2], "max": [106, 22, 2] }, "material": "concrete" },
+  { "key": "lattice-floor", "box": { "min": [82, 13, 2], "max": [106, 14, 9] }, "material": "mesh" },
+  { "key": "lattice-rail-north", "box": { "min": [82, 14, 9], "max": [106, 15.5, 9.5] }, "material": "mesh" },
+  { "key": "conduit-floor-near", "box": { "min": [82, 13, -8], "max": [92, 14, -2] }, "material": "concrete" },
+  { "key": "conduit-wall", "box": { "min": [84, 14, -9], "max": [92, 24, -8] }, "material": "ceramic" },
+  { "key": "conduit-rail-south-a", "box": { "min": [82, 14, -8.5], "max": [84, 15.5, -8] }, "material": "metal" },
+  { "key": "conduit-floor-far", "box": { "min": [98, 13, -8], "max": [106, 14, -2] }, "material": "concrete" },
+  { "key": "conduit-rail-south-b", "box": { "min": [98, 14, -8.5], "max": [106, 15.5, -8] }, "material": "metal" },
+  { "key": "conduit-platform", "box": { "min": [92, 13.6, -7], "max": [98, 14, -3] }, "material": "metal", "dynamicKey": "conduit-platform" },
+  { "key": "converge-floor", "box": { "min": [106, 13, -8], "max": [108, 14, 9] }, "material": "concrete" },
+  { "key": "arena-floor", "box": { "min": [108, 13, -8], "max": [130, 14, 9] }, "material": "ceramic" },
+  { "key": "arena-rail-south", "box": { "min": [106, 14, -8.5], "max": [130, 15.5, -8] }, "material": "metal" },
+  { "key": "arena-rail-north-a", "box": { "min": [106, 14, 9], "max": [114, 15.5, 9.5] }, "material": "metal" },
+  { "key": "arena-rail-north-b", "box": { "min": [126, 14, 9], "max": [130, 15.5, 9.5] }, "material": "metal" },
+  { "key": "gate-lock", "box": { "min": [130, 13, -8], "max": [131, 28, 9] }, "material": "metal" },
+  { "key": "control-floor", "box": { "min": [114, 13, 9], "max": [126, 14, 15] }, "material": "concrete" },
+  { "key": "control-wall-north", "box": { "min": [114, 14, 15], "max": [126, 18, 15.5] }, "material": "glass" },
+  { "key": "control-wall-west", "box": { "min": [113.5, 14, 9.5], "max": [114, 18, 15.5] }, "material": "concrete" },
+  { "key": "control-wall-east", "box": { "min": [126, 14, 9.5], "max": [126.5, 18, 15.5] }, "material": "concrete" },
+  { "key": "floating-panel", "box": { "min": [119, 14.5, -3], "max": [121, 17, -2.6] }, "material": "metal", "dynamicKey": "panel" }
+ ],
+ "killVolumes": [
+  { "key": "sea", "box": { "min": [-100, -60, -100], "max": [400, -3, 100] } },
+  { "key": "void-north", "box": { "min": [-100, -60, 30], "max": [400, 100, 100] } },
+  { "key": "void-south", "box": { "min": [-100, -60, -100], "max": [400, 100, -30] } },
+  { "key": "void-east", "box": { "min": [200, -60, -100], "max": [400, 100, 100] } },
+  { "key": "void-west", "box": { "min": [-100, -60, -100], "max": [-30, 100, 100] } },
+  { "key": "void-sky", "box": { "min": [-100, 60, -100], "max": [400, 100, 100] } }
+ ],
+ "zones": [
+  { "key": "west-approach", "beat": "west-approach", "box": { "min": [0, -1, -5], "max": [22, 8, 5] } },
+  { "key": "inspection-wall", "beat": "inspection-wall", "box": { "min": [22, -1, -5], "max": [34, 18, 10] } },
+  { "key": "maintenance-deck", "beat": "maintenance-deck", "box": { "min": [34, 12, 1], "max": [52, 20, 10] } },
+  { "key": "floating-gantry", "beat": "floating-gantry", "box": { "min": [52, 12, 1], "max": [74, 20, 10] } },
+  { "key": "junction", "beat": "junction", "box": { "min": [74, 12, -9], "max": [82, 20, 10] } },
+  { "key": "upper-lattice", "beat": "upper-lattice", "box": { "min": [82, 12, 2], "max": [106, 20, 10] } },
+  { "key": "lower-conduit", "beat": "lower-conduit", "box": { "min": [82, 12, -9], "max": [106, 26, -2] } },
+  { "key": "control-room", "beat": "control-room", "box": { "min": [114, 12, 9.01], "max": [126, 20, 16] } },
+  { "key": "keeper-arena", "beat": "keeper-arena", "box": { "min": [106, 12, -9], "max": [130, 20, 9] } }
+ ],
+ "anchors": [
+  {
+   "key": "anchor-a1-inspection", "entityKey": "anchor-a1-inspection", "beat": "inspection-wall",
+   "volume": { "min": [26, 0, 1.5], "max": [30, 2.5, 4] },
+   "surfaces": [
+    { "up": "+y", "glyph": "crescent-floor", "landing": { "up": "+y", "feet": [28, 0, 3], "yaw": 0 } },
+    { "up": "-z", "glyph": "crescent-wall", "landing": { "up": "-z", "feet": [28, 1.5, 4], "yaw": 0 } }
+   ],
+   "initial": 0, "target": "player"
+  },
+  {
+   "key": "anchor-a2-ledge", "entityKey": "anchor-a2-ledge", "beat": "inspection-wall",
+   "volume": { "min": [26, 14, 6], "max": [30, 17, 9] },
+   "surfaces": [
+    { "up": "-z", "glyph": "crescent-parapet", "landing": { "up": "-z", "feet": [28, 15.2, 9], "yaw": 0 } },
+    { "up": "+y", "glyph": "crescent-ledge", "landing": { "up": "+y", "feet": [28, 14, 6.5], "yaw": 0 } }
+   ],
+   "initial": 0, "target": "player"
+  },
+  {
+   "key": "anchor-gantry", "entityKey": "anchor-gantry", "beat": "floating-gantry",
+   "volume": { "min": [48, 14, 2], "max": [52, 16.5, 9] },
+   "surfaces": [
+    { "up": "+y", "glyph": "rail-raised", "dynamicPose": 0 },
+    { "up": "-x", "glyph": "rail-bridge", "dynamicPose": 1 }
+   ],
+   "initial": 0, "target": "gantry", "targetKey": "gantry"
+  },
+  {
+   "key": "anchor-lattice", "entityKey": "anchor-lattice", "beat": "upper-lattice",
+   "volume": { "min": [86, 14, 2], "max": [90, 16.5, 9] },
+   "surfaces": [
+    { "up": "+y", "glyph": "lattice-floor", "dynamicPose": 0 },
+    { "up": "-z", "glyph": "lattice-rail", "dynamicPose": 1 }
+   ],
+   "initial": 0, "target": "hauler", "targetKey": "hauler-upper"
+  },
+  {
+   "key": "anchor-conduit", "entityKey": "anchor-conduit", "beat": "lower-conduit",
+   "volume": { "min": [86, 14, -8], "max": [90, 17, -5] },
+   "surfaces": [
+    { "up": "+y", "glyph": "crescent-conduit-floor", "landing": { "up": "+y", "feet": [88, 14, -6], "yaw": 0 } },
+    { "up": "+z", "glyph": "crescent-conduit-wall", "landing": { "up": "+z", "feet": [88, 15.5, -8], "yaw": 0 } }
+   ],
+   "initial": 0, "target": "player"
+  },
+  {
+   "key": "anchor-keeper-left", "entityKey": "anchor-keeper-left", "beat": "keeper-arena",
+   "volume": { "min": [113, 14, -8], "max": [117, 17, -4] },
+   "surfaces": [
+    { "up": "+y", "glyph": "keeper-floor", "dynamicPose": 0 },
+    { "up": "-z", "glyph": "keeper-left", "dynamicPose": 1 }
+   ],
+   "initial": 0, "target": "keeper", "targetKey": "keeper"
+  },
+  {
+   "key": "anchor-keeper-right", "entityKey": "anchor-keeper-right", "beat": "keeper-arena",
+   "volume": { "min": [113, 14, 5], "max": [117, 17, 9] },
+   "surfaces": [
+    { "up": "+y", "glyph": "keeper-floor", "dynamicPose": 0 },
+    { "up": "+z", "glyph": "keeper-right", "dynamicPose": 2 }
+   ],
+   "initial": 0, "target": "keeper", "targetKey": "keeper"
+  },
+  {
+   "key": "anchor-panel", "entityKey": "anchor-panel", "beat": "keeper-arena",
+   "volume": { "min": [119, 14, -8], "max": [123, 17, -4] },
+   "surfaces": [
+    { "up": "+y", "glyph": "panel-raised", "dynamicPose": 0 },
+    { "up": "-z", "glyph": "panel-cover", "dynamicPose": 1 }
+   ],
+   "initial": 0, "target": "panel", "targetKey": "panel"
+  }
+ ],
+ "checkpoints": [
+  { "key": "cp-spawn", "beat": "west-approach", "trigger": { "min": [0, 0, -4], "max": [4, 3, 4] }, "pose": { "up": "+y", "feet": [2, 0, 0], "yaw": 0 } },
+  { "key": "cp-ledge", "beat": "inspection-wall", "trigger": { "min": [22, 14, 4], "max": [34, 16, 9] }, "pose": { "up": "+y", "feet": [27, 14, 6.5], "yaw": 0 } },
+  { "key": "cp-deck", "beat": "maintenance-deck", "trigger": { "min": [34, 14, 2], "max": [37, 16, 9] }, "pose": { "up": "+y", "feet": [35.5, 14, 5.5], "yaw": 0 } },
+  { "key": "cp-bank-near", "beat": "floating-gantry", "trigger": { "min": [48, 14, 2], "max": [52, 16, 9] }, "pose": { "up": "+y", "feet": [50, 14, 5.5], "yaw": 0 } },
+  { "key": "cp-bank-far", "beat": "floating-gantry", "trigger": { "min": [61, 14, 2], "max": [64, 16, 9] }, "pose": { "up": "+y", "feet": [62.5, 14, 5.5], "yaw": 0 } },
+  { "key": "cp-junction", "beat": "junction", "trigger": { "min": [74, 14, -8], "max": [82, 16, 9] }, "pose": { "up": "+y", "feet": [78, 14, 0.5], "yaw": 0 } },
+  { "key": "cp-mid-upper", "beat": "upper-lattice", "trigger": { "min": [94, 14, 2], "max": [96, 16, 9] }, "pose": { "up": "+y", "feet": [95, 14, 5.5], "yaw": 0 } },
+  { "key": "cp-mid-lower", "beat": "lower-conduit", "trigger": { "min": [99, 14, -8], "max": [101, 16, -2] }, "pose": { "up": "+y", "feet": [100, 14, -5], "yaw": 0 } },
+  { "key": "cp-converge", "beat": "keeper-arena", "trigger": { "min": [106, 14, -8], "max": [108, 16, 9] }, "pose": { "up": "+y", "feet": [107, 14, 0.5], "yaw": 0 } },
+  { "key": "cp-arena", "beat": "keeper-arena", "trigger": { "min": [109, 14, -8], "max": [112, 16, 9] }, "pose": { "up": "+y", "feet": [110.5, 14, 0.5], "yaw": 0 } },
+  { "key": "cp-control", "beat": "control-room", "trigger": { "min": [114, 14, 10], "max": [126, 17, 15] }, "pose": { "up": "+y", "feet": [120, 14, 12], "yaw": 0 } }
+ ],
+ "interactables": [
+  { "key": "pressure-map", "kind": "pressure-map", "pos": [18, 1, 3], "radius": 1.6, "entityKey": "pressure-map" },
+  { "key": "charge-cell-ledge", "kind": "charge-cell", "pos": [31, 14.5, 6.5], "radius": 1.2 },
+  { "key": "charge-cell-deck", "kind": "charge-cell", "pos": [50, 14.5, 3], "radius": 1.2 },
+  { "key": "charge-cell-far", "kind": "charge-cell", "pos": [63, 14.5, 8], "radius": 1.2 },
+  { "key": "channel-marker", "kind": "channel-marker", "pos": [72, 14.8, 8], "radius": 1.6, "entityKey": "channel-marker" },
+  { "key": "charge-cell-upper", "kind": "charge-cell", "pos": [84, 14.5, 8], "radius": 1.2 },
+  { "key": "charge-cell-upper-b", "kind": "charge-cell", "pos": [96, 14.5, 8.5], "radius": 1.2 },
+  { "key": "overdrive-cell", "kind": "overdrive-cell", "pos": [102, 14.5, 5.5], "radius": 1.2 },
+  { "key": "charge-cell-lower", "kind": "charge-cell", "pos": [84, 14.5, -4], "radius": 1.2 },
+  { "key": "valve-1", "kind": "valve", "pos": [90, 14.8, -3.5], "radius": 1.6, "entityKey": "valve-1" },
+  { "key": "valve-2", "kind": "valve", "pos": [88, 19, -7.4], "radius": 1.4, "entityKey": "valve-2" },
+  { "key": "charge-cell-arena-a", "kind": "charge-cell", "pos": [111, 14.5, -6], "radius": 1.2 },
+  { "key": "charge-cell-arena-b", "kind": "charge-cell", "pos": [111, 14.5, 7], "radius": 1.2 },
+  { "key": "control-screen", "kind": "control-screen", "pos": [120, 15, 14], "radius": 2, "entityKey": "control-screen" }
+ ],
+ "machines": [
+  { "key": "skimmer-d1", "kind": "skimmer", "pos": [42, 14, 5], "up": "+y", "beat": "maintenance-deck", "dormant": true },
+  { "key": "skimmer-d2", "kind": "skimmer", "pos": [46, 14, 3.5], "up": "+y", "beat": "maintenance-deck", "dormant": false, "patrol": [[46, 14, 3.5], [46, 14, 8]] },
+  { "key": "hauler-far", "kind": "hauler", "pos": [69, 14, 5.5], "up": "+y", "beat": "floating-gantry", "dormant": false, "patrol": [[69, 14, 3.5], [69, 14, 8]] },
+  { "key": "skimmer-u1", "kind": "skimmer", "pos": [92, 14, 4], "up": "+y", "beat": "upper-lattice", "dormant": false, "patrol": [[92, 14, 3.5], [92, 14, 8]], "branch": "upper" },
+  { "key": "skimmer-u2", "kind": "skimmer", "pos": [98, 14, 7], "up": "+y", "beat": "upper-lattice", "dormant": false, "patrol": [[98, 14, 8], [98, 14, 3.5]], "branch": "upper" },
+  { "key": "hauler-upper", "kind": "hauler", "pos": [100, 14, 5.5], "up": "+y", "beat": "upper-lattice", "dormant": false, "patrol": [[100, 14, 5.5], [100, 14, 8.5]], "branch": "upper" },
+  { "key": "keeper", "kind": "keeper", "pos": [126, 14, 0.5], "up": "+y", "beat": "keeper-arena", "dormant": true, "patrol": [[126, 14, 0.5], [126, 14, -4], [126, 14, 5]] },
+  { "key": "skimmer-arena", "kind": "skimmer", "pos": [124, 14, -5], "up": "+y", "beat": "keeper-arena", "dormant": false, "patrol": [[124, 14, -5], [124, 14, 5]] }
+ ],
+ "dynamics": [
+  { "key": "gantry", "kind": "gantry", "box": { "min": [52, 13.6, 4], "max": [61, 14, 7] }, "poses": [[0, 6, 0], [0, 0, 0]], "initialPose": 0 },
+  { "key": "conduit-platform", "kind": "panel", "box": { "min": [92, 13.6, -7], "max": [98, 14, -3] }, "poses": [[0, -20, 0], [0, 0, 0]], "initialPose": 0 },
+  { "key": "panel", "kind": "panel", "box": { "min": [119, 14.5, -3], "max": [121, 17, -2.6] }, "poses": [[0, 6, 0], [0, 0, 0]], "initialPose": 0 }
+ ],
+ "triggers": [
+  { "key": "enter-junction", "box": { "min": [74, 14, -8], "max": [82, 17, 9] }, "event": "enter-junction" },
+  { "key": "choose-upper", "box": { "min": [82, 14, 2], "max": [84, 17, 9] }, "event": "choose-upper" },
+  { "key": "choose-lower", "box": { "min": [82, 14, -8], "max": [84, 17, -2] }, "event": "choose-lower" },
+  { "key": "mid-upper", "box": { "min": [94, 14, 2], "max": [96, 17, 9] }, "event": "route-midpoint" },
+  { "key": "mid-lower", "box": { "min": [99, 14, -8], "max": [101, 17, -2] }, "event": "route-midpoint" },
+  { "key": "converge", "box": { "min": [106, 14, -8], "max": [108, 17, 9] }, "event": "converge" },
+  { "key": "enter-arena", "box": { "min": [109, 14, -8], "max": [112, 17, 9] }, "event": "enter-arena" }
+ ],
+ "decor": [
+  { "key": "sea", "kind": "sea", "box": { "min": [-100, -4, -100], "max": [400, -3, 100] } },
+  { "key": "tram", "kind": "tram", "box": { "min": [140, 14, -4], "max": [152, 18, -1] } },
+  { "key": "tram-rail", "kind": "rail", "box": { "min": [131, 14, -3], "max": [170, 14.2, -2] } },
+  { "key": "gate", "kind": "gate", "box": { "min": [130, 13, -8], "max": [131, 28, 9] } },
+  { "key": "pump", "kind": "pump", "box": { "min": [124, 8, -8], "max": [129, 13, -4] } },
+  { "key": "reservoir", "kind": "reservoir", "box": { "min": [114, 8, 15.5], "max": [126, 13, 24] } },
+  { "key": "relief-channel", "kind": "relief-channel", "box": { "min": [61, 4, 10], "max": [74, 8, 16] } },
+  { "key": "relief-pipe", "kind": "pipe", "box": { "min": [74, 6, 12], "max": [114, 7, 13] } },
+  { "key": "street", "kind": "street", "box": { "min": [132, 13, -10], "max": [170, 14, -6] } },
+  { "key": "junction-sign", "kind": "sign", "box": { "min": [78, 14, 8.5], "max": [80, 16.5, 9] } }
+ ]
+}

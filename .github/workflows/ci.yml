@@ -1,0 +1,29 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: git diff --check HEAD~1 || true
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run test:contracts
+      - run: npm run test:sim
+      - run: npm run test:render
+      - run: npm run test:world
+      - run: npm run test:ui
+      - run: npm run test:audio
+      - run: npm run test:app
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npm run build
+      - run: npm run audit:assets

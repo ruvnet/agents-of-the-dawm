@@ -1,0 +1,23 @@
+{
+  "test": "Save/continue: corrupt IndexedDB save and settings records do not break boot",
+  "status": "recorded",
+  "recordedAt": "2026-09-25T00:34:36.665Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
+  "worktreeDirty": "no",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
+  "data": {
+    "continueVisible": false,
+    "fatalVisible": false,
+    "saveQuarantined": true,
+    "quarantineReason": "manifestId",
+    "settingsQuarantined": true,
+    "settingsQuarantineReason": "settings: unknown version",
+    "currentAfterBoot": "removed",
+    "playStarted": true,
+    "tick": 67,
+    "appErrors": [],
+    "pageErrors": [],
+    "consoleErrors": []
+  }
+}
