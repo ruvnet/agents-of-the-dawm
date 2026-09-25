@@ -275,14 +275,25 @@ export async function startGame(root: HTMLElement, canvasHost: HTMLElement, deps
   window.addEventListener('keydown', regesture);
   await initRenderer(settings.renderer);
   // Draw the start state behind the menu so the first view is the game (ADR 0001).
-  const r0 = renderer as RendererAdapter | null;
-  if (r0) {
-    const preview = deps.createSimulation(manifest, { seed: deps.seed ?? 1047 });
-    const s = preview.state();
-    r0.render({ alpha: 1, prev: s, curr: s, events: [], camera: settings.camera, previewAnchorKey: null, nowMs: now() });
-    ui.setReadiness(r0.readiness(), backend);
-    if (r0.readiness() !== 'initializing') probe.mark('fl:controllable');
-  }
+  // Keep drawing it every frame until play starts: WebGPU compiles pipelines asynchronously, so a
+  // single render before compilation finishes presents nothing, and optional layers build per frame.
+  const previewState = deps.createSimulation(manifest, { seed: deps.seed ?? 1047 }).state();
+  let controllableMarked = false;
+  const previewFrame = (): void => {
+    if (running) return;
+    const r = renderer as RendererAdapter | null;
+    if (r) {
+      try {
+        r.render({ alpha: 1, prev: previewState, curr: previewState, events: [], camera: settings.camera, previewAnchorKey: null, nowMs: now() });
+        ui.setReadiness(r.readiness(), backend);
+        if (!controllableMarked && r.readiness() !== 'initializing') { controllableMarked = true; probe.mark('fl:controllable'); }
+      } catch (e) {
+        errors.push(`preview render: ${String(e)}`);
+      }
+    }
+    raf(previewFrame);
+  };
+  previewFrame();
 
   return {
     sim: () => sim,

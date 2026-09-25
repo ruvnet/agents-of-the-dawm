@@ -42,7 +42,8 @@ async function boot(): Promise<void> {
     speed,
     seed: 1047,
   });
-  // Read-only debug/e2e handle: exposes committed state and evidence, never a mutation path.
+  // Debug/e2e handle (ships in the bundle). Getters are read-only; start/stepOnce/setPaused/control act
+  // through the same InputCommand path as a player, so every sim predicate (e.g. gateOpen) still gates them.
   window.__floodline = Object.assign(handle, { ready: true as const });
   if (params.get('autostart') === '1' || route) void handle.start('new');
 }
