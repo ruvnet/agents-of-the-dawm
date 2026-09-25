@@ -1,9 +1,9 @@
 {
   "test": "R05 context loss: renderer recovers and rendering continues (backend back to webgl2)",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:06:30.948Z",
+  "recordedAt": "2026-09-25T00:34:18.094Z",
   "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
   "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
@@ -15,10 +15,10 @@
     },
     "pathBefore": "WebGPURenderer(WebGL2 backend)",
     "backendBefore": "webgl2",
-    "tickAtLoss": 326,
+    "tickAtLoss": 340,
     "afterLoss": {
       "backend": "webgl2",
-      "tick": 577,
+      "tick": 583,
       "appErrors": [
         "device lost: Unknown reason"
       ],
@@ -39,7 +39,7 @@
     },
     "end": {
       "backend": "webgl2",
-      "tick": 984,
+      "tick": 996,
       "beat": "maintenance-deck",
       "appErrors": [
         "device lost: Unknown reason"
@@ -58,7 +58,7 @@
         "onGameCanvas": false,
         "module": "main-chunk",
         "blocked": false,
-        "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
+        "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
       },
       {
         "type": "webgl2",

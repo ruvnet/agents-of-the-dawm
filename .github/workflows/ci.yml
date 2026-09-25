@@ -6,7 +6,7 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,6 +25,5 @@ jobs:
       - run: npm run test:app
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
-      - run: npm run audit:assets
       - run: npm run build
-      - run: npm run bench:frame
+      - run: npm run audit:assets

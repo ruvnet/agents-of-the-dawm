@@ -1,9 +1,9 @@
 {
   "test": "R03 cross-backend: identical final hash across all variants; WebGPU availability recorded",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:06:44.834Z",
+  "recordedAt": "2026-09-25T00:34:19.284Z",
   "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
   "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
@@ -50,7 +50,7 @@
         "finalHash": "eb7b397c34004556",
         "referenceFinalHash": "eb7b397c34004556",
         "mismatches": 0,
-        "commonTicks": 30,
+        "commonTicks": 31,
         "appErrors": [],
         "pageErrors": [],
         "consoleErrors": [],
@@ -60,7 +60,7 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
+            "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
           },
           {
             "type": "webgl2",
@@ -92,7 +92,7 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
+            "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
           },
           {
             "type": "webgl2",
@@ -122,7 +122,7 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
+            "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
           },
           {
             "type": "webgl2",
@@ -149,7 +149,7 @@
         "finalHash": "eb7b397c34004556",
         "referenceFinalHash": "eb7b397c34004556",
         "mismatches": 0,
-        "commonTicks": 30,
+        "commonTicks": 31,
         "appErrors": [],
         "pageErrors": [],
         "consoleErrors": [],
@@ -159,7 +159,7 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
+            "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
           },
           {
             "type": "webgl2",
@@ -189,7 +189,7 @@
             "onGameCanvas": false,
             "module": "main-chunk",
             "blocked": false,
-            "frame": "Object.qn [as probe] (http://127.0.0.1:4173/assets/index-DwlVjQDK.js:3:36859)"
+            "frame": "Object.Jn [as probe] (http://127.0.0.1:4173/assets/index-n4wtSl-J.js:3:36872)"
           },
           {
             "type": "webgl2",

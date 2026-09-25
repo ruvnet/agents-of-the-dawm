@@ -1,9 +1,9 @@
 {
   "test": "P05 privacy: full demo network log is same-origin GET for own assets only",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:06:08.252Z",
+  "recordedAt": "2026-09-25T00:33:36.760Z",
   "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
   "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
@@ -12,7 +12,7 @@
     "uniquePaths": [
       "/",
       "/assets/index-D2gQwDtg.css",
-      "/assets/index-DwlVjQDK.js",
+      "/assets/index-n4wtSl-J.js",
       "/assets/three.webgpu-DmpQjWyQ.js",
       "/assets/vendor-three-C4ojHK4u.js",
       "/assets/worldgraph_wasm-CJ0BnHsu.js",
@@ -35,10 +35,10 @@
       },
       {
         "method": "GET",
-        "url": "http://127.0.0.1:4173/assets/index-DwlVjQDK.js",
+        "url": "http://127.0.0.1:4173/assets/index-n4wtSl-J.js",
         "type": "script",
         "status": 200,
-        "bytes": 71553
+        "bytes": 71588
       },
       {
         "method": "GET",
@@ -74,7 +74,7 @@
     "beacons": [],
     "websockets": [],
     "jsNetworkApiCalls": [],
-    "transferBytesIncludingHeaders": 1405428,
+    "transferBytesIncludingHeaders": 1405463,
     "tramCrossed": true,
     "pageErrors": []
   }

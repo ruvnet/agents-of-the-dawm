@@ -1,9 +1,9 @@
 {
   "test": "P04 reduced motion: prefers-reduced-motion is honoured and leaves story/authorization identical (G06)",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:05:44.851Z",
+  "recordedAt": "2026-09-25T00:33:16.189Z",
   "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "sourceSha": "61ed8821a48643e474202d8fa908a2d7728265c6",
   "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
