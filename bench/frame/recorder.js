@@ -20,7 +20,7 @@
   HTMLCanvasElement.prototype.getContext = function (type, attrs) {
     const lines = (new Error().stack || '').split('\n').slice(2).map((s) => s.trim());
     const frame = lines.find((l) => /assets\//.test(l)) || lines[0] || '';
-    const module = /three\.webgpu/.test(frame) ? 'three.webgpu-chunk' : /assets\/index-/.test(frame) ? 'main-chunk' : 'other';
+    const module = /three\.webgpu/.test(frame) ? 'three.webgpu-chunk' : /assets\/(index|vendor-three)-/.test(frame) ? 'main-chunk' : 'other';
     let blocked = false;
     if (cfg.glMode === 'force-classic' && type === 'webgl2' && this.isConnected && module === 'three.webgpu-chunk' && forced === 0) { forced += 1; blocked = true; }
     bench.ctx.push({ type, onGameCanvas: this.isConnected, module, blocked });

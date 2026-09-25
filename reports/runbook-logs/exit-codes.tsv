@@ -1,18 +1,14 @@
-step	exit	seconds	command
-01-git-status	0	0	git status --short
-02-git-rev-parse	0	0	git rev-parse HEAD
-03-git-diff-check	0	0	git diff --check
-04-npm-ci	0	1	npm ci
-05-typecheck	0	0	npm run typecheck
-06-test-sim	0	3	npm run test:sim
-07-test-render	0	0	npm run test:render
-08-test-world	0	1	npm run test:world
-09-test-ui	0	0	npm run test:ui
-10-test-audio	0	1	npm run test:audio
-11-test-e2e	1	238	npm run test:e2e
-12-audit-assets	0	0	npm run audit:assets
-13-build	0	0	npm run build
-14-bench-frame	0	379	npm run bench:frame
-15-vitest-all	0	2	npx vitest run
-16-test-contracts	0	1	npm run test:contracts
-17-test-app	0	0	npm run test:app
+git diff --check HEAD~1	0
+npm ci	0
+npm run typecheck	0
+npm run test:contracts	0
+npm run test:sim	0
+npm run test:render	0
+npm run test:world	0
+npm run test:ui	0
+npm run test:audio	0
+npm run test:app	0
+npm run test:e2e	0
+npm run audit:assets	0
+npm run build	0
+npm run bench:frame	0

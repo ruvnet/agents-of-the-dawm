@@ -1,10 +1,10 @@
 {
   "test": "Sim boundary: a shift request for an anchor the player is not inside is rejected (ShiftRejected, state intact)",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:04:35.422Z",
-  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
-  "worktreeDirty": "yes (src/config changed)",
+  "recordedAt": "2026-09-25T00:07:40.692Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "before": {

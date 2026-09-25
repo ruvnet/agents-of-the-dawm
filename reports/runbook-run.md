@@ -1,4 +1,30 @@
-# Runbook section 5 run (W6)
+# Runbook section 5 run
+
+## Coordinator re-run at 55cafc1 (current candidate)
+
+This re-run covers the merged waves 1 to 3, the fixes in f6ef94e, and the bench chunk-detection fix committed with this report. The e2e suite and the bench run under Playwright 1.55.1 with chromium-1193 (SwiftShader, no WebGPU adapter). Per-command logs are `reports/runbook-logs/<command>.log`, and the exit codes are in `reports/runbook-logs/exit-codes.tsv`. The earlier W6 logs in that directory, from the first candidate, are kept.
+
+| Command | Exit |
+| --- | --- |
+| `git diff --check HEAD~1` | 0 |
+| `npm ci` | 0 |
+| `npm run typecheck` | 0 |
+| `npm run test:contracts` | 0 |
+| `npm run test:sim` | 0 |
+| `npm run test:render` | 0 |
+| `npm run test:world` | 0 |
+| `npm run test:ui` | 0 |
+| `npm run test:audio` | 0 |
+| `npm run test:app` | 0 |
+| `npm run test:e2e` | 0 |
+| `npm run audit:assets` | 0 |
+| `npm run build` | 0 |
+| `npm run bench:frame` | 0 |
+
+Results: e2e 26/26 passed. Unit tests pass across contracts, sim, render, world, ui, audio and app. Asset audit: 0 unknown entries and 0 external runtime URLs. The frame bench is SwiftShader only and is not reference-device evidence.
+
+## Original W6 run at ed8048c
+
 
 - Runner: `bash reports/runbook-logs/run.sh`. It runs each command with a 2400 s timeout, continues after a failure, and saves each step's stdout and stderr to `reports/runbook-logs/<step>.log`. The machine-readable results are in `reports/runbook-logs/exit-codes.tsv`.
 - Source: `f7b5574` on branch `w6-validate`. That is candidate `ed8048c` (`feat/floodline-slice`) plus W6 test, bench and report files only. `git diff --stat ed8048c f7b5574 -- src index.html package.json package-lock.json` is empty.

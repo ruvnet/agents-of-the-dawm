@@ -1,16 +1,16 @@
 {
   "test": "P01/P03 demo lower route reaches gateOpen, playerAuthorized, channelEdgeRestored, tramCrossed with zero errors",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:01:54.640Z",
-  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
-  "worktreeDirty": "yes (src/config changed)",
+  "recordedAt": "2026-09-25T00:05:54.976Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "route": "lower",
     "speed": 8,
     "seed": 1047,
-    "wallMsToTramCrossed": 8679,
+    "wallMsToTramCrossed": 8330,
     "backend": "webgl2",
     "semanticStatus": "ready",
     "finalFlags": {
@@ -25,17 +25,17 @@
     "branch": "lower",
     "beat": "control-room",
     "checkpointKey": "cp-control",
-    "tick": 3881,
-    "hash": "15f95af87bfb9483",
+    "tick": 3840,
+    "hash": "02b5e556c018183c",
     "captionLines": 42,
-    "commands": 3881,
+    "commands": 3840,
     "gateOpenedEvents": 1,
     "appErrors": [],
     "pageErrors": [],
     "consoleErrors": [],
     "consoleWarnings": [
       "Failed to create WebGPU Context Provider",
-      "[GroupMarkerNotSet(crbug.com/242999)!:A0B02000D42C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content."
+      "[GroupMarkerNotSet(crbug.com/242999)!:A0B02000B4110000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content."
     ],
     "nodeReference": {
       "planDoneTick": 3500,
@@ -43,9 +43,9 @@
       "keyEvents": 14
     },
     "hashComparison": {
-      "commonTicks": 30,
+      "commonTicks": 29,
       "mismatches": [],
-      "lastCommonTick": 4000
+      "lastCommonTick": 3750
     },
     "keyEventIdsMatch": true,
     "observerPatchedSims": 1,

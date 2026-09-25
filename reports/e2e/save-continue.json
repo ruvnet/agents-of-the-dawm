@@ -1,41 +1,41 @@
 {
   "test": "Save/continue: checkpoint reached, reload, Continue restores the same checkpoint and hash; play continues",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:02:41.576Z",
-  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
-  "worktreeDirty": "yes (src/config changed)",
+  "recordedAt": "2026-09-25T00:06:41.000Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "saved": {
       "checkpointKey": "cp-deck",
-      "stateHash": "c90bc8fb2cb00f04",
-      "savedAtTick": 531,
+      "stateHash": "50ddd2502b785f95",
+      "savedAtTick": 530,
       "schema": 1,
       "manifestId": "sector-01"
     },
     "restoredImmediately": {
-      "tick": 531,
+      "tick": 530,
       "checkpointKey": "cp-deck",
-      "hash": "c90bc8fb2cb00f04",
+      "hash": "50ddd2502b785f95",
       "pos": [
-        34.649945127401146,
+        34.55126236089059,
         14,
-        5.885254897147358
+        5.901432399854007
       ]
     },
     "afterPlay": {
-      "tick0": 564,
-      "tick1": 662,
+      "tick0": 548,
+      "tick1": 644,
       "pos0": [
-        34.649945127401146,
+        34.55126236089059,
         14,
-        5.885254897147358
+        5.901432399854007
       ],
       "pos1": [
-        40.34994512740123,
+        39.851262360890665,
         14,
-        5.885254897147358
+        5.901432399854007
       ]
     },
     "appErrors": [],

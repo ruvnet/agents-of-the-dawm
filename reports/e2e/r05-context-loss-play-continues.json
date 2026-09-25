@@ -1,10 +1,10 @@
 {
   "test": "R05 context loss: error recorded, simulation keeps running, screen never blank",
   "status": "recorded",
-  "recordedAt": "2026-09-25T00:02:19.483Z",
-  "environment": "Headless Chromium (Playwright 1.55.0, chromium-1187) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
-  "sourceSha": "866ce577fb06f18a26025fa461bc0d45a3a476ce",
-  "worktreeDirty": "yes (src/config changed)",
+  "recordedAt": "2026-09-25T00:06:19.690Z",
+  "environment": "Headless Chromium (Playwright 1.55.1) with SwiftShader WebGL2, no WebGPU adapter, on ruvultra",
+  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "worktreeDirty": "no",
   "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "data": {
     "speed": 2,
@@ -15,10 +15,10 @@
     },
     "pathBefore": "WebGPURenderer(WebGL2 backend)",
     "backendBefore": "webgl2",
-    "tickAtLoss": 348,
+    "tickAtLoss": 355,
     "afterLoss": {
       "backend": "webgl2",
-      "tick": 638,
+      "tick": 597,
       "appErrors": [
         "device lost: Unknown reason"
       ],
@@ -39,7 +39,7 @@
     },
     "end": {
       "backend": "webgl2",
-      "tick": 1025,
+      "tick": 982,
       "beat": "maintenance-deck",
       "appErrors": [
         "device lost: Unknown reason"

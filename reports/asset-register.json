@@ -1,9 +1,9 @@
 {
   "schema": "floodline-asset-register/1",
-  "generatedAt": "2026-09-24T23:33:58.273Z",
+  "generatedAt": "2026-09-25T00:07:41.114Z",
   "command": "npm run audit:assets",
-  "sourceSha": "f7b55743842696d3a86ab3f8f2a8bf17cdce9757",
-  "lockfileSha256": "f121566e4b5304e5ac8d7501808298ff20116829f3156a29acd5dca7a8466d49",
+  "sourceSha": "55cafc14349642ac4d4161ca115dab7fc2215fac",
+  "lockfileSha256": "777a56d7d1b03733cbad93280dba27705a90006d567b5385f188815f779473e4",
   "build": "dist/ present and newer than src/",
   "requirement": "P02 original rights provenance: every asset has author, license, source, modification and attribution; zero unknown entries",
   "verdict": "PASS",
@@ -11,7 +11,7 @@
   "scopes": [
     {
       "scope": "src",
-      "files": 101
+      "files": 108
     },
     {
       "scope": "index.html",
@@ -23,18 +23,18 @@
     },
     {
       "scope": "dist",
-      "files": 9
+      "files": 11
     }
   ],
   "codeAndDataFileCounts": {
-    ".ts": 85,
-    ".json": 5,
+    ".ts": 88,
+    ".json": 9,
     ".md": 6,
     ".css": 2,
     ".d.ts": 2,
-    ".js": 4,
+    ".js": 5,
     ".html": 2,
-    ".map": 3
+    ".map": 4
   },
   "assets": [
     {
@@ -127,34 +127,26 @@
     "distIndexHtmlExternalRefs": [],
     "bundle": [
       {
-        "file": "dist/assets/index-BXEggQyn.js",
-        "bytes": 945931,
-        "absoluteUrls": [
-          {
-            "url": "http://www.w3.org/1999/xhtml",
-            "namespace": true
-          },
-          {
-            "url": "https://jcgt.org/published/0007/04/01/",
-            "namespace": false
-          },
-          {
-            "url": "https://github.com/ruvnet/worldgraph",
-            "namespace": false
-          }
-        ],
-        "networkApiMentions": {
-          "fetch(": 4
-        }
-      },
-      {
         "file": "dist/assets/index-D2gQwDtg.css",
         "bytes": 15951,
         "absoluteUrls": [],
         "networkApiMentions": {}
       },
       {
-        "file": "dist/assets/three.webgpu-DW6-S86P.js",
+        "file": "dist/assets/index-DwlVjQDK.js",
+        "bytes": 217785,
+        "absoluteUrls": [
+          {
+            "url": "https://github.com/ruvnet/worldgraph",
+            "namespace": false
+          }
+        ],
+        "networkApiMentions": {
+          "fetch(": 1
+        }
+      },
+      {
+        "file": "dist/assets/three.webgpu-DmpQjWyQ.js",
         "bytes": 705041,
         "absoluteUrls": [
           {
@@ -167,6 +159,23 @@
           }
         ],
         "networkApiMentions": {}
+      },
+      {
+        "file": "dist/assets/vendor-three-C4ojHK4u.js",
+        "bytes": 730993,
+        "absoluteUrls": [
+          {
+            "url": "http://www.w3.org/1999/xhtml",
+            "namespace": true
+          },
+          {
+            "url": "https://jcgt.org/published/0007/04/01/",
+            "namespace": false
+          }
+        ],
+        "networkApiMentions": {
+          "fetch(": 3
+        }
       },
       {
         "file": "dist/assets/worldgraph_wasm-CJ0BnHsu.js",
