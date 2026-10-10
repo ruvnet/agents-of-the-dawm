@@ -19,3 +19,8 @@ Planning repository for **Agents of the Dawm: Floodline**, an original browser a
 | [ADR 0005](docs/adr/0005-ruflo-sparc-governance.md) | SPARC gates and swarm governance |
 
 All ADRs are **Proposed** until their assumptions are validated in a playable prototype. Estimates and performance budgets are targets, not measurements. The repository currently has no project license. No Remedy assets or characters, Tidewater assets, or Tidewater code are included.
+
+<!-- ruv-constellation:manifest -->
+## ruv constellation
+
+[manifest.ruv](manifest.ruv) describes this repository with source-pinned capability evidence. Explore the [ruvnet nexus](https://github.com/ruvnet/ruvnet/blob/main/docs/ruv-catalog.md) and [manifest contract](https://github.com/ruvnet/ruvnet/blob/main/docs/ruv-manifest.md). Declared integration roles are discovery metadata and do not grant execution authority or certify runtime behavior.
